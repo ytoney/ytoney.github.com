@@ -1,0 +1,26 @@
+/*$width8:79.5%;*/
+/* menu */
+.menu {
+  position: fixed;
+  height: 100%;
+  width: 24.5%; }
+
+.content {
+  width: 65.5%;
+  margin-left: 24.5%; }
+
+.main {
+  margin: 3%; }
+
+/* common */
+.nomargin {
+  margin: 0 !important; }
+
+.nopadding {
+  padding: 0 !important; }
+
+.bg-black {
+  background: #31373d; }
+
+.gap1 {
+  padding: 3%; }
