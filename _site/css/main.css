@@ -3,7 +3,16 @@
 .menu {
   position: fixed;
   height: 100%;
-  width: 24.5%; }
+  width: 24.5%;
+  font-family: "Chalkduster","Herculanum","Helvetica Neue";
+  padding-top: 3%; }
+  .menu a {
+    display: block;
+    color: #80858c;
+    line-height: 2;
+    text-decoration: none; }
+  .menu a:hover {
+    color: white; }
 
 .content {
   width: 65.5%;
@@ -11,6 +20,14 @@
 
 .main {
   margin: 3%; }
+
+.myself {
+  position: fixed;
+  bottom: 5%;
+  left: 4%;
+  color: #fff;
+  font: 1.2em "STKaiti,cursive,fantasy";
+  width: 15.5%; }
 
 /* common */
 .nomargin {

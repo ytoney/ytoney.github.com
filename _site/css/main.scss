@@ -1,16 +1,60 @@
 
 $black:rgb(49,55,61);
+$gray:#80858c;
+$white:#ffffff;
 $width3:24.5%;
 /*$width8:79.5%;*/
 $width10:90%;
 $gap1:3%;
+
 /* menu */
-.menu{position:fixed;height:100%;width:$width3;}
-.content{width:$width10 - $width3;margin-left:$width3;}
-.title{font-family:"Athelas";}
-.main{margin:$gap1}
+.menu{
+  position:fixed;
+  height:100%;
+  width:$width3;
+  font-family: "Chalkduster","Herculanum","Helvetica Neue";
+  padding-top:$gap1;
+  a{
+    display:block;
+    color:$gray;
+    line-height:2;
+    text-decoration:none;
+  }
+  a:hover{
+    color:$white
+  }
+}
+.content{
+  width:$width10 - $width3;
+  margin-left:$width3;
+
+}
+.main{
+  margin:$gap1
+}
+.myself{
+  position:fixed;
+  bottom:5%;
+  left:4%;
+  color:#fff;
+  font: 1.2em "STKaiti,cursive,fantasy";
+  width:$width3 - 9%;
+
+}
 /* common */
-.nomargin{margin:0!important;}
-.nopadding{padding:0!important;}
-.bg-black{background:$black;}
-.gap1{padding:$gap1;}
+.nomargin{
+  margin:0!important;
+
+}
+.nopadding{
+  padding:0!important;
+
+}
+.bg-black{
+  background:$black;
+
+}
+.gap1{
+  padding:$gap1;
+
+}
