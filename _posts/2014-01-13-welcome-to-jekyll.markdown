@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to ThreeMonths!"
+title:  "Welcome to Jane Q's Blog!"
 date:   2014-01-13 15:40:34
-categories: jekyll update
+categories: Jane Q's Blog benning!
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

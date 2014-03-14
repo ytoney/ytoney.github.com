@@ -1,11 +1,11 @@
 ---
 layout: default
-title: ThreeMonths
+title: Jane Q's Blog
 ---
 
 <div id="home" class="main">
   <h1>{{ post.title }}</h1>
-  <ul class="posts">
+  <ul class="posts unstyled">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
