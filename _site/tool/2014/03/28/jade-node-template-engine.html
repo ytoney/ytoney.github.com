@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发">
+  <title>初识jade</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <li><a href="/">html/html5</a></li>
+            <li><a href="/">css/css3</a></li>
+            <li><a href="/">Javascript</a></li>
+            <li><a href="/">jQuery</a></li> <!-- js框架:jquery/YUI/ExtJS -->
+            <!-- <li><a href="/">plugins</a></li> -->
+            <!-- <li><a href="/">rails</a></li> -->
+            <!-- <li><a href="/">Sass</a></li> -->
+            <!-- <li><a href="/">coffeescript</a></li> -->
+            <!-- <li><a href="/">nodejs</a></li> -->
+            <!-- <li><a href="/">jade</a></li> -->
+            <!-- <li><a href="/">angularjs</a></li> -->
+          </ul>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="http://ytoney.github.io/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>初识jade</h2>
+  <p class="meta">28 Mar 2014</p>
+
+  <div class="post">
+    <h4>实例：layout.jade —— 页面头部和脚部公共部分</h4>
+
+<div class="highlight"><pre><code class="html">doctype html
+html(lang=&quot;en&quot;)
+  head
+    title iColor手机版
+    meta(charset=&quot;UTF-8&quot;)
+    meta(name=&quot;viewport&quot;,content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0&quot;)
+    meta(content=&quot;yes&quot;,name=&quot;apple-mobile-web-app-capable&quot;)
+    meta(content=&quot;black&quot;,name=&quot;apple-mobile-web-app-status-bar-style&quot;)
+    meta(content=&quot;telephone=no&quot;,name=&quot;format-detection&quot;)
+
+    link(rel=&quot;stylesheet&quot;,href=&quot;css/bootstrap.css&quot;)
+    link(rel=&quot;stylesheet&quot;,href=&quot;css/wap-v2.css&quot;)
+
+    block head
+
+  body.bg-gray
+    div#header.bg-slash
+      div.navbar-header
+        block logoTitle
+        button.navbar-toggle(type=&quot;button&quot;,data-toggle=&quot;collapse&quot;,data-target=&quot;.bs-navbar-collapse&quot;)
+          span.sr-only Toggle navigation
+          - for (var x = 0; x <span class="nt">&lt; 3</span><span class="err">;</span> <span class="na">x</span><span class="err">++)</span>
+            <span class="na">span</span><span class="err">.</span><span class="na">icon-bar</span>
+      <span class="na">-</span> <span class="na">var</span> <span class="na">navbar_collapse =</span><span class="err"> </span><span class="s">[&#39;collapse&#39;,</span> <span class="err">&#39;</span><span class="na">navbar-collapse</span><span class="err">&#39;,</span> <span class="err">&#39;</span><span class="na">bs-navbar-collapse</span><span class="err">&#39;]</span>
+      <span class="na">div</span><span class="err">(</span><span class="na">class=</span><span class="s">navbar_collapse,role=&quot;navigation&quot;)</span>
+        <span class="na">span</span><span class="err">.</span><span class="na">nav-collarrow</span>
+        <span class="na">ul</span><span class="err">.</span><span class="na">nav</span><span class="err">.</span><span class="na">navbar-nav</span><span class="err">.</span><span class="na">navbar-right</span>
+          <span class="na">each</span> <span class="na">href</span><span class="err">,</span> <span class="na">val</span> <span class="na">in</span> <span class="err">{&#39;首页&#39;</span><span class="na">:</span><span class="err">&#39;</span><span class="na">home</span><span class="err">.</span><span class="na">html</span><span class="err">&#39;,&#39;对话名人&#39;</span><span class="na">:</span><span class="err">&#39;</span><span class="na">famous</span><span class="err">.</span><span class="na">html</span><span class="err">&#39;,&#39;业主通道&#39;</span><span class="na">:</span><span class="err">&#39;</span><span class="na">channel</span><span class="err">.</span><span class="na">html</span><span class="err">&#39;,&#39;装修图库&#39;</span><span class="na">:</span><span class="err">&#39;</span><span class="na">design_images</span><span class="err">.</span><span class="na">html</span><span class="err">&#39;,&#39;设计王牌&#39;</span><span class="na">:</span><span class="err">&#39;</span><span class="na">designers</span><span class="err">.</span><span class="na">html</span><span class="err">&#39;,&#39;设计鉴赏&#39;</span><span class="na">:</span><span class="err">&#39;#&#39;}</span>
+            <span class="na">li</span>
+              <span class="na">a</span><span class="err">(</span><span class="na">href=</span><span class="s">href)</span>
+                <span class="na">span</span><span class="err">.</span><span class="na">pull-right</span> <span class="err">&amp;</span><span class="na">rsaquo</span><span class="err">;</span>
+                <span class="err">=</span> <span class="na">val</span>
+
+    <span class="na">block</span> <span class="na">content</span>
+
+    <span class="na">p</span><span class="err">.</span><span class="na">copyright</span><span class="err">.</span><span class="na">text-center</span> <span class="err">©</span> <span class="na">2014</span> <span class="na">iColor</span> <span class="err">家的设计师</span>
+
+    <span class="na">div</span><span class="err">#</span><span class="na">footer</span><span class="err">.</span><span class="na">text-center</span>
+      <span class="na">div</span><span class="err">#</span><span class="na">homekey</span>
+        <span class="na">a</span><span class="err">.</span><span class="na">homebtn</span><span class="err">(</span><span class="na">href=</span><span class="s">&quot;javascript:;&quot;</span><span class="err">)</span>
+          <span class="na">img</span><span class="err">(</span><span class="na">src=</span><span class="s">&quot;images/home-btn.png&quot;</span><span class="err">,</span><span class="na">alt=</span><span class="s">&quot;homeKey&quot;</span><span class="err">,</span><span class="na">title=</span><span class="s">&quot;home&quot;</span><span class="err">)</span>
+      <span class="na">-</span> <span class="na">var</span> <span class="na">switch_btn =</span><span class="err"> </span><span class="s">[&#39;btn&#39;,&#39;btn-gray&#39;,&#39;switch-dev&#39;]</span>
+      <span class="na">a</span><span class="err">(</span><span class="na">class=</span><span class="s">switch_btn,href=&quot;home.html&quot;)</span> <span class="err">手机版</span>
+      <span class="na">a</span><span class="err">(</span><span class="na">class=</span><span class="s">switch_btn,href=&quot;../icolor2/index.html&quot;)</span> <span class="err">电脑版</span>
+
+    <span class="na">script</span><span class="err">(</span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="err">,</span><span class="na">src=</span><span class="s">&quot;js/jquery-1.11.0.min.js&quot;</span><span class="err">)</span>
+    <span class="na">script</span><span class="err">(</span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="err">,</span><span class="na">src=</span><span class="s">&quot;js/bootstrap.min.js&quot;</span><span class="err">)</span>
+
+    <span class="na">block</span> <span class="na">tail</span>
+</code></pre></div>
+
+<p>所有标签的属性写在小括号里，跟在标签之后，属性之间逗号隔开：如</p>
+
+<p>meta(name=&quot;viewport&quot;,content=&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0&quot;)。</p>
+
+<p>编译后的结果为：</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
+
+<p>标签的class和id用&#39;.&#39;&amp;&#39;#&#39;跟在标签之后。如：div#footer.text-center</p>
+
+<p>编译后的结果为：</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;footer&quot;</span> <span class="na">class=</span><span class="s">&quot;text-center&quot;</span><span class="nt">&gt;</span>
+  something...
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>layout.jade可以看作一个模版页面。通过在新页面的顶部添加：<em>extends layout</em>来引用layout.jade文件中的内容。</p>
+
+<p>然后把新页面中的内容通过：<strong>block append</strong>添加到相对应的地方，如上述的例子中：<em>block head</em>、<em>block logoTitle</em>、<em>block content</em>、<em>block tail</em>（自己任意定义）。</p>
+
+<p>我们可以将内容添加到head的位置：</p>
+
+<div class="highlight"><pre><code class="html">block append head
+  something...
+</code></pre></div>
+
+<p>实例：</p>
+
+<div class="highlight"><pre><code class="html">block append head
+  link(rel=&quot;stylesheet&quot;,href=&quot;css/index.css&quot;)
+</code></pre></div>
+
+<p>我们可以将内容添加到logoTitle的位置：</p>
+
+<div class="highlight"><pre><code class="html">block append logoTitle
+  something...
+</code></pre></div>
+
+<p>实例：</p>
+
+<div class="highlight"><pre><code class="html">block append logoTitle
+  a.navbar-brand(href=&quot;home.html&quot;,title=&quot;iColor|家的设计师&quot;)
+    img(src=&quot;images/logo.png&quot;)
+</code></pre></div>
+
+<p>我们可以将内容添加到tail的位置：</p>
+
+<div class="highlight"><pre><code class="html">block append tail
+  something...
+</code></pre></div>
+
+<p>实例：</p>
+
+<div class="highlight"><pre><code class="html">block append tail
+  script(type=&quot;text/javascript&quot;, src=&quot;js/spin.js&quot;)
+</code></pre></div>
+
+<p>可以在jade文件模板中编写行内JavaScript代码。</p>
+
+<p>如上例中的：</p>
+
+<div class="highlight"><pre><code class="html">ul.nav.navbar-nav.navbar-right
+  each href, val in {&#39;首页&#39;:&#39;home.html&#39;,&#39;对话名人&#39;:&#39;famous.html&#39;,&#39;业主通道&#39;:&#39;channel.html&#39;,&#39;装修图库&#39;:&#39;design_images.html&#39;,&#39;设计王牌&#39;:&#39;designers.html&#39;,&#39;设计鉴赏&#39;:&#39;#&#39;}
+    li
+      a(href=href)
+        span.pull-right <span class="ni">&amp;rsaquo;</span>
+        = val
+</code></pre></div>
+
+<p>编译后的html为：</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav navbar-nav navbar-right&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;home.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;rsaquo;</span><span class="nt">&lt;/span&gt;</span>首页<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;famous.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;rsaquo;</span><span class="nt">&lt;/span&gt;</span>对话名人<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;channel.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;rsaquo;</span><span class="nt">&lt;/span&gt;</span>业主通道<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;design_images.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;rsaquo;</span><span class="nt">&lt;/span&gt;</span>装修图库<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;designers.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;rsaquo;</span><span class="nt">&lt;/span&gt;</span>设计王牌<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;pull-right&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;rsaquo;</span><span class="nt">&lt;/span&gt;</span>设计鉴赏<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>
+
+<p>通过这个实例发现代码变得非常简洁，缩进清晰，公共的样式内容可以共用。</p>
+
+<p>但是感觉手写html的代码输入量并没有比我平时输入的少——通过zencoding。</p>
+
+<p>...</p>
+
+<p>更多的语法请参考：</p>
+
+<p><a href="http://jade-lang.com/reference/">Language Reference</a></p>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>
