@@ -58,3 +58,18 @@ $gap1:3%;
   padding:$gap1;
 
 }
+// list style
+
+.posts li{
+  color: #999;
+  line-height: 30px;
+}
+.posts li a{
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: normal;
+}
+.posts li span{
+  font-size: 0.75em;
+  color: #999;
+}

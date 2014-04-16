@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "angular"
+date:   2014-04-14 12:10:34
+categories: categories/js
+---
+
+angular引用了MVC的概念。
+MVC背后的核心理念：你应该把管理数据的代码（model）、应用逻辑代码（controller），以及向用户展示数据的代码（view）清晰的分离开。

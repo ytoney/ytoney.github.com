@@ -2,7 +2,7 @@
 layout: post
 title:  "My first Blog"
 date:   2014-01-13 15:40:34
-categories: jekyll-skill
+categories: categories/others
 ---
 
 
@@ -14,9 +14,15 @@ Jekyll（发音/'dʒiːk əl/，"杰克尔"）是一个静态站点生成器，�
 
 Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites. Think of it like a file-based CMS, without all the complexity. Jekyll takes your content, renders Markdown and Liquid templates, and spits out a complete, static website ready to be served by Apache, Nginx or another web server. Jekyll is the engine behind GitHub Pages, which you can use to host sites right from your GitHub repositories.
 
+
+#####安装jekyll#####
+
+<pre>gem install jekyll</pre>
+
 搭建github博客的环境：你必须已经安装了git，并且有github账户:
 
 #####第一步，创建项目。#####
+
 <pre>
   $ mkdir ThreeMonths
 </pre>
@@ -104,6 +110,33 @@ Jekyll is a simple, blog-aware, static site generator perfect for personal, proj
 <pre>
   $ jekyll serve
 </pre>
+
+
+* #####使用一个或多个空行分隔内容段来生成段落     <p>######
+
+* #####html中的h1~h6分别使用1~6个#号表示：如：# -> h1; ## -> h2; ### -> h3; ###### -> h6;######
+
+  h4的表示：####this is a level-4 header####
+
+* #####使用“>”作为段落前缀来标识引用文字段落######
+
+  > 应用文字
+
+* #####使用“*”来表示无序列表；使用数字加“.”表示有序列表######
+
+
+* 使用 {% highlight ruby %}[test](http://example.net "optional title") {% endhighlight %}来标记普通链接。
+
+* 使用 {% highlight ruby %}![img](http://example.net/img.png "optional title"){% endhighlight %} 来标记图片。
+
+
+  引号内的 title 文字是可选的，链接也可以使用相对路径。
+
+* 使用 * 或 _ 包裹文本产生 strong 效果：
+{% highlight html %}
+  _语气很重的文本_ 以及 **语气更重的文本**
+{% endhighlight %}
+
 
 
 在github上搭建blog的步骤及原文参考网址：

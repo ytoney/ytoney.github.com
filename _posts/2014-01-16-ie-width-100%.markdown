@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "ie6-绝对定位元素支持width：100%"
+date:   2014-01-16 20:40:34
+categories: categories/ieHack
+---
+
+
+{% highlight html %}
+<div id="topBox">
+  <div id="top">
+    <ul id="navMain">
+      <li><a href="#">logo_img</a> </li>
+      <li class="story"><a href="#">1</a>
+        <div class="navSubBox">
+          <ul class="navSub">
+            <li><a class="curNav" href="#">11</a> <span class="clear"></span> </li>
+            <li><a href="#">12</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="dongtai"><a href="#">3</a>
+        <div class="navSubBox">
+          <ul class="navSub">
+            <li><a class="curNav" href="#">31</a> <span class="clear"></span> </li>
+            <li><a href="#">32</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">6</a></li>
+      <li><a href="#">7</a></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>
+{% endhighlight %}
+
+{% highlight css %}
+#topBox { height:30px; position:relative;z-index:20;}
+#top { width:1004px;background:blue;margin:0 auto; height:30px;}
+
+ul#navMain { float:left;}
+#navMain li { float:left; display:block; }
+#navMain li a { width:105px; display:block; text-align:center;  color:#dadada;}
+
+.navSubBox{position:absolute; left:0;top:30px; _top:32px; width:100%; _width:expression(documentElement.offsetWidth -19); background:#ccc;/*display:none;*/z-index:20;}
+.navSub{ margin:0 auto;overflow:hidden;height:33px;line-height:33px;padding-left:240px;}
+.navSub li{ float:left;display:block;}
+#topBox .navSub li a{height:33px;line-height:33px;padding:0; margin:0;color:#000;}
+.clear {clear:both;height:0;font-size:0px;}
+{% endhighlight %}

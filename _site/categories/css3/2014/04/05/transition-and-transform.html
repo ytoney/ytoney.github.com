@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>transition and transform</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/categories/others/" title="view all
+              posts">categories/others 1</a>
+            </li>
+            
+            <li><a href="/categories/categories/iehack/" title="view all
+              posts">categories/iehack 2</a>
+            </li>
+            
+            <li><a href="/categories/categories/css/" title="view all
+              posts">categories/css 2</a>
+            </li>
+            
+            <li><a href="/categories/categories/js/" title="view all
+              posts">categories/js 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/css3/" title="view all
+              posts">categories/css3 3</a>
+            </li>
+             -->
+
+            <li><a href="/allist.html">all</a></li>
+            <li><a href="/allist.html">html</a></li>
+            <li><a href="/allist.html">html5</a></li>
+            <li><a href="/allist.html">css</a></li>
+            <li><a href="/allist.html">css3</a></li>
+            <li><a href="/allist.html">js</a></li>
+            <li><a href="/allist.html">others</a></li>
+            <!-- <li><a href="/">jQuery</a></li> --> <!-- js框架:jquery/YUI/ExtJS -->
+            <!-- <li><a href="/">plugins</a></li> -->
+            <!-- <li><a href="/">rails</a></li> -->
+            <!-- <li><a href="/">Sass</a></li> -->
+            <!-- <li><a href="/">coffeescript</a></li> -->
+            <!-- <li><a href="/">nodejs</a></li> -->
+            <!-- <li><a href="/">jade</a></li> -->
+            <!-- <li><a href="/">angularjs</a></li> -->
+          </ul>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>transition and transform</h2>
+  <p class="meta">05 Apr 2014</p>
+
+  <div class="post">
+    <!--
+<a href="#summary">概括</a>
+<a href="#syntax">语法</a>
+<a href="#example">例子</a>
+ -->
+
+<h3>transition</h3>
+
+<p>transition属性是一个实验性的技术。</p>
+
+<p>因为这个技术的兼容性还不稳定，不能够兼容所有的浏览器。</p>
+
+<h5>浏览器兼容性</h5>
+
+<!-- Browser compatibility -->
+
+<h6>Desktop</h6>
+
+<table class="table table-bordered">
+  <tbody>
+   <tr>
+    <th>Feature</th>
+    <th>Chrome</th>
+    <th>Firefox (Gecko)</th>
+    <th>Internet Explorer</th>
+    <th>Opera</th>
+    <th>Safari</th>
+   </tr>
+   <tr>
+    <td>Basic support</td>
+    <td>1.0 <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-webkit</span><br>
+     26.0</td>
+    <td>4.0 (2.0) <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-moz</span><br>
+     16.0 (16.0)</td>
+    <td>10.0</td>
+    <td>11.6 <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-o</span><br>
+     12.10 <a class="external" href="http://my.opera.com/ODIN/blog/2012/08/03/a-hot-opera-12-50-summer-time-snapshot" title="http://my.opera.com/ODIN/blog/2012/08/03/a-hot-opera-12-50-summer-time-snapshot">#</a></td>
+    <td>3.0 <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-webkit</span></td>
+   </tr>
+  </tbody>
+</table>
+
+<h6>Mobile</h6>
+
+<table class="table table-bordered">
+  <tbody>
+   <tr>
+    <th>Feature</th>
+    <th>Android</th>
+    <th>Firefox Mobile (Gecko)</th>
+    <th>IE Mobile</th>
+    <th>Opera Mobile</th>
+    <th>Safari Mobile</th>
+   </tr>
+   <tr>
+    <td>Basic support</td>
+    <td>2.1 <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-webkit</span></td>
+    <td>4.0 (2.0) <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-moz</span><br>
+     16.0 (16.0)</td>
+    <td><span style="color: rgb(255, 153, 0);" title="Compatibility unknown; please update this.">?</span></td>
+    <td>10.0 <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-o</span><br>
+     12.10 <a class="external" href="http://my.opera.com/ODIN/blog/2012/08/03/a-hot-opera-12-50-summer-time-snapshot" title="http://my.opera.com/ODIN/blog/2012/08/03/a-hot-opera-12-50-summer-time-snapshot">#</a></td>
+    <td>3.2 <span class="inlineIndicator prefixBox prefixBoxInline" title="prefix">-webkit</span></td>
+   </tr>
+  </tbody>
+</table>
+
+<h5 id="summary">概括</h5>
+
+<p>css transition属性是<code>transition-property</code>, <code>transition-duration</code>, <code>transition-timing-function</code>和<code>transition-delay</code>的简写方式。它允许在一个元素上定义两个声明之间的过渡。不同的声明也许用伪类定义，像:hover,:active或者通过js设置动态的效果。</p>
+
+<p>初始值：</p>
+
+<p><code>transition-delay: 0s</code></p>
+
+<p><code>transition-duration: 0s</code></p>
+
+<p><code>transition-property: all</code></p>
+
+<p><code>transition-timing-function: ease</code></p>
+
+<h5 id="syntax">语法</h5>
+
+<div class="highlight"><pre><code class="css"><span class="err">语法形式：</span><span class="nt">_</span><span class="o">[</span> <span class="nt">none</span> <span class="o">|</span> <span class="o">&lt;</span><span class="nt">single-transition-property</span><span class="o">&gt;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nt">time</span><span class="o">&gt;</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nt">timing-function</span><span class="o">&gt;</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nt">time</span><span class="o">&gt;</span><span class="nt">_</span>
+</code></pre></div>
+
+<p>例：<code>transition: width 300ms, height 300ms, box-shadow 1500ms;</code></p>
+
+<p>实例：</p>
+
+<div class="transition_box"></div>
+
+<p><a href="javascript:;" class="animitClass">click me!</a></p>
+
+<style>
+  .transition_box{
+    width: 200px;
+    height: 30px;
+    /*visibility: hidden;*/
+    margin: 20px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,.3);
+    transition: width 300ms, height 300ms, box-shadow 1500ms;
+  }
+  .transition_box.active{
+    width: 100%;
+    height: 100px;
+    /*visibility: visible;*/
+    box-shadow: 0 11px 18px rgba(0,0,0,.2);
+  }
+</style>
+
+<script>
+  var transition_box = document.getElementsByClassName('transition_box')[0];
+  document.getElementsByClassName('animitClass')[0].onclick = function(){
+    transition_box.classList.toggle('active')
+  }
+</script>
+
+<h3>transform</h3>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>

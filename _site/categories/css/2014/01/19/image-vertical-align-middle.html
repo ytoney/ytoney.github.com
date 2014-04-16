@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>未知高度图片的垂直、水平居中显示</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/categories/others/" title="view all
+              posts">categories/others 1</a>
+            </li>
+            
+            <li><a href="/categories/categories/iehack/" title="view all
+              posts">categories/iehack 2</a>
+            </li>
+            
+            <li><a href="/categories/categories/css/" title="view all
+              posts">categories/css 2</a>
+            </li>
+            
+            <li><a href="/categories/categories/js/" title="view all
+              posts">categories/js 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/css3/" title="view all
+              posts">categories/css3 3</a>
+            </li>
+             -->
+
+            <li><a href="/allist.html">all</a></li>
+            <li><a href="/allist.html">html</a></li>
+            <li><a href="/allist.html">html5</a></li>
+            <li><a href="/allist.html">css</a></li>
+            <li><a href="/allist.html">css3</a></li>
+            <li><a href="/allist.html">js</a></li>
+            <li><a href="/allist.html">others</a></li>
+            <!-- <li><a href="/">jQuery</a></li> --> <!-- js框架:jquery/YUI/ExtJS -->
+            <!-- <li><a href="/">plugins</a></li> -->
+            <!-- <li><a href="/">rails</a></li> -->
+            <!-- <li><a href="/">Sass</a></li> -->
+            <!-- <li><a href="/">coffeescript</a></li> -->
+            <!-- <li><a href="/">nodejs</a></li> -->
+            <!-- <li><a href="/">jade</a></li> -->
+            <!-- <li><a href="/">angularjs</a></li> -->
+          </ul>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>未知高度图片的垂直、水平居中显示</h2>
+  <p class="meta">19 Jan 2014</p>
+
+  <div class="post">
+    <p>例一：兼容标准浏览器和ie7及ie以上版本</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;a_img_v&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/12.jpg&quot;</span> <span class="nt">/&gt;&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;a_img_v2&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/196.jpg&quot;</span> <span class="nt">/&gt;&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+
+.a_img_v{display:table-cell;width:400px;height:300px;text-align:center;vertical-align:middle;*line-height:300px;border:1px solid #ddd;}
+.a_img_v2{display:table-cell;width:1000px;height:300px;text-align:center;vertical-align:middle;*line-height:300px;border:1px solid #ddd;}
+</code></pre></div>
+
+
+<div class="a_img_v">
+  <a href="#"><img src="/images/posts/12.jpg" /></a>
+</div>
+
+<div class="a_img_v2">
+  <a href="#"><img src="/images/posts/196.jpg" /></a>
+</div>
+
+<style type="text/css">
+.a_img_v{display:table-cell;width:400px;height:300px;text-align:center;vertical-align:middle;*line-height:300px;border:1px solid #ddd;}
+.a_img_v2{display:table-cell;width:1000px;height:300px;text-align:center;vertical-align:middle;*line-height:300px;border:1px solid #ddd;}
+</style>
+
+<p>例二：兼容标准浏览器和ie6/7</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_five&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/12.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_five&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/196.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+.box_five{
+    width:500px;height:400px;
+    text-align:center;
+    border:1px solid #d3d3d3;background:#ddd;
+
+    /* 兼容标准浏览器 */
+    display: table-cell;
+    vertical-align:middle;
+
+    /* 兼容IE6/IE7 */
+    *display:block;
+    *font-size:349px;  /* 字体大小约为容器高度的0.873倍 400*0.873 = 349 */
+    *font-family:Arial;  /* 防止非utf-8引起的hack失效问题，如gbk编码 */
+}
+
+.box_five img{
+    vertical-align:middle;
+}
+</code></pre></div>
+
+
+<div class="box_five">
+    <img src="/images/posts/12.jpg" alt="" />
+</div>
+
+<div class="box_five">
+    <img src="/images/posts/196.jpg" alt="" />
+</div>
+
+<style type="text/css">
+  .box_five{
+    width:500px;height:400px;
+    text-align:center;
+    border:1px solid #d3d3d3;background:#ddd;
+
+    /* 兼容标准浏览器 */
+    display: table-cell;
+    vertical-align:middle;
+
+    /* 兼容IE6/IE7 */
+    *display:block;
+    *font-size:349px;  /* 字体大小约为容器高度的0.873倍 400*0.873 = 349 */
+    *font-family:Arial;  /* 防止非utf-8引起的hack失效问题，如gbk编码 */
+  }
+
+  .box_five img{
+      vertical-align:middle;
+  }
+</style>
+
+<p>其他方法：</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_four&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/12.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_four&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/196.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+
+.box_four{
+    width:500px;height:400px;
+    text-align:center;
+    border:1px solid #d3d3d3;background:red;
+}
+.box_four p{
+    width:500px;height:400px;
+    line-height:400px;  /* 行高等于高度 */
+}
+
+/* 兼容标准浏览器 */
+.box_four p:before{
+    content:&quot;.&quot;;  /* 具体的值与垂直居中无关，尽可能的节省字符 */
+    margin-left:-5px; font-size:10px;  /* 修复居中的小BUG */
+    visibility:hidden;  /*设置成隐藏元素*/
+}
+
+.box_four p img{
+    *margin-top:expression((400 - this.height )/2);  /* CSS表达式用来兼容IE6/IE7 */
+    vertical-align:middle;
+    border:1px solid #ccc;
+}
+</code></pre></div>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_three&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;i&gt;&lt;/i&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/196.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>﻿
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_three&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;i&gt;&lt;/i&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/12.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>﻿
+
+.box_three{
+width:500px;height:400px;
+display:table-cell;
+text-align:center;
+vertical-align:middle;
+border:1px solid #d3d3d3;background:red;
+}
+.box_three img{
+border:1px solid #ccc;
+}
+<span class="c">&lt;!--[if IE]&gt;</span>
+<span class="c">&lt;style type=&quot;text/css&quot;&gt;﻿</span>
+<span class="c">.box_three i {</span>
+<span class="c">    display:inline-block;</span>
+<span class="c">    height:100%;</span>
+<span class="c">    vertical-align:middle</span>
+<span class="c">    }</span>
+<span class="c">.box_three img {</span>
+<span class="c">    vertical-align:middle</span>
+<span class="c">    }</span>
+<span class="c">&lt;/style&gt;</span>
+<span class="c">&lt;![endif]--&gt;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_two&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/12.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box_two&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/196.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+.box_two{
+    margin:0 auto;
+    width:500px;height:400px;
+    overflow:hidden;
+    position:relative;
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+    border:1px solid #d3d3d3;background:red;
+}
+.box_two span{
+    position:static;
+    *position:absolute; /*针对IE6/7的Hack*/
+    top:50%; /*针对IE6/7的Hack*/
+}
+.box_two img {
+    position:static;
+    *position:relative; /*针对IE6/7的Hack*/
+    top:-50%;left:-50%; /*针对IE6/7的Hack*/
+    border:1px solid #ccc;
+}
+</code></pre></div>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/196.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;/images/posts/12.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+.box{
+    margin:0 auto;
+    width:500px;height:400px;
+    display:table;
+    text-align:center;
+    border:1px solid #d3d3d3;background:#ff0000;
+}
+.box span{
+    display:table-cell;
+    vertical-align:middle;
+}
+.box img{
+    border:1px solid #ccc;
+}
+<span class="c">&lt;!--[if lte IE 7]&gt;</span>
+<span class="c">&lt;style type=&quot;text/css&quot;&gt;﻿</span>
+<span class="c">.box{</span>
+<span class="c">    position:relative;</span>
+<span class="c">    overflow:hidden;</span>
+<span class="c">}</span>
+<span class="c">.box span{</span>
+<span class="c">    position:absolute;</span>
+<span class="c">    left:50%;top:50%;</span>
+<span class="c">}</span>
+<span class="c">.box img{</span>
+<span class="c">    position:relative;</span>
+<span class="c">    left:-50%;top:-50%;</span>
+<span class="c">}</span>
+<span class="c">&lt;/style&gt;</span>
+<span class="c">&lt;![endif]--&gt;</span>
+</code></pre></div>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>

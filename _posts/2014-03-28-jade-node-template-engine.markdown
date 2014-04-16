@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "初识jade"
+title: "about jade"
 date: 2014-03-28 17:22
-categories: tool
+categories: categories/js
 ---
 
 ####实例：layout.jade —— 页面头部和脚部公共部分####

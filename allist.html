@@ -3,9 +3,8 @@ layout: default
 title: Jane Q's Blog
 ---
 
-<link rel="stylesheet" href="">
-
 <div class="main">
+  <!-- <h1>{{ post.title }}Jane Q's Blog</h1> -->
   <ul class="posts unstyled">
     {% for post in site.posts %}
       <li><a href="{{ post.url }}">{{ post.title }}</a> | <span>{{ post.date | date_to_string }}</span></li>

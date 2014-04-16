@@ -1,0 +1,315 @@
+---
+layout: post
+title:  "css"
+date:   2014-04-06 16:40:34
+categories: categories/css
+---
+
+
+
+
+
+1、 css基础语法：
+
+CSS 语法——CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。
+
+值的不同写法和单位。——p { color: #ff0000; }或p { color: #f00; }；p { color: rgb(255,0,0); }或p { color: rgb(100%,0%,0%); }
+
+提示：如果值为若干单词，则要给值加引号：p {font-family: "sans serif";}
+
+多重声明：提示：如果要定义不止一个声明，则需要用分号将每个声明分开。
+
+空格与大小写——多重声明和空格的使用使得样式表更容易被编辑；CSS 对大小写不敏感，不过存在一个例外：如果涉及到与 HTML 文档一起工作的话，class 和 id 名称对大小写是敏感的。
+继承——
+
+2、 派生选择器：
+
+{% highlight html %}
+<li><strong>我是斜体字。这是因为 strong 元素位于 li 元素内。</strong></li>
+li strong {
+  font-style: italic;
+  font-weight: normal;
+}
+{% endhighlight %}
+
+3、 id选择器：
+{% highlight css%}
+  3.1在现代布局中，id 选择器常常用于建立派生选择器。
+  #sidebar p {
+    font-style: italic;
+    text-align: right;
+    margin-top: 0.5em;
+  }
+  3.2 id 选择器即使不被用来创建派生选择器，它也可以独立发挥作用。
+  #sidebar {
+    border: 1px dotted #000;
+    padding: 10px;
+  }
+  老版本的 Windows/IE 浏览器可能会忽略这条规则，除非你特别地定义这个选择器所属的元素：
+  div#sidebar {
+    border: 1px dotted #000;
+    padding: 10px;
+  }
+{% endhighlight %}
+
+4、属性选择器：注释：只有在规定了 !DOCTYPE 时，IE7 和 IE8 才支持属性选择器。在 IE6 及更低的版本中，不支持属性选择。
+CSS 选择器参考手册
+
+选择器 描述
+
+<code>[attribute]</code> 用于选取带有指定属性的元素。
+
+<code>[attribute=value]</code> 用于选取带有指定属性和值的元素。
+
+<code>[attribute~=value]</code> 用于选取属性值中包含指定词汇的元素。
+
+<code>[attribute|=value]</code> 用于选取带有以指定值开头的属性值的元素，该值必须是整个单词。
+
+<code>[attribute^=value]</code> 匹配属性值以指定值开头的每个元素。
+
+<code>[attribute$=value]</code> 匹配属性值以指定值结尾的每个元素。
+
+<code>[attribute*=value]</code> 匹配属性值中包含指定值的每个元素。
+
+
+5、背景关联
+
+<code>background-attachment</code> 属性的默认值是 <code>scroll</code>，也就是说，在默认的情况下，背景会随文档滚动。
+
+<code>background-attachment</code> : <code>fixed</code>;声明图像相对于可视区是固定的,不会受到滚动的影响。
+
+6、css文本
+
+<code>text-indent</code>: 可以继承
+
+注意：一般来说，可以为所有块级元素应用 <code>text-indent</code>，但无法将该属性应用于行内元素，图像之类的替换元素上也无法应用 <code>text-indent</code> 属性。不过，如果一个块级元素（比如段落）的首行中有一个图像，它会随该行的其余文本移动。
+
+提示：如果想把一个行内元素的第一行“缩进”，可以用左内边距或外边距创造这种效果。
+
+
+<code>text-align: left | right | center | justify | inherit</code> ；不会控制元素的对齐，而只影响内部内容。元素本身不会从一端移到另一端，只是其中的文本受影响。
+
+提示：将块级元素或表元素居中，要通过在这些元素上适当地设置左、右外边距来实现。
+
+
+<code>word-spacing</code> 属性可以改变字（单词）之间的标准间隔。其默认值 normal 与设置值为 0 是一样的。
+
+word-spacing 属性接受一个正长度值或负长度值。如果提供一个正长度值，那么字之间的间隔就会增加。为 word-spacing 设置一个负值，会把它拉近.
+
+<code>letter-spacing</code> 属性与 <code>word-spacing</code> 的区别在于，字母间隔修改的是字符或字母之间的间隔。
+
+<code>text-transform</code> 属性处理文本的大小写。这个属性有 4 个值：<code>none | uppercase | lowercase | capitalize</code>
+
+<code>text-decoration</code> 属性文本修饰，5个值：<code>none | underline | overline | line-through | blink</code>
+
+可以在一个规则中结合多种装饰。则规则如下：a:link a:visited {text-decoration: underline overline;}
+不过要注意的是，如果两个不同的装饰都与同一元素匹配，胜出规则的值会完全取代另一个值。如：
+
+{% highlight css %}
+h2.stricken {text-decoration: line-through;}
+h2 {text-decoration: underline overline;}
+{% endhighlight %}
+
+对于给定的规则，所有 class 为 stricken 的 h2 元素都只有一个贯穿线装饰，而没有下划线和上划线，因为 text-decoration 值会替换而不是累积起来。
+
+<code>white-space</code> 属性会影响到用户代理对源文档中的空格、换行和 tab 字符的处理。——处理空白符。
+
+下面的表格总结了 white-space 属性的行为：
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th>值</th>
+      <th>空白符</th>
+      <th>换行符</th>
+      <th>自动换行</th>
+    </tr>
+
+    <tr>
+      <td>pre-line</td>
+      <td>合并</td>
+      <td>保留</td>
+      <td>允许</td>
+    </tr>
+
+    <tr>
+      <td>normal</td>
+      <td>合并</td>
+      <td>忽略</td>
+      <td>允许</td>
+    </tr>
+
+    <tr>
+      <td>nowrap</td>
+      <td>合并</td>
+      <td>忽略</td>
+      <td>不允许</td>
+    </tr>
+
+    <tr>
+      <td>pre</td>
+      <td>保留</td>
+      <td>保留</td>
+      <td>不允许</td>
+    </tr>
+
+    <tr>
+      <td>pre-wrap</td>
+      <td>保留</td>
+      <td>保留</td>
+      <td>允许</td>
+    </tr>
+  </tbody>
+</table>
+
+direction 属性影响块级元素中文本的书写方向、表中列布局的方向、内容水平填充其元素框的方向、以及两端对齐元素中最后一行的位置。
+
+注释：对于行内元素，只有当 <code>unicode-bidi</code> 属性设置为 <code>embed</code> 或 <code>bidi-override</code> 时才会应用 <code>direction</code> 属性。
+
+<code>direction</code> 属性有两个值：<code>ltr</code> 和 <code>rtl</code>。大多数情况下，默认值是 ltr，显示从左到右的文本。如果显示从右到左的文本，应使用值 rtl。
+
+CSS 文本属性
+
+属性  描述
+
+<code>color</code> 设置文本颜色
+
+<code>direction</code> 设置文本方向。
+
+<code>line-height</code> 设置行高。
+
+<code>letter-spacing</code>  设置字符间距。
+
+<code>text-align</code>  对齐元素中的文本。
+
+<code>text-decoration</code> 向文本添加修饰。
+
+<code>text-indent</code> 缩进元素中文本的首行。
+
+<code>text-shadow</code> 设置文本阴影。CSS2 包含该属性，但是 CSS2.1 没有保留该属性。
+
+<code>text-transform</code>  控制元素中的字母。
+
+<code>unicode-bidi</code>  设置文本方向。
+
+<code>white-space</code> 设置元素中空白的处理方式。
+
+<code>word-spacing</code>  设置字间距。
+
+7，css 字体
+
+<code>font-variant</code> 属性可以设定小型大写字母。小型大写字母不是一般的大写字母，也不是小写字母，这种字母采用不同大小的大写字母。
+
+_p {font-variant:small-caps;}_
+
+<code>font-weight</code> 属性设置文本的粗细。关键字 100 ~ 900 为字体指定了 9 级加粗度。100 对应最细的字体变形，900 对应最粗的字体变形。数字 400 等价于 normal，而 700 等价于 bold。
+
+<code>font-size</code> 属性设置文字的大小。注意：如果您没有规定字体大小，普通文本（比如段落）的默认大小是 16 像素 (16px=1em)。
+
+浏览器中默认的文本大小是 16 像素。因此 1em 的默认尺寸是 16 像素。
+
+可以使用下面这个公式将像素转换为 em：pixels/16=em
+
+（注：16 等于父元素的默认字体大小，假设父元素的 font-size 为 20px，那么公式需改为：pixels/20=em）
+
+
+CSS 字体属性
+
+属性  描述
+
+<code>font</code>  简写属性。作用是把所有针对字体的属性设置在一个声明中。
+
+<code>font-family</code> 设置字体系列。
+
+<code>font-size</code> 设置字体的尺寸。
+
+<code>font-size-adjust</code>  当首选字体不可用时，对替换字体进行智能缩放。（CSS2.1 已删除该属性。）
+
+<code>font-stretch</code>  对字体进行水平拉伸。（CSS2.1 已删除该属性。）
+
+<code>font-style</code>  设置字体风格。
+
+<code>font-variant</code>  以小型大写字体或者正常字体显示文本。
+
+<code>font-weight</code> 设置字体的粗细。
+
+
+设置链接不同样式是遵循的顺序：
+
+<ul>
+  <li>a:hover 必须位于 a:link 和 a:visited 之后</li>
+  <li>a:active 必须位于 a:hover 之后</li>
+</ul>
+
+<pre>a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+</pre>
+
+8，CSS <code>padding</code> 属性
+
+CSS <code>padding</code> 属性定义元素的内边距。<code>padding</code> 属性接受长度值或百分比值，但**不允许使用负值**。各边均可以使用不同的单位或百分比值：_h1 {padding: 10px 0.25em 2ex 20%;}_。百分数值是相对于其父元素的 width 计算的，这一点与外边距一样。
+
+注意：上下内边距与左右内边距一致；即上下内边距的百分数会相对于父元素宽度设置，而不是相对于高度。
+
+
+9，CSS 定位属性
+
+CSS 定位属性允许你对元素进行定位。
+
+属性  描述
+
+<code>position</code> 把元素放置到一个静态的、相对的、绝对的、或固定的位置中。
+
+<code>top</code> 定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移。
+
+<code>right</code> 定义了定位元素右外边距边界与其包含块右边界之间的偏移。
+
+<code>bottom</code> 定义了定位元素下外边距边界与其包含块下边界之间的偏移。
+
+<code>left</code> 定义了定位元素左外边距边界与其包含块左边界之间的偏移。
+
+<code>overflow</code> 设置当元素的内容溢出其区域时发生的事情。
+
+<code>clip</code> 设置元素的形状。元素被剪入这个形状之中，然后显示出来。
+
+<code>vertical-align</code> 设置元素的垂直对齐方式。
+
+<code>z-index</code> 设置元素的堆叠顺序。
+
+10，伪类
+
+W3C："W3C" 列指示出该属性在哪个 CSS 版本中定义（CSS1 还是 CSS2）。
+
+属性  描述  CSS
+
+<code>:active</code> 向被激活的元素添加样式。  1
+
+<code>:focus</code>  向拥有键盘输入焦点的元素添加样式。 2
+
+<code>:hover</code>  当鼠标悬浮在元素上方时，向元素添加样式。  1
+
+<code>:link</code> 向未被访问的链接添加样式。 1
+
+<code>:visited</code>  向已被访问的链接添加样式。 1
+
+<code>:first-child</code>  向元素的第一个子元素添加样式。 2
+
+<code>:lang</code> 向带有指定 lang 属性的元素添加样式。 2
+
+11，伪元素
+
+W3C："W3C" 列指示出该属性在哪个 CSS 版本中定义（CSS1 还是 CSS2）。
+
+属性  描述  CSS
+
+<code>:first-letter</code> 向文本的第一个字母添加特殊样式。  1
+
+<code>:first-line</code> 向文本的首行添加特殊样式。 1
+
+<code>:before</code> 在元素之前添加内容。  2
+
+<code>:after</code> 在元素之后添加内容。  2
+
+
