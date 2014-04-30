@@ -31,7 +31,7 @@
             </li>
             
             <li><a href="/categories/categories/js/" title="view all
-              posts">categories/js 3</a>
+              posts">categories/js 5</a>
             </li>
             
             <li><a href="/categories/categories/css3/" title="view all
@@ -72,8 +72,73 @@
   <p class="meta">14 Apr 2014</p>
 
   <div class="post">
-    <p>angular引用了MVC的概念。
-MVC背后的核心理念：你应该把管理数据的代码（model）、应用逻辑代码（controller），以及向用户展示数据的代码（view）清晰的分离开。</p>
+    <h4>一些概念</h4>
+
+<p>1.客户端模版</p>
+
+<p>2.Model View Controller(MVC)：angular引用了MVC的概念。</p>
+
+<p>MVC背后的核心理念：你应该把管理数据的代码（model）、应用逻辑代码（controller），以及向用户展示数据的代码（view）清晰的分离开。</p>
+
+<p>3.数据绑定</p>
+
+<p>4.依赖注入</p>
+
+<p>5.指令：angular内置命令，如双花括号实现数据绑定、ng-controller用来制定每个控制器负责监视试图中的哪一部分、ng-model，用来把输入数据绑定到模型中的一部分属性上。我们把这些叫做HTML扩展指令。</p>
+
+<h4>AngularJS应用骨架</h4>
+
+<p>1.调用angular，首先加载angular.js库；然后使用ng-app指令声明Angular的边界，告诉Angular应该管理DOM中的哪一部分。</p>
+
+<p>2.Model View Controller
+*用来容纳数据的模型，模型代表应用当前的状态。
+*用来展示数据的一些视图。
+*用来管理模型和视图之间的关系的一些控制器。</p>
+
+<p>3.模板和数据绑定</p>
+
+<p>4.显示文本</p>
+
+<p>5.表单输入</p>
+
+<p>6.非入侵式JavaScript ??</p>
+
+<p>7.列表、表格以及其他迭代型元素——ng-repeat</p>
+
+<p>8.隐藏和显示——ng-show和ng-hide</p>
+
+<p>9.css类和样式</p>
+
+<p>可以使用插值语法把它们进行数据绑定，也可以使用插值的方式绑定内联样式，style=&quot;&quot;。由于插值语法存在一些不利的方面，所以angular提供了ng-class和ng-style指令。这两个值都接受一个表达式，表达式执行的结果可能是如下取值之一：</p>
+
+<p>*表示css类名的字符串，以空格分隔。</p>
+
+<p>*css类名数组。</p>
+
+<p>*css类名到布尔值的映射。</p>
+
+<p>10.反思src和href属性——ng-src and ng-href</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;/images/cats/{ {favoriteCat}}&quot;</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">ng-href=</span><span class="s">&quot;/shop/category={ {numberOfBalloons}}&quot;</span><span class="nt">&gt;</span>some text<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+
+<p>11.表达式</p>
+
+<p>12.区分UI和控制器的职责</p>
+
+<p>在应用中控制器有三种职责：</p>
+
+<p>*为应用中的模型设置初始状态。</p>
+
+<p>*通过$scope对象把数据模型和函数暴露给视图（UI模板）。</p>
+
+<p>*监视模型其余部分的变化，并采取相应的动作。</p>
+
+<p>13.利用$scope暴露模型数据</p>
+
+<p>14.使用$watch监控数据模型的变化</p>
 
   </div>
 </div>
@@ -94,7 +159,7 @@ MVC背后的核心理念：你应该把管理数据的代码（model）、应用
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
 </body>
 </html>

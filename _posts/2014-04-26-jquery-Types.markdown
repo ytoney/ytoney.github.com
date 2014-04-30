@@ -1,0 +1,460 @@
+---
+layout: post
+title:  "jQuery-Types"
+date:   2014-04-26 18:48:34
+categories: categories/js
+---
+
+<style type="text/css">
+  table{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  pre{
+    margin-bottom: 0;
+  }
+  table .container{
+    width: 100%!important;
+  }
+  .gutter{
+    text-align: center;
+    width: 30px;
+  }
+  h3{
+    color: #666;
+  }
+</style>
+
+<ol>
+  <li class="toclevel-1"><a href="#String"><span class="toctext">String</span></a>
+    <ul>
+      <li class="toclevel-2"><a href="#Quoting"><span class="toctext">Quoting</span></a></li>
+      <li class="toclevel-2"><a href="#Built-in_Methods"><span class="toctext">Built-in Methods</span></a></li>
+      <li class="toclevel-2"><a href="#Length_Property"><span class="toctext">Length Property</span></a></li>
+      <li class="toclevel-2"><a href="#Boolean_Default"><span class="toctext">Boolean Default</span></a></li>
+    </ul>
+  </li>
+  <li class="toclevel-1"><a href="#htmlString"><span class="toctext">htmlString</span></a></li>
+  <li class="toclevel-1"><a href="#Number"><span class="toctext">Number</span></a>
+    <ul>
+      <li class="toclevel-2"><a href="#Boolean_Default_2"><span class="toctext">Boolean Default</span></a></li>
+      <li class="toclevel-2"><a href="#Math"><span class="toctext">Math</span></a></li>
+      <li class="toclevel-2"><a href="#Parsing_Numbers"><span class="toctext">Parsing Numbers</span></a></li>
+      <li class="toclevel-2"><a href="#Numbers_to_Strings"><span class="toctext">Numbers to Strings</span></a></li>
+      <li class="toclevel-2"><a href="#NaN_and_Infinity"><span class="toctext">NaN and Infinity</span></a></li>
+      <li class="toclevel-2"><a href="#Integer"><span class="toctext">Integer</span></a></li>
+      <li class="toclevel-2"><a href="#Float"><span class="toctext">Float</span></a></li>
+    </ul>
+  </li>
+  <li class="toclevel-1"><a href="#Boolean"><span class="toctext">Boolean</span></a></li>
+  <li class="toclevel-1"><a href="#Object"><span class="toctext">Object</span></a>
+    <ul>
+      <li class="toclevel-2"><a href="#Dot_Notation"><span class="toctext">Dot Notation</span></a></li>
+      <li class="toclevel-2"><a href="#Array_Notation"><span class="toctext">Array Notation</span></a></li>
+      <li class="toclevel-2"><a href="#Iteration"><span class="toctext">Iteration</span></a></li>
+      <li class="toclevel-2"><a href="#Boolean_default_3"><span class="toctext">Boolean default</span></a></li>
+      <li class="toclevel-2"><a href="#Prototype"><span class="toctext">Prototype</span></a></li>
+    </ul>
+  </li>
+  <li class="toclevel-1"><a href="#Array"><span class="toctext">Array</span></a>
+    <ul>
+      <li class="toclevel-2"><a href="#Iteration_2"><span class="toctext">Iteration</span></a></li>
+      <li class="toclevel-2"><a href="#Boolean_Default_4"><span class="toctext">Boolean Default</span></a></li>
+      <li class="toclevel-2"><a href="#Array.3CType.3E_Notation"><span class="toctext">Array&lt;Type&gt; Notation</span></a></li>
+    </ul>
+  </li>
+  <li class="toclevel-1"><a href="#PlainObject"><span class="toctext">PlainObject</span></a></li>
+  <li class="toclevel-1"><a href="#Function"><span class="toctext">Function</span></a>
+    <ul>
+      <li class="toclevel-2"><a href="#Arguments"><span class="toctext">Arguments</span></a></li>
+      <li class="toclevel-2"><a href="#Context.2C_Call_and_Apply"><span class="toctext">Context, Call and Apply</span></a></li>
+      <li class="toclevel-2"><a href="#Scope"><span class="toctext">Scope</span></a></li>
+      <li class="toclevel-2"><a href="#Closures"><span class="toctext">Closures</span></a></li>
+      <li class="toclevel-2"><a href="#Proxy_Pattern"><span class="toctext">Proxy Pattern</span></a></li>
+    </ul>
+  </li>
+  <li class="toclevel-1"><a href="#Selector"><span class="toctext">Selector</span></a></li>
+  <li class="toclevel-1"><a href="#Event"><span class="toctext">Event</span></a></li>
+  <li class="toclevel-1"><a href="#Element"><span class="toctext">Element</span></a></li>
+  <li class="toclevel-1"><a href="#jQuery"><span class="toctext">jQuery</span></a></li>
+  <li class="toclevel-1"><a href="#XMLHttpRequest"><span class="toctext">XMLHttpRequest</span></a></li>
+  <li class="toclevel-1"><a href="#jqXHR"><span class="toctext">jqXHR</span></a></li>
+  <li class="toclevel-1"><a href="#Deferred"><span class="toctext">Deferred Object</span></a></li>
+  <li class="toclevel-1"><a href="#Promise"><span class="toctext">Promise Object</span></a></li>
+  <li class="toclevel-1"><a href="#Callbacks"><span class="toctext">Callbacks Object</span></a></li>
+  <li class="toclevel-1"><a href="#XMLDocument"><span class="toctext">XML Document</span></a></li>
+</ol>
+
+<h2 id="String"> String </h2>
+
+<!-- A string in JavaScript is an immutable object that contains none, one or many characters. -->
+在JavaScript中，一个字符串是不可以改变的对象，这个对象可以是空，一个或者多个字符。
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+        <div class="line n2">2</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="string">"I'm a String in JavaScript!"</span></code></div></div><div class="container"><div class="line"><code><span class="string">'So am I!'</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+字符串的数据类型是 string。
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="keyword">typeof</span> <span class="string">"some string"</span>; <span class="comment">// "string"</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="Quoting"> Quoting </h3>
+
+<p>
+  <!-- A string can be defined using single or double quotes. You can nest single quotes inside of double quotes, and the other way around. To mix double quotes with double quotes (or single with single), the nested ones have to be escaped with a backslash. -->
+
+  一个字符串可以用单引号或者双引号定义。也可以在双引号里面嵌套单引号，或在单引号里嵌套双引号。两个双引号混合（或者两个单引号混合），嵌套的引号必须用反斜线隔开。
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+        <div class="line n2">2</div>
+        <div class="line n3">3</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="string">"You make 'me' sad."</span></code></div></div><div class="container"><div class="line"><code><span class="string">'That\'s "cranking" good fun!'</span></code></div></div><div class="container"><div class="line"><code><span class="string">"&lt;a href=\"home\"&gt;Home&lt;/a&gt;"</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="Built-in_Methods"> Built-in Methods </h3>
+
+在JavaScript中，为了操作字符串，一个字符串有一些内置的方法，尽管操作的结果总是显示一个新的字符串——或者一些其他的内容，例如，split返回一个<a href="#Array" title="Types">array</a>。
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+        <div class="line n2">2</div>
+        <div class="line n3">3</div>
+        <div class="line n4">4</div>
+        <div class="line n5">5</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="string">"hello"</span>.charAt( <span class="number">0</span> ) <span class="comment">// "h"</span></code></div></div><div class="container"><div class="line"><code><span class="string">"hello"</span>.toUpperCase() <span class="comment">// "HELLO"</span></code></div></div><div class="container"><div class="line"><code><span class="string">"Hello"</span>.toLowerCase() <span class="comment">// "hello"</span></code></div></div><div class="container"><div class="line"><code><span class="string">"hello"</span>.replace( <span class="regexp">/e|o/g</span>, <span class="string">"x"</span> ) <span class="comment">// "hxllx"</span></code></div></div><div class="container"><div class="line"><code><span class="string">"1,2,3"</span>.split( <span class="string">","</span> ) <span class="comment">// [ "1", "2", "3" ]</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="Length_Property"> Length Property </h3>
+
+所有的字符串都有一个length属性。
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+        <div class="line n2">2</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="string">"Hello"</span>.length <span class="comment">// 5</span></code></div></div><div class="container"><div class="line"><code><span class="string">""</span>.length <span class="comment">// 0</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="Boolean_Default"> Boolean Default(默认的布尔值) </h3>
+
+一个空的字符串默认的布尔值为false：
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+        <div class="line n2">2</div>
+        <div class="line n3">3</div>
+        <div class="line n4">4</div>
+        <div class="line n5">5</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code>!<span class="string">""</span> <span class="comment">// true</span></code></div></div><div class="container"><div class="line"><code>!!<span class="string">""</span> <span class="comment">// false</span></code></div></div><div class="container"><div class="line"><code>!<span class="string">"hello"</span> <span class="comment">// false</span></code></div></div><div class="container"><div class="line"><code>!<span class="string">"true"</span> <span class="comment">// false</span></code></div></div><div class="container"><div class="line"><code>!<span class="keyword">new</span> Boolean( <span class="literal">false</span> ) <span class="comment">// false</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="htmlString"> htmlString </h2>
+
+<!-- <p>A string is designated <strong>htmlString</strong> in jQuery documentation when it is used to represent one or more DOM elements, typically to be created and inserted in the document. When passed as an argument of the <code>jQuery()</code> function, the string is identified as HTML if it starts with <code>&lt;tag ... &gt;</code>) and is parsed as such until the final <code>&gt;</code> character. Prior to jQuery 1.9, a string was considered to be HTML if it contained <code>&lt;tag ... &gt;</code> <em>anywhere within the string</em>.</p> -->
+
+在jQuery文档中一个字符串被指定为*htmlString*类型，当这个字符串被用来当做一个或多个DOM元素的时候，典型的用途是被用来在文档中创建和插入DOM元素。当作为一个<code>jQuery()</code>函数的参数传递时，如果字符串是以<code>&lt;tag ... &gt;</code>标签开始，则被认为是HTML并且被解析直到<code>&gt;</code>结束字符的出现为止。在jQuery 1.9版本以前，如果一个字符串无论在字符串的什么位置只要包含<code>&lt;tag ... &gt;</code>就被当做HTML。
+
+<p>When a string as passed as an argument to a manipulation method such as <code>.append()</code>, it is always considered to be HTML since jQuery's other common interpretation of a string (CSS selectors) does not apply in those contexts.</p>
+
+<!-- 当一个字符串被当作一个操作方法的参数传递时，如<code>.append()</code>， -->
+
+<p>For explicit parsing of a string to HTML, the <code><a href="../jQuery.parseHTML/index.html">$.parseHTML()</a></code> method is available as of jQuery 1.8.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+        <div class="line n1">1</div>
+        <div class="line n2">2</div>
+        <div class="line n3">3</div>
+        <div class="line n4">4</div>
+        <div class="line n5">5</div>
+        <div class="line n6">6</div>
+        <div class="line n7">7</div>
+        <div class="line n8">8</div>
+        <div class="line n9">9</div>
+        <div class="line n10">10</div>
+        <div class="line n11">11</div>
+        <div class="line n12">12</div>
+        <div class="line n13">13</div>
+        <div class="line n14">14</div>
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="comment">// Appends &lt;b&gt;hello&lt;/b&gt;:</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">"&lt;b&gt;hello&lt;/b&gt;"</span> ).appendTo( <span class="string">"body"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Appends &lt;b&gt;hello&lt;/b&gt;:</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">"&lt;b&gt;hello&lt;/b&gt;bye"</span> ).appendTo( <span class="string">"body"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Syntax error, unrecognized expression: bye&lt;b&gt;hello&lt;/b&gt;</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">"bye&lt;b&gt;hello&lt;/b&gt;"</span> ).appendTo( <span class="string">"body"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Appends bye&lt;b&gt;hello&lt;/b&gt;:</span></code></div></div><div class="container"><div class="line"><code>$( $.parseHTML( <span class="string">"bye&lt;b&gt;hello&lt;/b&gt;"</span> ) ).appendTo( <span class="string">"body"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// Appends &lt;b&gt;hello&lt;/b&gt;wait&lt;b&gt;bye&lt;/b&gt;:</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">"&lt;b&gt;hello&lt;/b&gt;wait&lt;b&gt;bye&lt;/b&gt;"</span> ).appendTo( <span class="string">"body"</span> );</code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Number"> Number </h2>
+
+<!-- <p>Numbers in JavaScript are double-precision 64-bit format IEEE 754 values. They are immutable, just as <a href="#String" title="">strings</a>. All operators common in c-based languages are available to work with numbers (+, -, *, /, %, =, +=, -=, *=, /=, ++, - -).
+</p> -->
+
+在JavaScript中，数字是IEEE754格式的双精度64位的数值。它们是不可改变的，被看作是<a href="#String" title="">strings</a>。所有在C语言中通用的操作符都是可用的(+, -, *, /, %, =, +=, -=, *=, /=, ++, --)。
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="number">12</span></code></div></div><div class="container"><div class="line"><code><span class="number">3.543</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+数字的类型是number。
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="keyword">typeof</span> <span class="number">12</span> <span class="comment">// "number"</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">typeof</span> <span class="number">3.543</span> <span class="comment">// "number"</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="Boolean_Default_2"> Boolean Default </h3>
+
+如果这个数字是0的话，那么它的默认布尔值是false：
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+        <div class="line n3">3</div>
+
+        <div class="line n4">4</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code>!<span class="number">0</span> <span class="comment">// true</span></code></div></div><div class="container"><div class="line"><code>!!<span class="number">0</span> <span class="comment">// false</span></code></div></div><div class="container"><div class="line"><code>!<span class="number">1</span> <span class="comment">// false</span></code></div></div><div class="container"><div class="line"><code>!-<span class="number">1</span> <span class="comment">// false</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Due to the implementation of numbers as double-precision values, the following result is not an error:
+</p>
+
+因为数字是作为双精度数值来执行的，所以下面的结果是正确的：
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="number">0.1</span> + <span class="number">0.2</span> <span class="comment">// 0.30000000000000004</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="Math"> Math </h3>
+
+<p>JavaScript provides utilities to work with numbers in the Math object:
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code>Math.PI <span class="comment">// 3.141592653589793</span></code></div></div><div class="container"><div class="line"><code>Math.cos( Math.PI ) <span class="comment">// -1</span></code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Object"> Object </h2>
+
+<h3 id="Iteration"> Iteration </h3>
+
+<p>Iterating over objects is easy with the for-in-loop:
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+        <div class="line n3">3</div>
+
+        <div class="line n4">4</div>
+
+        <div class="line n5">5</div>
+
+        <div class="line n6">6</div>
+
+        <div class="line n7">7</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="keyword">var</span> obj = {</code></div></div><div class="container"><div class="line"><code>  name: <span class="string">"Pete"</span>,</code></div></div><div class="container"><div class="line"><code>  age: <span class="number">15</span></code></div></div><div class="container"><div class="line"><code>};</code></div></div><div class="container"><div class="line"><code><span class="keyword">for</span>( key <span class="keyword">in</span> obj ) {</code></div></div><div class="container"><div class="line"><code>  alert( <span class="string">"key is "</span> + [ key ] + <span class="string">", value is "</span> + obj[ key ] );</code></div></div><div class="container"><div class="line"><code>}</code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that for-in-loop can be spoiled by extending Object.prototype (see <a href="http://erik.eae.net/archives/2005/06/06/22.13.54" class="external text" title="http://erik.eae.net/archives/2005/06/06/22.13.54">Object.prototype is verboten</a>) so take care when using other libraries.
+</p>
+
+<p>jQuery provides a generic <a href="../jQuery.each/index.html"><em>each</em> function</a> to iterate over properties of objects, as well as elements of arrays:
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+        <div class="line n3">3</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code>jQuery.each( obj, <span class="keyword">function</span>( key, value ) {</code></div></div><div class="container"><div class="line"><code>  console.log( <span class="string">"key"</span>, key, <span class="string">"value"</span>, value );</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="Prototype"> Prototype </h3>  ？？？
+
+<p>All objects have a prototype property. Whenever the interpreter looks for a property, it also checks in the object's prototype if the property is not found on the object itself. jQuery uses the prototype extensively to add methods to jQuery instances. Internally, jQuery makes <code>jQuery.fn</code> an alias of <code>jQuery.prototype</code> so you can use either one (though plugin developers have standardized on <code>fn</code>).
+</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="gutter">
+
+        <div class="line n1">1</div>
+
+        <div class="line n2">2</div>
+
+        <div class="line n3">3</div>
+
+        <div class="line n4">4</div>
+
+        <div class="line n5">5</div>
+
+        <div class="line n6">6</div>
+
+        <div class="line n7">7</div>
+
+        <div class="line n8">8</div>
+
+        <div class="line n9">9</div>
+
+        <div class="line n10">10</div>
+
+        <div class="line n11">11</div>
+
+        <div class="line n12">12</div>
+
+        <div class="line n13">13</div>
+
+        <div class="line n14">14</div>
+
+      </td>
+      <td class="code">
+        <pre><div class="container"><div class="line"><code><span class="keyword">var</span> form = $(<span class="string">"#myform"</span>);</code></div></div><div class="container"><div class="line"><code>console.log( form.clearForm ); <span class="comment">// undefined</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// jQuery.fn == jQuery.prototype</span></code></div></div><div class="container"><div class="line"><code>jQuery.fn.clearForm = <span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>  <span class="keyword">return</span> <span class="keyword">this</span>.find( <span class="string">":input"</span> ).each(<span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>    <span class="keyword">this</span>.value = <span class="string">""</span>;</code></div></div><div class="container"><div class="line"><code>  }).end();</code></div></div><div class="container"><div class="line"><code>};</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// works for all instances of jQuery objects, because</span></code></div></div><div class="container"><div class="line"><code><span class="comment">// the new method was added to the prototype</span></code></div></div><div class="container"><div class="line"><code>console.log( form.clearForm ); <span class="comment">// function</span></code></div></div><div class="container"><div class="line"><code>form.clearForm();</code></div></div></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
