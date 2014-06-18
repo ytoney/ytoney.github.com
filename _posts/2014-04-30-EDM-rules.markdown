@@ -1,0 +1,96 @@
+---
+layout: post
+title:  "【html】EDM邮件制作指南"
+date:   2014-04-30 17:48:34
+categories: categories/html
+---
+
+专业的EDM邮件发送，是有严格的制作要求的，本指南从格式编码、文字、图片及链接四个方面给出指引，请逐条按照本指南制作您的EDM邮件模板。
+
+####格式编码####
+
+<ol>
+  <li>页面宽度请设定在600到800px以内，长度1024px以内。</li>
+
+  <li>HTML编码请使用utf-8。</li>
+
+  <li>HTML代码在15KB以内;HTML代码和图片尽量不要超过50kb。（各个邮箱的收件标准不一样，如果超出15KB您的邮件很有可能会进入垃圾箱）</li>
+
+  <li>请使用table表格来布局。
+    {% highlight html %}同一个<td>里只放一张图片，图片地址为绝对地址，如<td><img src="http://www.hanlinweb.com/images/photo.jpg" /></td>。所有的图片都要定义宽高,关键图片alt=”…” 属性要写得很清楚，不要使用背景图片。写alt属性是让浏览器在图片未被显示前提示图片内容。不使用背景图片是防止部分web邮箱和客户端对背景图片进行过滤，例如Qq邮箱中的背景图片会随窗口的大小变化而产生移动，而outlook2007干脆就过滤了背景图片。同一段文字放在同一<td>里,如果有3段文字，千万不要用回车换行。那样会导致代码里自动加入。这个标签会导致双倍行高。{% endhighlight %}</li>
+
+  <li>如果需要邮件居中显示，请在table里设定align="center"。</li>
+
+  <li>不可将word类文件直接转换为HTML格式，否则会造成编码不规范。</li>
+
+  <li>定义文字或图片的样式时，请不要使用外链的css样式。（外链的css样式在邮件里将不能被读取，所以发送出去的邮件因为没有链接到样式，将会使你的邮件看起来很难看）
+    {% highlight html %}
+    正确的做法请将样式书写在<td>或<font>里，写法如下：
+    <td style=”font-family:宋体; font-size:12px; color:#000000;” >文字</td>
+    <font style=”font-family:宋体; font-size:12px; color:#000000;” >文字</font>
+    {% endhighlight %}
+  </li>
+
+  <li>不使用flash、java、javascript、frames、iframe、activeX以及DHTML，如果页面中的图片一定要动态的，请将flash文件转换成gif动画使用，但在outlook2007里，gif将不能正常显示，因为outlook2007限制gif动画。</li>
+
+  <li>不要使用<code>table</code>标签以外的body、meta和html之类的标签，部分邮箱系统会把这些过滤掉。</li>
+
+  <li>有背景图时，style内容里面background可以设置color，但是img会被过滤，就是说不能通过CSS来设置背景图片了。但可以直接写在代码里。代码写法如下：
+    {% highlight html %}<table background=”background.gif” cellspacing=”0″ cellpadding=”0″>{% endhighlight %}（在outlook中查看邮件时，背景图片不显示，这是因为outlook中对背景图片无法识别。同时，背景图需要用绝对地址）</li>
+
+  <li>如果文字内容是写在<code>li</code>里，那么样式请尽量写在<code>ul</code>里，在sohu中写在<code>td</code>或<code>tr</code>里的样式会被过滤，其它邮箱没有问题。例如：
+    {% highlight html%}
+    <ul style=”font-family:宋体; font-size:12px; color:#000000;”>
+      <li>你的文字</li>
+    </ul>
+    {% endhighlight %}
+  </li>
+
+  <li>不要出现"onmouseover"、"onmouseout"，即使在<code>td</code>标签里设置了，发送到邮箱后也将被过滤，无法显示设定鼠标经过所显示的内容。</li>
+
+  <li>在样式中，可以省略font-family属性，但如果font-family：后属性为空，会被QQ屏蔽为垃圾邮件。</li>
+
+  <li>若邮件模板内侧边或者上下有空白间距，不要用 padding，必须得用标准的 td 来设定空白间距，否则会导致各个邮箱解析不同。</li>
+  <li>在 yahoo 邮箱里定义 line-height 的注意事项：需在块级元素里定义 line-height。如果 td 里有 p 标签，则 line-height 也必须在 p 中定义。无论是 td 还是 p，如果有超链接，则都必须在 a 标签里定义 line-height。如果只是在 td 或者 p 里面定义 line-height 的话，那 yahoo 邮箱将无法识别 a 里面的行高。</li>
+</ol>
+
+####文字####
+
+<ol>
+  <li>邮件主题控制在18个字以内，避免使用特殊符号，容易产生乱码。</li>
+  <li>邮件主题和内容都不要加入带有网站地址的信息，比如“xxx.com祝您新年好”。如果客户的品牌知名度比较高，主题可加入公司的名称，比如：“NIKE运动时尚”。</li>
+  <li>文字内容，版面尽量简洁，突出主题，以达到更高的点击率。</li>
+  <li>不使用类似如下敏感及带促销类的文字：免费、优惠、特惠、特价、低价、便宜、廉价、视频、赚钱、群发、发财、致富、代开、薪水、交友、支付、商机、法宝、宝典、秘密、情报、机密、保密、绝密、神秘、秘诀等。如果一定需要，请把敏感字做成图片。</li>
+  <li>如果发送超过20万封，主题内容要更换，发送超过200万封，要考虑重新设计。</li>
+  <li>文字应尽量定义字体的样式，每个邮箱的默认字体样式不同，为了达到您想要的效果，字体样式一定要定义完整。</li>
+</ol>
+
+####图片####
+
+<ol>
+  <li>尽量使用图片，以避免文字在各个主流邮箱中的显示有所不同。例如QQ邮箱，如果未在代码中设置，邮件中的文字不能自动换行，gmail邮箱邮件内容的字体会自动放大，与原来设定的字符大小不一致。</li>
+  <li>整页图片控制在8张以内，每张图片最大不能超过15KB。</li>
+  <li>图片名称不能含有ad字符，否则图片上传后会显示成“被过滤广告”。</li>
+  <li>如果整个邮件模板只有一张图，一定要裁成2-3张小图，并适当保留一些文字。</li>
+  <li>Gmail、qq邮箱的要求又改变，图片的属性一定要定义完整，例如
+    {% highlight html%}
+    <img src="images/1.jpg" style="vertical-align:top;" height="30" width="100" alt="" />
+    {% endhighlight %}
+    这里的 style="vertical-align:top;" 一定要定义，否则图片之间会有缝隙、变形等显示异常的情况。
+  </li>
+</ol>
+
+####链接####
+<ol>
+  <li>链接数量不能超过10个，如果所有图片的链接地址一样，请将所有的小图合并成一张大图。</li>
+  <li>链接请写成绝对地址。（以确保收信人在点击链接时能够正常浏览您的内容）。</li>
+  <li>链接地址的长度不能超过255个字符，会导致无法追踪或链接错误。</li>
+  <li>不要使用地图功能（map）链接图片，此功能会使邮件被多数邮箱划分为垃圾邮件。</li>
+  <li>为避免用户收到的邮件图片无法浏览，请制作一份和邮件内容一样的web页面，然后在邮件顶部注明：“如果您无法查看邮件内容，请点击这里”，链接到访友同样内容的web页面。</li>
+  <li>文字中出现网站地址链接被屏蔽为垃圾邮件的风险是极高的，例如：http://xxx.com此类链接，建议写成“XXX公司”文字加链接，或是将网址做成图片加链接。</li>
+  <li>链接里面最好不要使用特殊符号，避免邮箱解析错误。</li>
+  <li>链接代码应尽量简短，代码太长会增加模板大小，进而会影响邮件发送效果。</li>
+</ol>
+
+[参考地址](http://www.cnblogs.com/yjzhu/archive/2012/11/05/2755155.html)
+[参考地址](http://www.maildesign.cn/archives/1380)

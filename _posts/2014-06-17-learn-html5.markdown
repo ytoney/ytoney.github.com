@@ -1,0 +1,237 @@
+---
+layout: post
+title:  "学习html5"
+date:   2014-06-17 18:40:34
+categories: categories/html
+---
+
+
+####HTML 5是什么####
+
+HTML 5 ≈ HTML+CSS 3+Javascript+API
+
+一、标准的改变
+
+**标准的改变--不是SGML和XML**
+
+1、HTML5 并不是定义为SGML或者XML的应用程序。
+
+2、在HTML5中并不存在有效性检查，取而代之的是用规范来检测规范的一致性
+
+3、HTML5的DTD声明中不需要使用DTD文件
+
+4、拥有十分松散的编写手法，但不是没有底线
+
+**标准的改变—松散的语法**
+
+不允许写的结束符的标签：
+area、base、br、col、command、Embed、hr、img、input、keygen、link、meta、param、source、Track、wbr
+
+可以省略结束符的标签：
+li、dt、dd、p、rt、optgroup、option、Colgroup、thread、tbody、tr、td、th
+
+可以完全省略的标签：
+html、head、body、colgroup、tbody
+
+二、支持HTML5的浏览器
+
+主流：
+IE9+,Firefox,Opear,Safari(webkit),Chrome(webkit)
+
+非主流：
+猎豹(webkit&ie双内核)，UC,遨游, 海豚,百度
+
+三、html5的推广网站
+
+www.html5cn.org
+
+www.html5china.com
+
+www.mhtml5.com
+
+
+####HTML标签的改变####
+
+一、新的文档类型声明(DTD)
+
+<!doctype html>
+
+二、新增的HTML5标签
+
+{% highlight html %}
+新增的HTML5标签-结构标签
+结构标签：(块状元素) 有意义的div
+  <article>  标记定义一篇文章
+  <header>   标记定义一个页面或一个区域的头部
+  <nav>     标记定义导航链接
+  <section>  标记定义一个区域
+  <aside>   标记定义页面内容部分的侧边栏
+  <hgroup>   标记定义文件中一个区块的相关信息
+  <figure>  标记定义一组媒体内容以及它们的标题
+  <figcaption>   标签定义 figure 元素的标题。
+  <footer>  标记定义一个页面或一个区域的底部
+  <dialog>   标记定义一个对话框(会话框)类似微信
+{% endhighlight %}
+**新的结构标签带来的是网页布局的改变及提升对搜索引擎的友好**
+
+
+{% highlight html %}
+新增的HTML5标签-多媒体标签
+多媒体交互标签
+  <video> 标记定义一个视频
+  <audio> 标记定义音频内容
+  <source> 标记定义媒体资源
+
+  <canvas> 标记定义图片
+
+  <embed> 标记定义外部的可交互的内容或插件 比如flash
+{% endhighlight %}
+**HTML5的多媒体标签的出现意味着富媒体的发展以及支持不使用插件的情况下即可操作媒体文件，极大地提升了用户体验**
+
+{% highlight html %}
+新增的HTML5标签-Web应用标签
+Web应用标签
+<menu>命令列表
+<menuitem>menu命令列表标签 FF（嵌入系统）
+<command> menu标记定义一个命令按钮
+
+<meter>状态标签(实时状态显示:气压、气温)C、O
+<progress>状态标签 (任务过程:安装、加载) C、F、O
+
+<datalist> 为input标记定义一个下拉列表,配合option F、O
+<details> 标记定义一个元素的详细内容 ，配合dt、dd   C
+{% endhighlight %}
+
+{% highlight html %}
+新增的HTML5标签-其他标签
+注释标签
+<ruby> 标记定义 注释或音标
+<rp> 告诉那些不支持 Ruby元素的浏览器如何去显示
+<rt> 标记定义对ruby的注释内容文本
+
+其他标签
+<keygen> 标记定义表单里一个生成的键值(加密信息传送)O、F
+<mark> 标记定义有标记的文本 (黄色选中状态)
+<output> 标记定义一些输出类型,计算表单结果配合oninput事件
+
+<time> 标记定义一个日期/时间 目前所有主流浏览器都不支持
+{% endhighlight %}
+
+
+三、删除的HTML标签
+
+纯表现的元素：
+basefont，big，center，font, s，strike，tt，u；
+
+对可用性产生负面影响的元素：
+frame，frameset，noframes；
+
+产生混淆的元素：
+acronym ，applet，isindex，dir。
+
+四、重新定义的HTML标签
+{% highlight html %}
+HTML元素  HTML5中的意义
+<b> 代表内联文本，通常是粗体，没有传递表示重要的意思
+<i> 代表内联文本，通常是斜体，没有传递表示重要的意思
+<dd>  可以同details与figure一同使用，定义包含文本，dialog也可用
+<dt>  可以同details与figure一同使用，汇总细节，dialog也可用
+<hr>  表示主题结束，而不是水平线，虽然显示相同
+<menu>  重新定义用户界面的菜单，配合commond或者menuitem使用
+<small> 表示小字体，例如打印注释或者法律条款
+<strong>  表示重要性而不是强调符号
+{% endhighlight %}
+五、崭新新的页面布局
+
+####html音视频####
+
+HTML5支持的格式
+
+HTML5能在完全脱离插件的情况下播放音视频
+
+**HTML5支持的视频格式：**
+
+**Ogg** =带有Theora视频编码+Vorbis音频编码的Ogg文件
+  支持的浏览器:F、C、O
+
+**MEPG4**=带有H.264视频编码+AAC音频编码的MPEG4文件
+  支持的浏览器: S、C
+
+**WebM**=带有VP8视频编码+Vorbis音频编码的WebM格式  支持的浏览器: I、F、C、O
+
+{% highlight html %}
+<Video>的使用
+
+<video src="文件地址" controls="controls"></video>
+
+<video src="文件地址" controls="controls">
+  您的浏览器暂不支持video标签。播放视频
+</video >
+
+<video  controls="controls"  width="300">
+  <source src="/images/posts/video/video.ogg" type="video/ogg" >
+  <source src="/images/posts/video/video.mp4" type="video/mp4" >
+  您的浏览器暂不支持video标签。播放视频
+</video >
+{% endhighlight %}
+
+<video  controls="controls"  width="300">
+  <source src="/images/posts/video/video.webm" type="video/webm" >
+  <source src="/images/posts/video/video.ogg" type="video/ogg" >
+  您的浏览器暂不支持video标签。播放视频
+</video >
+
+**Video的常见属性**
+
+{% highlight html %}
+属性  值 描述
+Autoplay  Autoplay  视频就绪自动播放
+controls  controls  向用户显示播放控件
+Width Pixels(像素)  设置播放器宽度
+Height  Pixels(像素)  设置播放器高度
+Loop  Loop  播放完是否继续播放该视频，循环播放
+Preload Proload 是否等加载完再播放
+Src url 视频url地址
+Poster  Imgurl  加载等待的画面图片
+Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有效
+{% endhighlight %}
+
+
+**Video的API方法**
+
+.......
+
+**Video的API属性**
+
+.......
+
+**Video的常用事件**
+
+.......
+
+**HTML5支持的音频格式**
+
+HTML5在不使用插件的情况下也可以原生的支持音频格式文件的播放，当然支持格式是有限的
+
+HTML5支持的音频格式：
+
+Ogg      免费 支持的浏览器:C、F、O
+MP3      收费 支持的浏览器: I、C、S
+Wav      收费 支持的浏览器: F、O、S
+
+{% highlight html %}
+<audio>的使用
+<audio  src="文件地址" controls="controls"></audio>
+
+<audio src="文件地址" controls="controls">
+  您的浏览器暂不支持audio标签。播放视频
+</audio >
+
+<audio controls="controls"  >
+  <source src="happy.MP3" type="video/mpeg" >
+  <source src="happy.ogg" type="video/ogg" >
+  您的浏览器暂不支持audio标签。播放视频
+</audio>
+{% endhighlight %}
+
+<audio controls="controls" src="/images/posts/video/video.mp3" ></audio>

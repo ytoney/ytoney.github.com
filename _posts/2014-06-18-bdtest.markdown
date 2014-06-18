@@ -1,0 +1,146 @@
+---
+layout: post
+title:  "bdtest"
+date:   2014-06-18 19:40:34
+categories: categories/others
+---
+
+
+
+
+1.  假设有一个4行li的ul，将ul里面li顺序颠倒；
+
+{% highlight html %}
+<ul id="overturn">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+</ul>
+
+window.onload = function(){
+  var ul_id = document.getElementById('overturn');
+  var arr_li = document.getElementsByTagName('li');
+  for(var i = arr_li.length-1; i > -1; i--){
+      ul_id.appendChild(arr_li[i]);
+  }
+
+}
+{% endhighlight %}
+
+2.  写一个去掉数组里的重复成员的函数
+新建一个数组，将原数组循环，将每个值往新的空数组里push，push之前先查找新数组里有没有当前循环到的值相等的。
+
+{% highlight html %}
+  var arr_num = [2,1,4,3,5,4,0,3]
+  var arr = new Array();
+
+  for (var i = 0; i <= arr_num.length; i++) {
+    // console.log(arr_num[i])
+    if (arr.indexOf(arr_num[i]) == -1) {
+      // console.log(arr.indexOf(arr_num[i]))
+      alert(0)
+      arr.push(arr_num[i])
+    };
+    // arr.push(arr_num[i])
+    console.log(arr.sort())
+
+
+  };
+{% endhighlight %}
+
+3.  数组a=[0,1,2]，数组b=[a,b,c]，合并这2个数组、并且删除新数组中的第二个元素；
+
+
+4.  随机生成10个1-100的数字，对这组数字进行排序
+
+
+样式题：
+
+1.  CSS左边固定，右边可变的布局实现方法；如果要求在源码顺序中左边必须在前，如何实现
+
+{% highlight html %}
+
+<style>
+.left{
+  position: fixed;
+  top: 20px;
+  left: 1%;
+  width: 19%;
+  height: 300px;
+  background: #ccc;
+  border:1px solid #ddd;
+  border-radius: 4px;
+}
+.right{
+  height: 900px;
+  background: #ccc;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: 22%;
+  margin-top: 20px;
+}
+</style>
+
+<body>
+  <div class="left"></div>
+  <div class="right"></div>
+</body>
+
+{% endhighlight %}
+
+
+2.  图片和文字一起如何通过css实现居中
+
+**给图片添加vertical-align: middle;这个属性和值**
+
+
+3.  如何使一个DIV的背景图像距这个DIV的顶部10像素、左边15像素，且不重复？
+
+{% highlight html %}
+
+background-repeat: no-repeat;
+background-position: 15px 10px;
+{% endhighlight %}
+
+4.  隐藏一个DOM元素有哪几种方法，请写出实现方式
+
+{% highlight html %}
+
+display: none;隐藏的元素脱离文档流不占据空间，不会被浏览器解析，不能点击
+visibility: hidden;隐藏的元素不能点击，但会占据文档空间
+position: absolute;left: -9999px;
+opacity: 0;fliter:Alpha(opacity=0);
+overflow: hidden;height:0;
+{% endhighlight %}
+
+5.  如何增加某一个链接的可点击面积，要求：1.下划线仍然与链接一样长；2.鼠标移至li空白区域后下划线也能消失；3.点击后即相当于点击了链接文字，可以打开链接。
+
+{% highlight html %}
+
+.link{
+  padding: 5px;/*增加点击面积*/
+  display: block;
+}
+li:hover .link{
+  text-decoration: none;
+}
+
+<ul>
+  <li style="padding: 5px;width: 400px;">
+    <a class="link" href="#">增加某一个链接的可点击面积</a>
+  </li>
+</ul>
+{% endhighlight %}
+
+6.  IE6的DOM元素如何实现min-height效果？
+
+{% highlight html %}
+
+.min_height{
+   min-height:200px;
+   _height:expression(this.scrollHeight < 200 ? "200px" : "auto");/* sets min-height for IE6 */
+}
+{% endhighlight %}
+
+
