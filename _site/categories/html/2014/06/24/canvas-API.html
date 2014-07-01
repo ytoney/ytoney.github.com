@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>canvas API</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/categories/others/" title="view all
+              posts">categories/others 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/iehack/" title="view all
+              posts">categories/iehack 2</a>
+            </li>
+            
+            <li><a href="/categories/categories/css/" title="view all
+              posts">categories/css 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/js/" title="view all
+              posts">categories/js 5</a>
+            </li>
+            
+            <li><a href="/categories/categories/css3/" title="view all
+              posts">categories/css3 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/html/" title="view all
+              posts">categories/html 5</a>
+            </li>
+             -->
+
+            <li><a href="/allist.html">all</a></li>
+            <li><a href="/allist.html">html</a></li>
+            <li><a href="/allist.html">html5</a></li>
+            <li><a href="/allist.html">css</a></li>
+            <li><a href="/allist.html">css3</a></li>
+            <li><a href="/allist.html">js</a></li>
+            <li><a href="/allist.html">others</a></li>
+            <!-- <li><a href="/">jQuery</a></li> --> <!-- js框架:jquery/YUI/ExtJS -->
+            <!-- <li><a href="/">plugins</a></li> -->
+            <!-- <li><a href="/">rails</a></li> -->
+            <!-- <li><a href="/">Sass</a></li> -->
+            <!-- <li><a href="/">coffeescript</a></li> -->
+            <!-- <li><a href="/">nodejs</a></li> -->
+            <!-- <li><a href="/">jade</a></li> -->
+            <!-- <li><a href="/">angularjs</a></li> -->
+          </ul>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>canvas API</h2>
+  <p class="meta">24 Jun 2014</p>
+  <hr>
+  <div class="post">
+    <p><strong>Canvas的API </strong></p>
+
+<p><code>canvas主要属性和方法</code></p>
+
+<p>方法  描述</p>
+
+<p>save()  保存当前环境的状态</p>
+
+<p>restore() 返回之前保存过的路径状态和属性</p>
+
+<p>createEvent()</p>
+
+<p><em>getContext()  返回一个对象，指出访问绘图功能必要的API</em></p>
+
+<p>toDataURL() 返回canvas图像的URL</p>
+
+<p><code>颜色、样式和阴影属性和方法</code></p>
+
+<p>属性  描述</p>
+
+<p><em>fillStyle 设置或返回用于填充绘画的颜色、渐变或模式</em></p>
+
+<p><em>strokeStyle 设置或返回用于笔触的颜色、渐变或模式</em></p>
+
+<p>shadowColor 设置或返回用于阴影的颜色</p>
+
+<p>shadowBlur  设置或返回用于阴影的模糊级别</p>
+
+<p>shadowOffsetX 设置或返回阴影距形状的水平距离</p>
+
+<p>shadowOffsetY 设置或返回阴影距形状的垂直距离</p>
+
+<p>方法  描述</p>
+
+<p>createLinearGradient()  创建线性渐变（用在画布内容上）</p>
+
+<p>createPattern() 在指定的方向上重复指定的元素</p>
+
+<p>createRadialGradient()  创建放射状/环形的渐变（用在画布内容上）</p>
+
+<p>addColorStop()  规定渐变对象中的颜色和停止位置</p>
+
+<p><code>线条样式属性和方法</code></p>
+
+<p>属性  描述</p>
+
+<p>lineCap 设置或返回线条的结束端点样式</p>
+
+<p>lineJoin  设置或返回两条线相交时，所创建的拐角类型</p>
+
+<p>lineWidth 设置或返回当前的线条宽度</p>
+
+<p>miterLimit  设置或返回最大斜接长度</p>
+
+<p><code>矩形方法</code></p>
+
+<p>方法  描述</p>
+
+<p>rect()  创建矩形</p>
+
+<p>fillRect()  绘制&quot;被填充&quot;的矩形</p>
+
+<p>strokeRect()  绘制矩形（无填充）</p>
+
+<p>clearRect() 在给定的矩形内清除指定的像素</p>
+
+<p><code>路径方法</code></p>
+
+<p>方法  描述</p>
+
+<p>fill()  填充当前绘图（路径）</p>
+
+<p>stroke()  绘制已定义的路径</p>
+
+<p>beginPath() 起始一条路径，或重置当前路径</p>
+
+<p>moveTo()  把路径移动到画布中的指定点，不创建线条</p>
+
+<p>closePath() 创建从当前点回到起始点的路径</p>
+
+<p>lineTo()  添加一个新点，创建从该点到最后指定点的线条</p>
+
+<p>clip()  从原始画布剪切任意形状和尺寸的区域</p>
+
+<p>quadraticCurveTo()  创建二次贝塞尔曲线</p>
+
+<p>bezierCurveTo() 创建三次方贝塞尔曲线</p>
+
+<p>arc() 创建弧/曲线（用于创建圆形或部分圆）</p>
+
+<p>arcTo() 创建两切线之间的弧/曲线</p>
+
+<p>isPointInPath() 如果指定的点位于当前路径中，返回布尔值</p>
+
+<p><code>转换方法</code></p>
+
+<p>方法  描述</p>
+
+<p>scale() 缩放当前绘图至更大或更小</p>
+
+<p>rotate()  旋转当前绘图</p>
+
+<p>translate() 重新映射画布上的 (0,0) 位置</p>
+
+<p>transform() 替换绘图的当前转换矩阵</p>
+
+<p>setTransform()  将当前转换重置为单位矩阵。然后运行 transform()</p>
+
+<p><code>文本属性和方法</code></p>
+
+<p>方法  描述</p>
+
+<p>scale() 缩放当前绘图至更大或更小</p>
+
+<p>rotate()  旋转当前绘图</p>
+
+<p>translate() 重新映射画布上的 (0,0) 位置</p>
+
+<p>transform() 替换绘图的当前转换矩阵</p>
+
+<p>setTransform()  将当前转换重置为单位矩阵。然后运行 transform()</p>
+
+<p>方法  描述</p>
+
+<p>fillText()  在画布上绘制&quot;被填充的&quot;文本</p>
+
+<p>strokeText()  在画布上绘制文本（无填充）</p>
+
+<p>measureText() 返回包含指定文本宽度的对象</p>
+
+<p><code>图像绘制方法</code></p>
+
+<p>方法  描述</p>
+
+<p>fillText()  在画布上绘制&quot;被填充的&quot;文本</p>
+
+<p>strokeText()  在画布上绘制文本（无填充）</p>
+
+<p>measureText() 返回包含指定文本宽度的对象</p>
+
+<p><code>像素操作方法和属性</code></p>
+
+<p>属性  描述</p>
+
+<p>width 返回 ImageData 对象的宽度</p>
+
+<p>height  返回 ImageData 对象的高度</p>
+
+<p>data  返回一个对象，其包含指定的 ImageData 对象的图像数据</p>
+
+<p>属性  描述</p>
+
+<p>width 返回 ImageData 对象的宽度</p>
+
+<p>height  返回 ImageData 对象的高度</p>
+
+<p>data  返回一个对象，其包含指定的 ImageData 对象的图像数据</p>
+
+<p><code>图像合成属性</code></p>
+
+<p>属性  描述</p>
+
+<p>globalAlpha 设置或返回绘图的当前 alpha 或透明值</p>
+
+<p>globalCompositeOperation  设置或返回新图像如何绘制到已有的图像上</p>
+
+<p><code>其他方法</code></p>
+
+<p>属性  描述</p>
+
+<p>globalAlpha 设置或返回绘图的当前 alpha 或透明值</p>
+
+<p>globalCompositeOperation  设置或返回新图像如何绘制到已有的图像上</p>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>

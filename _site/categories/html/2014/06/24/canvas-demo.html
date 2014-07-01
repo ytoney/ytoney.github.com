@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="前端开发｜Web Developer">
-  <title>Grunt JavaScript任务运行工具</title>
+  <title>canvas实例1——时钟</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -72,28 +72,138 @@
       <div class="content">
         <!--Body content-->
         <div class="main">
-  <h2>Grunt JavaScript任务运行工具</h2>
-  <p class="meta">20 Jan 2014</p>
+  <h2>canvas实例1——时钟</h2>
+  <p class="meta">24 Jun 2014</p>
   <hr>
   <div class="post">
-    <h4>为什么使用任务运行工具?</h4>
+    <p><canvas id="clock" width="500" height="500">您的浏览器不支持canvas，无法看到时钟</canvas></p>
 
-<p>简而言之，自动化。当你处理诸如代码最小化, 代码编译, 单元测试, 代码规范校验等等重复任务时, 你必须要做的工作越少，你的工作就变得越简单。在你完成配置后，不费吹灰之力，一个任务运行工具可以替你和你的团队完成绝大部分日常工作。</p>
+<script type="text/javascript">
+  var clock = document.getElementById('clock');
+  var cxt = clock.getContext('2d');
 
-<h4>Grunt是什么？</h4>
+  function drawClock(){
+    cxt.clearRect(0,0,500,500);
+    var now = new Date();
+    var sec = now.getSeconds();
+    var min = now.getMinutes();
+    var hour = now.getHours();
+    // 小时必须获取浮点类型(小时+分针数转化为小时)
+    hour = hour + min/60;
 
-<p>Grunt是一个自动化的项目构建工具。如果你需要重复的执行像压缩，编译，单元测试，代码检查以及打包发布的任务。那么你可以使用Grunt来处理这些任务，你所需要做的只是配置好Grunt，这样能很大程度的简化你的工作。</p>
 
-<p>如果在团队中使用Grunt，你只需要与其他人员约定好使用Grunt应该规避的问题，就能够很方便的自动化的处理大部分的常见工作任务，你所付出的努力几乎为0。</p>
+    // 问题  19:23:30
+    // 将24小时进制转换为12小时
+    hour = hour>12?hour-12:hour;
 
-<h4>为什么要使用Grunt？</h4>
+    // 表盘(蓝色)
+    cxt.lineWidth = 10;
+    cxt.strokeStyle='blue'
+    cxt.beginPath();
+    cxt.arc(250,250,200,0,360,false);
+    cxt.closePath();
+    cxt.stroke();
 
-<p>Grunt是一个庞大的生态系统，每天都在成长。你可以自由的选择数以百计的插件以帮助你自动化的处理任务。如果你所需要的插件还被有人创建，那么你可以自己创建插件并通过npm很方便的发布以供更多人使用并一起完善。</p>
+    // 刻度
+      // 时刻度
+        for(var i = 0; i < 12; i++){
+          cxt.save();
+          cxt.lineWidth = 7;
+          cxt.strokeStyle = '#000000';
+          // 设置0,0点
+          cxt.translate(250,250);
+          // 设置旋转角度
+          cxt.rotate(i*30*Math.PI/180);//角度*Math.PI/180
+          cxt.beginPath();
+          cxt.moveTo(0,-170);
+          cxt.lineTo(0,-190);
+          cxt.closePath()
+          cxt.stroke();
+          cxt.restore();
+        }
 
-<p>参考网站：</p>
+      // 分刻度
+        for(var i = 0; i < 60; i++){
+          cxt.save();
+          cxt.lineWidth = 5;
+          cxt.strokeStyle = '#000000';
+          cxt.translate(250,250);
+          cxt.rotate(i*6*Math.PI/180);
+          cxt.beginPath();
+          cxt.moveTo(0,-180);
+          cxt.lineTo(0, -190);
+          cxt.closePath();
+          cxt.stroke();
+          cxt.restore();
+        }
+    // 指针
+      // 时针
+        cxt.save();
+        cxt.lineWidth = 7;
+        cxt.strokeStyle = '#000';
 
-<p><span class="help-inline"><a href="http://gruntjs.com/">grunt 官网</a></span>
-<span class="help-inline"><a href="http://www.gruntjs.org/">grunt 中文社区</a></span></p>
+        // 设置0,0点
+        cxt.translate(250,250);
+        // 设置旋转角度
+        cxt.rotate(hour*30*Math.PI/180);
+        cxt.beginPath();
+        cxt.moveTo(0,-120);
+        cxt.lineTo(0,10);
+        cxt.closePath();
+        cxt.stroke();
+
+        cxt.restore();
+      // 分针
+        cxt.save();
+        cxt.translate(250,250);//设置0,0点
+        cxt.rotate(min*6*Math.PI/180);
+        cxt.strokeStyle = '#000';
+        cxt.lineWidth = 7;
+
+        cxt.beginPath();
+        cxt.moveTo(0,-160);
+        cxt.lineTo(0,15);
+        cxt.closePath();
+        cxt.stroke();
+        cxt.restore();
+
+      // 秒针
+        cxt.save();
+        cxt.strokeStyle = '#ff0000';
+        cxt.lineWidth = 3;
+        // 设置0,0点
+        cxt.translate(250,250);
+        // 角度
+        cxt.rotate(sec*6*Math.PI/180);
+        // 画图
+        cxt.beginPath();
+        cxt.moveTo(0,-170);
+        cxt.lineTo(0,20);
+        cxt.closePath();
+        cxt.stroke();
+        // 画出时针、分针、秒针的交叉点
+        cxt.beginPath();
+        cxt.arc(0,0,5,0,360,false);
+        cxt.closePath();
+        // 设置填充样式
+        cxt.fillStyle = '#000';
+        // cxt.strokeStyle = 'red';
+        cxt.fill();
+        cxt.stroke();
+
+        cxt.beginPath();
+        cxt.arc(0,-150,3,0,360);
+        cxt.closePath();
+        cxt.fill();
+        cxt.stroke();
+        cxt.restore();
+
+  }
+
+  drawClock();
+  // 使用setInterval(代码，毫秒时间),让时钟动起来
+    setInterval(drawClock,1000)
+</script>
 
   </div>
 </div>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>video API</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/categories/others/" title="view all
+              posts">categories/others 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/iehack/" title="view all
+              posts">categories/iehack 2</a>
+            </li>
+            
+            <li><a href="/categories/categories/css/" title="view all
+              posts">categories/css 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/js/" title="view all
+              posts">categories/js 5</a>
+            </li>
+            
+            <li><a href="/categories/categories/css3/" title="view all
+              posts">categories/css3 3</a>
+            </li>
+            
+            <li><a href="/categories/categories/html/" title="view all
+              posts">categories/html 5</a>
+            </li>
+             -->
+
+            <li><a href="/allist.html">all</a></li>
+            <li><a href="/allist.html">html</a></li>
+            <li><a href="/allist.html">html5</a></li>
+            <li><a href="/allist.html">css</a></li>
+            <li><a href="/allist.html">css3</a></li>
+            <li><a href="/allist.html">js</a></li>
+            <li><a href="/allist.html">others</a></li>
+            <!-- <li><a href="/">jQuery</a></li> --> <!-- js框架:jquery/YUI/ExtJS -->
+            <!-- <li><a href="/">plugins</a></li> -->
+            <!-- <li><a href="/">rails</a></li> -->
+            <!-- <li><a href="/">Sass</a></li> -->
+            <!-- <li><a href="/">coffeescript</a></li> -->
+            <!-- <li><a href="/">nodejs</a></li> -->
+            <!-- <li><a href="/">jade</a></li> -->
+            <!-- <li><a href="/">angularjs</a></li> -->
+          </ul>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>video API</h2>
+  <p class="meta">24 Jun 2014</p>
+  <hr>
+  <div class="post">
+    <p><strong>video的常见属性</strong></p>
+
+<p>属性  值 描述</p>
+
+<p><code>Autoplay</code>  Autoplay  视频就绪自动播放</p>
+
+<p><code>controls</code>  controls  向用户显示播放控件</p>
+
+<p><code>Width</code> Pixels(像素)  设置播放器宽度</p>
+
+<p><code>Height</code>  Pixels(像素)  设置播放器高度</p>
+
+<p><code>Loop</code>  Loop  播放完是否继续播放该视频，循环播放</p>
+
+<p><code>Preload</code> Proload 是否等加载完再播放</p>
+
+<p><code>Src</code> url 视频url地址</p>
+
+<p><code>Poster</code>  Imgurl  加载等待的画面图片</p>
+
+<p><code>Autobuffer</code>  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有效</p>
+
+<p><strong>video的API方法</strong></p>
+
+<p>方法  属性  事件</p>
+
+<p><code>play()</code>  currentSrc  play</p>
+
+<p><code>pause()</code> currentTime pause</p>
+
+<p><code>load()</code>  videoWidth  progress</p>
+
+<p>canPlayType videoHeight error</p>
+
+<p>全屏  退出全屏</p>
+
+<p>&quot;Webkit (Safari5.1 /Chrome 15)&quot;  element.webkitRequestFullScreen();  document.
+webkitCancelFullScreen();</p>
+
+<p>&quot;Firefox (works in nightly)&quot; element.mozRequestFullScreen(); document.mozCancelFullScreen();</p>
+
+<p>W3C 提议  element.requestFullscreen();  document.exitFullscreen();</p>
+
+<p><strong>video的API属性</strong></p>
+
+<p>属性  说明</p>
+
+<p><code>audioTracks</code> 返回可用的音轨列表（MultipleTrackList对象）</p>
+
+<p><code>autoplay</code>  媒体加载后自动播放</p>
+
+<p><code>buffered</code>  返回缓冲部件的时间范围(TimeRanges对象)</p>
+
+<p><code>controller</code>  返回当前的媒体控制器（MediaController对象）</p>
+
+<p><code>controls</code>  显示播控控件</p>
+
+<p><code>crossOrigin</code> CORS设置</p>
+
+<p><code>currentSrc</code>  返回当前媒体的URL</p>
+
+<p><code>currentTime</code> 当前播放的时间，单位秒 (快进快退10秒)</p>
+
+<p><code>defaultMuted</code>  缺省是否静音</p>
+
+<p><code>defaultPlaybackRate</code> 播控的缺省倍速</p>
+
+<p>属性  说明</p>
+
+<p><code>duration</code>  返回媒体的播放总时长，单位秒</p>
+
+<p><code>ended</code> 返回当前播放是否结束标志</p>
+
+<p><code>error</code> 返回当前播放的错误状态</p>
+
+<p><code>initialTime</code> 返回初始播放的位置</p>
+
+<p><code>loop</code>  是否循环播放</p>
+
+<p><code>mediaGroup</code>  当前音视频所属媒体组 (用来链接多个音视频标签)</p>
+
+<p><code>muted</code> 是否静音</p>
+
+<p><code>networkState</code>  返回当前网络状态</p>
+
+<p><code>paused</code>  是否暂停</p>
+
+<p><code>playbackRate</code>  播放的倍速(加速、减速播放)</p>
+
+<p><code>played</code>  当前播放部件已经播放的时间范围(TimeRanges对象)</p>
+
+<p><code>preload</code> 页面加载时是否同时加载音视频</p>
+
+<p><code>readyState</code>  返回当前的准备状态</p>
+
+<p><code>seekable</code>  返回当前可跳转部件的时间范围(TimeRanges对象)</p>
+
+<p>属性  说明</p>
+
+<p><code>seeking</code> 返回用户是否做了跳转操作</p>
+
+<p><code>src</code> 当前音视频源的URL</p>
+
+<p><code>startOffsetTime</code> 返回当前的时间偏移(Date对象)</p>
+
+<p><code>textTracks</code>  返回可用的文本轨迹(TextTrackList对象)</p>
+
+<p><code>videoTracks</code> 返回可用的视频轨迹(VideoTrackList对象)</p>
+
+<p><code>volume</code>  音量值</p>
+
+<p><strong>video的常用事件</strong></p>
+
+<p>事件  描述</p>
+
+<p><code>abort</code> 当音视频加载被异常终止时产生该事件</p>
+
+<p><code>canplay</code> 当浏览器可以开始播放该音视频时产生该事件</p>
+
+<p><code>canplaythrough</code>  当浏览器可以开始播放该音视频到结束而无需因缓冲而停止时产生该事件</p>
+
+<p><code>durationchange</code>  当媒体的总时长改变时产生该事件</p>
+
+<p><code>emptied</code> 当前播放列表为空时产生该事件</p>
+
+<p><code>ended</code> 当前播放列表结束时产生该事件</p>
+
+<p><code>error</code> 当加载媒体发生错误时产生该事件</p>
+
+<p><code>loadeddata</code>  当加载媒体数据时产生该事件</p>
+
+<p><code>loadedmetadata</code>  当收到总时长，分辨率和字轨等metadata时产生该事件</p>
+
+<p><code>loadstart</code> 当开始查找媒体数据时产生该事件</p>
+
+<p>事件  描述</p>
+
+<p><code>pause</code> 当媒体暂停时产生该事件</p>
+
+<p><code>play</code>  当媒体播放时产生该事件</p>
+
+<p><code>playing</code> 当媒体从因缓冲而引起的暂停和停止恢复到播放时产生该事件</p>
+
+<p><code>progress</code>  当获取到媒体数据时产生该事件</p>
+
+<p><code>ratechange</code>  当播放倍数改变时产生该事件</p>
+
+<p><code>seeked</code>  当用户完成跳转时产生该事件</p>
+
+<p><code>seeking</code> 当用户正执行跳转时操作的时候产生该事件</p>
+
+<p><code>stalled</code> 当试图获取媒体数据，但数据还不可用时产生该事件</p>
+
+<p><code>suspend</code> 当获取不到数据时产生该事件</p>
+
+<p><code>timeupdate</code>  当前播放位置发生改变时产生该事件</p>
+
+<p><code>volumechange</code>  当前音量发生改变时产生该事件</p>
+
+<p><code>waiting</code> 当视频因缓冲下一帧而停止时产生该事件</p>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>

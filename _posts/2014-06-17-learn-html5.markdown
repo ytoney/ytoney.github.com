@@ -6,7 +6,8 @@ categories: categories/html
 ---
 
 
-####HTML 5是什么####
+
+####第一部分：HTML 5是什么####
 
 HTML 5 ≈ HTML+CSS 3+Javascript+API
 
@@ -49,8 +50,11 @@ www.html5china.com
 
 www.mhtml5.com
 
+<hr>
 
-####HTML标签的改变####
+
+
+####第二部分：HTML标签的改变####
 
 一、新的文档类型声明(DTD)
 
@@ -141,26 +145,27 @@ HTML元素  HTML5中的意义
 <small> 表示小字体，例如打印注释或者法律条款
 <strong>  表示重要性而不是强调符号
 {% endhighlight %}
-五、崭新新的页面布局
+五、崭新的页面布局
 
-####html音视频####
+<hr>
 
-HTML5支持的格式
+
+####第三部分：HTML音视频介绍####
+
+<!-- HTML5支持的格式 -->
 
 HTML5能在完全脱离插件的情况下播放音视频
 
 **HTML5支持的视频格式：**
 
-**Ogg** =带有Theora视频编码+Vorbis音频编码的Ogg文件
-  支持的浏览器:F、C、O
+**Ogg** =带有Theora视频编码+Vorbis音频编码的Ogg文件 **支持的浏览器:F、C、O**
 
-**MEPG4**=带有H.264视频编码+AAC音频编码的MPEG4文件
-  支持的浏览器: S、C
+**MEPG4**=带有H.264视频编码+AAC音频编码的MPEG4文件 **支持的浏览器: S、C**
 
-**WebM**=带有VP8视频编码+Vorbis音频编码的WebM格式  支持的浏览器: I、F、C、O
+**WebM**=带有VP8视频编码+Vorbis音频编码的WebM格式 **支持的浏览器: I、F、C、O**
 
 {% highlight html %}
-<Video>的使用
+<video>的使用
 
 <video src="文件地址" controls="controls"></video>
 
@@ -196,18 +201,9 @@ Poster  Imgurl  加载等待的画面图片
 Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有效
 {% endhighlight %}
 
-
-**Video的API方法**
-
-.......
-
-**Video的API属性**
-
-.......
-
-**Video的常用事件**
-
-.......
+<code><a href="/categories/html/2014/06/24/video-API.html">video的API方法</a></code>
+<code><a href="/categories/html/2014/06/24/video-API.html">video的API属性</a></code>
+<code><a href="/categories/html/2014/06/24/video-API.html">video的常用事件</a></code>
 
 **HTML5支持的音频格式**
 
@@ -215,9 +211,28 @@ HTML5在不使用插件的情况下也可以原生的支持音频格式文件的
 
 HTML5支持的音频格式：
 
-Ogg      免费 支持的浏览器:C、F、O
-MP3      收费 支持的浏览器: I、C、S
-Wav      收费 支持的浏览器: F、O、S
+Ogg      免费 **支持的浏览器:C、F、O**
+
+MP3      收费 **支持的浏览器: I、C、S**
+
+Wav      收费 **支持的浏览器: F、O、S**
+
+**audio的常见属性**
+
+
+属性  值 描述
+
+autoplay  autoplay  如果出现该属性，则音频在就绪后马上播放。
+
+controls  controls  如果出现该属性，则向用户显示控件，比如播放按钮。
+
+loop  loop  如果出现该属性，则每当音频结束时重新开始播放。
+
+preload preload "如果出现该属性，则音频在页面加载时进行加载，并预备播放。
+
+如果使用 "autoplay"，则忽略该属性。"
+
+src url 要播放的音频的 URL。
 
 {% highlight html %}
 <audio>的使用
@@ -235,3 +250,288 @@ Wav      收费 支持的浏览器: F、O、S
 {% endhighlight %}
 
 <audio controls="controls" src="/images/posts/video/video.mp3" ></audio>
+
+<hr>
+
+####第四部分：canvas标签介绍####
+
+**Canvas的使用**
+
+{% highlight html %}
+
+<canvas id="canvas"  height="300" width="300">
+  您的浏览器不支持canvas标签
+</canvas>
+
+{% endhighlight %}
+
+canvas标签在页面中只显示一个设定背景色的画布，如果要产生新内容或
+者进行画图操作，需要借助canvas API(HTML5的内置对context 对象)和
+javascript操作实现画图或者其他图像操作
+
+canvas的常见属性
+
+属性  值 描述
+
+height  pixels  设置 canvas 的高度。
+
+width pixels  设置 canvas 的宽度。
+
+**Canvas的API **
+
+<code>canvas主要属性和方法</code>
+
+方法  描述
+
+save()  保存当前环境的状态
+
+restore() 返回之前保存过的路径状态和属性
+
+createEvent()
+
+_getContext()  返回一个对象，指出访问绘图功能必要的API_
+
+toDataURL() 返回canvas图像的URL
+
+<code>颜色、样式和阴影属性和方法</code>
+
+属性  描述
+
+_fillStyle 设置或返回用于填充绘画的颜色、渐变或模式_
+
+_strokeStyle 设置或返回用于笔触的颜色、渐变或模式_
+
+shadowColor 设置或返回用于阴影的颜色
+
+shadowBlur  设置或返回用于阴影的模糊级别
+
+shadowOffsetX 设置或返回阴影距形状的水平距离
+
+shadowOffsetY 设置或返回阴影距形状的垂直距离
+
+<code><a href="/categories/html/2014/06/24/canvas-API.html">线条样式属性和方法</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">矩形方法</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">路径方法</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">转换方法</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">文本属性和方法</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">图像绘制方法</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">像素操作方法和属性</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">图像合成属性</a></code>
+<code><a href="/categories/html/2014/06/24/canvas-API.html">其他方法</a></code>
+
+**Canvas实践**
+
+<canvas width="800" height="300" style="background: #ddd;" id="canvas">
+  您的浏览器当前版本不支持canvas标签
+</canvas>
+
+<script type="text/javascript">
+  // 获取画布DOM
+  var canvas = document.getElementById('canvas');
+  // 设置绘图环境
+  var cxt = canvas.getContext('2d');
+  // 画一条线段
+    // 设定画笔的宽度
+    cxt.lineWidth = 5;
+    // 设置画笔的颜色
+    cxt.strokeStyle = '#00ff00'
+    // 设置笔触的位置
+    cxt.moveTo(20,20);
+    // 设置移动的方式
+    cxt.lineTo(100,20);
+    // 画线
+    cxt.stroke();
+    // 封闭路径
+    cxt.closePath();
+
+  // 画一个空心圆形 凡是路径图形必须先开始路径，画完之后必须结束路径
+    // 开始新路径
+    cxt.beginPath();
+    // 重新设置画笔
+    cxt.lineWidth = 10;
+    cxt.strokeStyle = 'blue'
+    cxt.arc(40,150,30,0,360,false);
+    cxt.stroke();
+    cxt.closePath();
+    // 画一个实心圆形
+    cxt.beginPath();
+    cxt.arc(120,150,40,0,360,false);
+    cxt.fillStyle = 'red';
+    cxt.lineWidth = 2;
+    cxt.stroke();
+    cxt.fill();
+    cxt.closePath();
+
+  // 画一个矩形
+    cxt.beginPath();
+    cxt.rect(20,220,60,60);
+    cxt.stroke();
+    cxt.fill();
+    cxt.closePath();
+    // 其他方法——建议方法
+    cxt.strokeRect(90,220,70,60);// 空心
+    cxt.fillRect(170,220,30,60);// 实心
+
+  // 设置文字
+    cxt.font='30px 黑体';
+    cxt.fillText('Hello HTML5', 250, 30);
+    cxt.lineWidth = '1';
+    cxt.strokeText('Hello HTML5', 250, 70);
+
+  // 画图 把一幅图画到画布中 注意webkit内核的浏览器chrome和猎豹不支持
+    var img = new Image();
+    img.src='/images/posts/12.jpg';
+    cxt.drawImage(img, 250, 120, 228, 140);
+
+  // 画一个三角形
+    cxt.beginPath();
+    cxt.moveTo(500, 30);
+    cxt.lineTo(568, 30);
+    cxt.lineTo(500, 100);
+    cxt.closePath();//填充或者画路径需线闭合路径再画
+    cxt.stroke();
+    //实心三角形
+    cxt.beginPath();
+    cxt.moveTo(600, 20);
+    cxt.lineTo(500, 120);
+    cxt.lineTo(700, 120);
+    cxt.closePath();
+    cxt.fill();
+
+  //旋转图片
+    // 设置旋转环境
+    cxt.save();
+      // 在异次元空间重置0,0点的位置
+      cxt.translate(20,20);
+    // 图片/形状旋转
+      // 设置旋转角度 参数是弧度 角度0-360 弧度=角度*Math.PI/180
+      cxt.rotate(-30*Math.PI/180);
+      // 旋转一个线段
+      cxt.beginPath();
+      cxt.lineWidth=5;
+      cxt.moveTo(0,0);
+      cxt.lineTo(20,90);
+      cxt.stroke();
+      cxt.closePath();
+    // 将旋转之后的元素放回原画布
+    cxt.restore()
+    // 过程不可颠掉 先设置0,0点，再旋转角度，然后画图
+
+      // 旋转图片
+      cxt.save();
+        cxt.translate(250,120);
+        cxt.rotate(-20*Math.PI/180);
+        var img = new Image();
+        img.src='/images/posts/12.jpg';
+        cxt.drawImage(img, 0, 0, 228, 140);
+
+      cxt.restore();
+
+</script>
+
+**<a href="/categories/html/2014/06/24/canvas-demo.html">canvas实例</a>**
+
+####第四部分：智能表单的应用####
+
+
+HTML5中为了方便排版，可以使from中的表单标签脱离from的嵌套。
+
+方法:from指定ID，所有表单标签均添加from=id属性。
+
+{% highlight html %}
+  <form action="" method="post" id="register" ></form>
+
+  <input  type="text" name="user" form="register" />
+  <select name="year" form="register" >
+    <option value="1999"></option>
+  </select>
+  <textarea name="ext" form="register" ></textarea>
+  <button type="submit" form="register" >提交</button>
+{% endhighlight %}
+
+
+智能表单的使用和规范
+
+**Input表单的type新属性值**
+
+<code>Type="email"</code>  限制用户输入必须为Email类型
+
+<code>Type="url"</code>  限制用户输入必须为URL类型
+
+<code>Type="date"</code> 限制用户输入必须为日期类型
+
+<code>Type="time"</code> 限制用户输入必须为时间类型O
+
+<code>Type="month"</code>  限制用户输入必须为月类型O
+
+<code>Type="week"</code> 限制用户输入必须为周类型O
+
+<code>Type="number"</code> 限制用户输入必须为数字类型
+
+<code>Type="range"</code>  产生一个滑动条的表单
+
+<code>Type="search"</code> 产生一个搜索意义的表单 配合results="n"属性 C
+
+<code>Type="color"</code>  生成一个颜色选择表单
+
+
+<form action="" method="post" id="register"></form>
+
+<label for="">邮箱：<input type="email" form="register" required="required"></label>
+<label for="">date：<input type="date" form="register"></label>
+<label for="">time：<input type="time" form="register"></label>
+<label for="">month：<input type="month" form="register"></label>
+<label for="">week：<input type="week" form="register"></label>
+<label for="">数字：<input type="number" form="register"></label>
+<label for="">range：<input type="range" form="register" max="5"></label>
+<label for="">search:<input type="search" form="register" results="n"></label>
+<label for="">color:<input type="color" form="register"></label>
+<button type="submit">注册</button>
+
+**新增的表单属性**
+
+属性  值 说明
+
+<code>Required</code>  required  表单拥有该属性表示其内容不能为空，必填
+
+<code>placeholder</code> 提示文本  表单的提示信息，存在默认值将不显示
+
+<code>Autofocus</code> autofocus 自动聚焦属性，页面加载完成自动聚焦到指定表单
+
+<code>Pattern</code> 正则表达式 输入的内容必须匹配到指定正则
+
+**Autocomplete列表**
+
+Datalist标签配合option标签实现的自动填充表单功能：
+
+{% highlight html %}
+<input type="search" name="move" list="search" >
+<datalist id="search" >
+  <option>黑老师的由来</option>
+  <option>男人缘</option>
+  <option>佳佳婕婕不得不说的故事</option>
+</datalist>
+{% endhighlight %}
+
+<input type="search" name="move" list="search" >
+<datalist id="search" >
+  <option>黑老师的由来</option>
+  <option>男人缘</option>
+  <option>佳佳婕婕不得不说的故事</option>
+</datalist>
+
+**output的使用**
+
+{% highlight html %}
+<form action="" method="post" oninput="result.value=parseInt(no1.value)*parseInt(no2.value)">
+  <input type="number" name="no1">
+  <input type="number" name="no2">
+  <output name="result"></output>
+</form>
+{% endhighlight %}
+
+<form action="" method="post" oninput="result.value=parseInt(no1.value)*parseInt(no2.value)">
+  <input type="number" name="no1">
+  <input type="number" name="no2">
+  <output name="result"></output>
+</form>

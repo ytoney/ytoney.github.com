@@ -152,6 +152,7 @@ ul.nav.navbar-nav.navbar-right
 </ul>
 {% endhighlight %}
 
+
 通过这个实例发现代码变得非常简洁，缩进清晰，公共的样式内容可以共用。
 
 但是感觉手写html的代码输入量并没有比我平时输入的少——通过zencoding。
@@ -161,3 +162,20 @@ ul.nav.navbar-nav.navbar-right
 更多的语法请参考：
 
 [Language Reference](http://jade-lang.com/reference/)
+
+
+<hr>
+<hr>
+
+###实践总结：<small>——By Jane Q</small>###
+
+####如何在页面中添加内部样式####
+
+{% highlight html %}
+extends _layout
+  block append head
+    //- link(rel="stylesheet",href="css/search.css")
+    style(type="text/css")
+      | body{background: url(images/pro-search/search-bg.jpg) no-repeat center top;background-size: cover;}
+      | .navbar-header{background: #fff;}
+{% endhighlight %}

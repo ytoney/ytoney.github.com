@@ -1,0 +1,176 @@
+---
+layout: post
+title:  "video API"
+date:   2014-06-24 13:40:34
+categories: categories/html
+---
+
+
+
+
+**video的常见属性**
+
+
+属性  值 描述
+
+<code>Autoplay</code>  Autoplay  视频就绪自动播放
+
+<code>controls</code>  controls  向用户显示播放控件
+
+<code>Width</code> Pixels(像素)  设置播放器宽度
+
+<code>Height</code>  Pixels(像素)  设置播放器高度
+
+<code>Loop</code>  Loop  播放完是否继续播放该视频，循环播放
+
+<code>Preload</code> Proload 是否等加载完再播放
+
+<code>Src</code> url 视频url地址
+
+<code>Poster</code>  Imgurl  加载等待的画面图片
+
+<code>Autobuffer</code>  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有效
+
+**video的API方法**
+
+
+方法  属性  事件
+
+<code>play()</code>  currentSrc  play
+
+<code>pause()</code> currentTime pause
+
+<code>load()</code>  videoWidth  progress
+
+canPlayType videoHeight error
+
+
+  全屏  退出全屏
+
+"Webkit (Safari5.1 /Chrome 15)"  element.webkitRequestFullScreen();  document.
+webkitCancelFullScreen();
+
+"Firefox (works in nightly)" element.mozRequestFullScreen(); document.mozCancelFullScreen();
+
+W3C 提议  element.requestFullscreen();  document.exitFullscreen();
+
+
+**video的API属性**
+
+属性  说明
+
+<code>audioTracks</code> 返回可用的音轨列表（MultipleTrackList对象）
+
+<code>autoplay</code>  媒体加载后自动播放
+
+<code>buffered</code>  返回缓冲部件的时间范围(TimeRanges对象)
+
+<code>controller</code>  返回当前的媒体控制器（MediaController对象）
+
+<code>controls</code>  显示播控控件
+
+<code>crossOrigin</code> CORS设置
+
+<code>currentSrc</code>  返回当前媒体的URL
+
+<code>currentTime</code> 当前播放的时间，单位秒 (快进快退10秒)
+
+<code>defaultMuted</code>  缺省是否静音
+
+<code>defaultPlaybackRate</code> 播控的缺省倍速
+
+
+属性  说明
+
+<code>duration</code>  返回媒体的播放总时长，单位秒
+
+<code>ended</code> 返回当前播放是否结束标志
+
+<code>error</code> 返回当前播放的错误状态
+
+<code>initialTime</code> 返回初始播放的位置
+
+<code>loop</code>  是否循环播放
+
+<code>mediaGroup</code>  当前音视频所属媒体组 (用来链接多个音视频标签)
+
+<code>muted</code> 是否静音
+
+<code>networkState</code>  返回当前网络状态
+
+<code>paused</code>  是否暂停
+
+<code>playbackRate</code>  播放的倍速(加速、减速播放)
+
+<code>played</code>  当前播放部件已经播放的时间范围(TimeRanges对象)
+
+<code>preload</code> 页面加载时是否同时加载音视频
+
+<code>readyState</code>  返回当前的准备状态
+
+<code>seekable</code>  返回当前可跳转部件的时间范围(TimeRanges对象)
+
+属性  说明
+
+<code>seeking</code> 返回用户是否做了跳转操作
+
+<code>src</code> 当前音视频源的URL
+
+<code>startOffsetTime</code> 返回当前的时间偏移(Date对象)
+
+<code>textTracks</code>  返回可用的文本轨迹(TextTrackList对象)
+
+<code>videoTracks</code> 返回可用的视频轨迹(VideoTrackList对象)
+
+<code>volume</code>  音量值
+
+**video的常用事件**
+
+
+事件  描述
+
+<code>abort</code> 当音视频加载被异常终止时产生该事件
+
+<code>canplay</code> 当浏览器可以开始播放该音视频时产生该事件
+
+<code>canplaythrough</code>  当浏览器可以开始播放该音视频到结束而无需因缓冲而停止时产生该事件
+
+<code>durationchange</code>  当媒体的总时长改变时产生该事件
+
+<code>emptied</code> 当前播放列表为空时产生该事件
+
+<code>ended</code> 当前播放列表结束时产生该事件
+
+<code>error</code> 当加载媒体发生错误时产生该事件
+
+<code>loadeddata</code>  当加载媒体数据时产生该事件
+
+<code>loadedmetadata</code>  当收到总时长，分辨率和字轨等metadata时产生该事件
+
+<code>loadstart</code> 当开始查找媒体数据时产生该事件
+
+事件  描述
+
+<code>pause</code> 当媒体暂停时产生该事件
+
+<code>play</code>  当媒体播放时产生该事件
+
+<code>playing</code> 当媒体从因缓冲而引起的暂停和停止恢复到播放时产生该事件
+
+<code>progress</code>  当获取到媒体数据时产生该事件
+
+<code>ratechange</code>  当播放倍数改变时产生该事件
+
+<code>seeked</code>  当用户完成跳转时产生该事件
+
+<code>seeking</code> 当用户正执行跳转时操作的时候产生该事件
+
+<code>stalled</code> 当试图获取媒体数据，但数据还不可用时产生该事件
+
+<code>suspend</code> 当获取不到数据时产生该事件
+
+<code>timeupdate</code>  当前播放位置发生改变时产生该事件
+
+<code>volumechange</code>  当前音量发生改变时产生该事件
+
+<code>waiting</code> 当视频因缓冲下一帧而停止时产生该事件
