@@ -1,0 +1,15 @@
+---
+layout: default
+title: Jane Q's Blog
+---
+
+
+<div class="main">
+  <ul class="posts unstyled">
+    {% for post in site.categories["categories/css"] %}
+    <li><a href="{{ post.url }}" title="view all
+      posts">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
