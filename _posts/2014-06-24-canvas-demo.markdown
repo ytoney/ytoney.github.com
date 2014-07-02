@@ -2,7 +2,7 @@
 layout: post
 title:  "canvas实例1——时钟"
 date:   2014-06-24 15:40:34
-categories: categories/html
+categories: categories/demo
 ---
 
 <canvas id="clock" width="500" height="500">您的浏览器不支持canvas，无法看到时钟</canvas>
