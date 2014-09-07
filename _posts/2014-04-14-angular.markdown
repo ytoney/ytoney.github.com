@@ -44,7 +44,7 @@ MVC背后的核心理念：你应该把管理数据的代码（model）、应用
 
 9.css类和样式
 
-可以使用{{}}插值语法把它们进行数据绑定，也可以使用插值的方式绑定内联样式，style="{{some expression}}"。由于插值语法存在一些不利的方面，所以angular提供了ng-class和ng-style指令。这两个值都接受一个表达式，表达式执行的结果可能是如下取值之一：
+可以使用{{}}插值语法把它们进行数据绑定，也可以使用插值的方式绑定内联样式，style="{ {some expression}}"。由于插值语法存在一些不利的方面，所以angular提供了ng-class和ng-style指令。这两个值都接受一个表达式，表达式执行的结果可能是如下取值之一：
 
 *表示css类名的字符串，以空格分隔。
 
@@ -55,14 +55,18 @@ MVC背后的核心理念：你应该把管理数据的代码（model）、应用
 10.反思src和href属性——ng-src and ng-href
 
 {% highlight html %}
-<img ng-src="/images/cats/{ {favoriteCat}}">
 
+<img ng-src="/images/cats/{ {favoriteCat}}">
 <a ng-href="/shop/category={ {numberOfBalloons}}">some text</a>
+
 {% endhighlight %}
+
 
 11.表达式
 
+
 12.区分UI和控制器的职责
+
 
 在应用中控制器有三种职责：
 
@@ -72,6 +76,48 @@ MVC背后的核心理念：你应该把管理数据的代码（model）、应用
 
 *监视模型其余部分的变化，并采取相应的动作。
 
+嵌套控制器
+
+{% highlight html %}
+<div ng-controller="ParentController">
+  <div ng-controller="ChildController"></div>
+</div>
+{% endhighlight %}
+
+虽然我们把这种方式叫做控制器嵌套，但真实的嵌套发生在$scope对象上。
+
+通过内部的原型继承机制，父控制器对象上的$scope会被传递给内部嵌套控制器的$scope。
+
+具体到上面的例子就是，ChildController的$scope对象可以访问ParentController的$scope对象上的所有属性（和函数）。
+
 13.利用$scope暴露模型数据
 
+
 14.使用$watch监控数据模型的变化
+
+<pre>
+calculateDiscount = (newValue, oldValue, scope) ->
+  $scope.bill.discount = if newValue > 100 then 10 else 0
+$scope.$watch($scope.totalCart, calculateDiscount)
+</pre>
+
+15.使用Module（模块）组织依赖关系
+
+
+16.使用过滤器格式化数据
+
+使用过滤器的语法：
+
+<pre>
+  {{expression | filterName:parameter1:...parameterN}}
+</pre>
+
+
+
+
+
+
+
+
+
+

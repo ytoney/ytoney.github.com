@@ -19,7 +19,7 @@
           <ul class="unstyled text-right">
             <!-- 
             <li><a href="/categories/others/" title="view all
-              posts">categories/others (3)</a>
+              posts">categories/others (5)</a>
             </li>
             
             <li><a href="/categories/iehack/" title="view all
@@ -31,7 +31,7 @@
             </li>
             
             <li><a href="/categories/js/" title="view all
-              posts">categories/js (5)</a>
+              posts">categories/js (7)</a>
             </li>
             
             <li><a href="/categories/css3/" title="view all
@@ -48,13 +48,13 @@
              -->
             <li><a href="/allist.html">all</a></li>
             
-            <li><a href="/categories/others.html">others(3)</a></li>
+            <li><a href="/categories/others.html">others(5)</a></li>
             
             <li><a href="/categories/iehack.html">iehack(2)</a></li>
             
             <li><a href="/categories/css.html">css(3)</a></li>
             
-            <li><a href="/categories/js.html">js(5)</a></li>
+            <li><a href="/categories/js.html">js(7)</a></li>
             
             <li><a href="/categories/css3.html">css3(3)</a></li>
             
@@ -119,7 +119,7 @@
 
 <p>9.css类和样式</p>
 
-<p>可以使用插值语法把它们进行数据绑定，也可以使用插值的方式绑定内联样式，style=&quot;&quot;。由于插值语法存在一些不利的方面，所以angular提供了ng-class和ng-style指令。这两个值都接受一个表达式，表达式执行的结果可能是如下取值之一：</p>
+<p>可以使用插值语法把它们进行数据绑定，也可以使用插值的方式绑定内联样式，style=&quot;{ {some expression}}&quot;。由于插值语法存在一些不利的方面，所以angular提供了ng-class和ng-style指令。这两个值都接受一个表达式，表达式执行的结果可能是如下取值之一：</p>
 
 <p>*表示css类名的字符串，以空格分隔。</p>
 
@@ -130,7 +130,6 @@
 <p>10.反思src和href属性——ng-src and ng-href</p>
 
 <div class="highlight"><pre><code class="html"><span class="nt">&lt;img</span> <span class="na">ng-src=</span><span class="s">&quot;/images/cats/{ {favoriteCat}}&quot;</span><span class="nt">&gt;</span>
-
 <span class="nt">&lt;a</span> <span class="na">ng-href=</span><span class="s">&quot;/shop/category={ {numberOfBalloons}}&quot;</span><span class="nt">&gt;</span>some text<span class="nt">&lt;/a&gt;</span>
 </code></pre></div>
 
@@ -146,9 +145,38 @@
 
 <p>*监视模型其余部分的变化，并采取相应的动作。</p>
 
+<p>嵌套控制器</p>
+
+<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ParentController&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">&quot;ChildController&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>虽然我们把这种方式叫做控制器嵌套，但真实的嵌套发生在$scope对象上。</p>
+
+<p>通过内部的原型继承机制，父控制器对象上的$scope会被传递给内部嵌套控制器的$scope。</p>
+
+<p>具体到上面的例子就是，ChildController的$scope对象可以访问ParentController的$scope对象上的所有属性（和函数）。</p>
+
 <p>13.利用$scope暴露模型数据</p>
 
 <p>14.使用$watch监控数据模型的变化</p>
+
+<pre>
+calculateDiscount = (newValue, oldValue, scope) ->
+  $scope.bill.discount = if newValue > 100 then 10 else 0
+$scope.$watch($scope.totalCart, calculateDiscount)
+</pre>
+
+<p>15.使用Module（模块）组织依赖关系</p>
+
+<p>16.使用过滤器格式化数据</p>
+
+<p>使用过滤器的语法：</p>
+
+<pre>
+  
+</pre>
 
   </div>
 </div>

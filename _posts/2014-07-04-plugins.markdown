@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "常用jquery插件"
+date:   2014-07-04 11:37:34
+categories: categories/js
+---
+
+<ol>
+  <li><a href="http://vitalets.github.io/x-editable/">x-editable</a></li>
+  <li><a href="http://vitalets.github.io/bootstrap-editable/">bootstrap-editable</a></li>
+
+  <li><a href="http://www.eyecon.ro/bootstrap-datepicker/">bootstrap-datepicker</a></li>
+  <li><a href="https://github.com/dangrossman/bootstrap-daterangepicker/">bootstrap-daterangepicker</a></li>
+  <li><a href="http://filamentgroup.com/examples/daterangepicker_v2/">daterangepicker_v2（JQuery UI）</a></li>
+
+  <li><a href="https://github.com/mindmup/bootstrap-wysiwyg">bootstrap-wysiwyg</a></li>
+
+  <li><a href="http://reactiveraven.github.io/jqBootstrapValidation/">jqBootstrapValidation</a></li>
+
+  <li><a href="http://ivaynberg.github.io/select2/index.html">select2</a></li>
+  <li><a href="http://www.bulgaria-web-developers.com/projects/javascript/selectbox/">selectbox</a></li>
+
+  <li><a href="http://www.ztree.me/v3/main.php#_zTreeInfo">ztree</a></li>
+
+  <li><a href="http://www.uploadify.com/">uploadify</a></li>
+
+  <li><a href="http://skidding.github.io/dragdealer/">dragdealer</a></li>
+
+  <li><a href="http://arshaw.com/fullcalendar/docs/">fullcalendar</a></li>
+
+  <li><a href="http://www.jacklmoore.com/colorbox/">colorbox</a></li>
+
+  <li><a href="http://masonry.desandro.com/">masonry</a></li>
+
+  <li><a href="http://www.appelsiini.net/projects/lazyload">lazyload</a></li>
+
+  <li><a href="https://github.com/flot/flot/blob/master/API.md#plot-options">flot</a></li>
+  <li><a href="http://api.highcharts.com/highcharts">highcharts</a></li>
+  <li><a href="http://www.amcharts.com/demos/clustered-bar-chart/">amcharts</a></li>
+  <li><a href="http://g.raphaeljs.com/">raphaeljs</a></li>
+
+  <li><a href="http://www.tablefixedheader.com/">tablefixedheader</a></li>
+
+  <li><a href="http://hpneo.github.io/gmaps/">gmaps</a></li>
+
+  <li><a href="http://remysharp.com/2008/09/10/the-silky-smooth-marquee/">the-silky-smooth-marquee</a></li>
+
+  <li><a href="http://gridster.net/">gridster</a></li>
+
+
+</ol>

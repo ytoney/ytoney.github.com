@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>angular-routing-using-ui-router</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/others/" title="view all
+              posts">categories/others (5)</a>
+            </li>
+            
+            <li><a href="/categories/iehack/" title="view all
+              posts">categories/iehack (2)</a>
+            </li>
+            
+            <li><a href="/categories/css/" title="view all
+              posts">categories/css (3)</a>
+            </li>
+            
+            <li><a href="/categories/js/" title="view all
+              posts">categories/js (7)</a>
+            </li>
+            
+            <li><a href="/categories/css3/" title="view all
+              posts">categories/css3 (3)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (4)</a>
+            </li>
+            
+            <li><a href="/categories/demo/" title="view all
+              posts">categories/demo (3)</a>
+            </li>
+             -->
+            <li><a href="/allist.html">all</a></li>
+            
+            <li><a href="/categories/others.html">others(5)</a></li>
+            
+            <li><a href="/categories/iehack.html">iehack(2)</a></li>
+            
+            <li><a href="/categories/css.html">css(3)</a></li>
+            
+            <li><a href="/categories/js.html">js(7)</a></li>
+            
+            <li><a href="/categories/css3.html">css3(3)</a></li>
+            
+            <li><a href="/categories/html.html">html(4)</a></li>
+            
+            <li><a href="/categories/demo.html">demo(3)</a></li>
+            
+
+            <!-- <li><a href="/csslist.html">css</a></li> -->
+          </ul>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>angular-routing-using-ui-router</h2>
+  <p class="meta">07 Jul 2014</p>
+  <hr>
+  <div class="post">
+    <p>使用UI-Router的AngularJS路由</p>
+
+<p>AngularJS为制作单页的应用程序提供了一个强大的方式。我们在创建单页的应用程序时，路由是很重要的。我们希望我们的导航感觉像一个正常的网站，，还不使我们的网站刷新。我们已经仔细讲解过使用通常的ngRoute方法的Angular路由。</p>
+
+<p>今天我们将看看使用UI-Router的路由。</p>
+
+<p>概述</p>
+
+<p>什么是AngularUI Router?</p>
+
+<p>UI-Router是一个路由框架，它被用于AngularUI团队开发的AngularJS。这个框架提供一个与ngRoute不同的方法，这种方法改变你的应用程序视图基于应用程序的状态，而且也不只是路由URL。</p>
+
+<p>States vs URL Route</p>
+
+<p>使用这种方法，你的视图和路由并没有被绑定到该网站的URL上。这种方式，你可以改变你网站的部分使用路由，即使URL并没有改变。</p>
+
+<p>当使用ngRoute的时，你必须要使用ngInclude或者其他的方法，这可能会让人困惑。现在你所有的状态、路由和视图都是通过你的.config()处理的，这将有助于自顶向下查看你的应用程序。</p>
+
+<p>Sample Application</p>
+
+<p>让我们做一些类似于其他路由教程，创建一个Home和About页面。</p>
+
+<p>Setup</p>
+
+<p>让我们开始我们的应用程序。我们将需要以下几个文件：</p>
+
+<pre>
+- index.html          // will hold the main template for our app
+- app.js            // our angular code
+- partial-about.html      // about page code
+- partial-home.html       // home page code
+- partial-home-list.html    // injected into the home page
+- table-data.html         // re-usable table that we can place anywhere
+</pre>
+
+<p>理解我们的应用程序结构，编写一些文件：</p>
+
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- index.html --&gt;</span>
+
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+
+    <span class="c">&lt;!-- CSS (load bootstrap) --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nc">.navbar</span> <span class="p">{</span> <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span><span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+
+    <span class="c">&lt;!-- JS (load angular, ui-router, and our custom js file) --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.angularjs.org/1.2.13/angular.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;app.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="c">&lt;!-- apply our angular app to our site --&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">ng-app=</span><span class="s">&quot;routerApp&quot;</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- NAVIGATION --&gt;</span>
+<span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">&quot;navbar navbar-inverse&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navbar-header&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">ui-sref=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>AngularUI Router<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav navbar-nav&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&quot;home&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">ui-sref=</span><span class="s">&quot;about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+
+<span class="c">&lt;!-- MAIN CONTENT --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+
+  <span class="c">&lt;!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ui-view</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+
+<p>这是我们的HTML文件。我们将使用Bootstrap框架来改善我们的样式。请注意，我们除了载入Angular之外也加载了ui-router。UI Router从Angular核心被分离，就像ngRoute被分离一样。</p>
+
+<p>用UI-Router创建链接的时候，你要使用ui-sref。通过ui-sref生成href，可以让它指向你的应用程序的某个状态。这些都是在你的app.js中被创建的。</p>
+
+<div class="highlight"><pre><code class="html">我们也可以用<span class="nt">&lt;div</span> <span class="na">ui-view</span><span class="nt">&gt;&lt;/div&gt;</span>代替ngRoute的<span class="nt">&lt;div</span> <span class="na">ng-view</span><span class="nt">&gt;&lt;/div&gt;</span>。
+</code></pre></div>
+
+<p>现在，让我们来看下Angular应用中的app.js吧。</p>
+
+<div class="highlight"><pre><code class="html">// app.js
+var routerApp = angular.module(&#39;routerApp&#39;, [&#39;ui.router&#39;]);
+
+routerApp.config(function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise(&#39;/home&#39;);
+
+    $stateProvider
+
+        // HOME STATES AND NESTED VIEWS ========================================
+        .state(&#39;home&#39;, {
+            url: &#39;/home&#39;,
+            templateUrl: &#39;partial-home.html&#39;
+        })
+
+        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+        .state(&#39;about&#39;, {
+            // we&#39;ll get to this in a bit
+        });
+
+});
+</code></pre></div>
+
+<p>现在我们已经创建了这个routerApp，它已经被应用到index.html文件中的body上了。</p>
+
+<p>在app.js中我们为home和about分别创建了.state()。在home页面中，我们使用了partial-home.html模板。</p>
+
+<p>让我们为partial-home.html页面添些内容，以便我们可以确切地看到内容。</p>
+
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- partial-home.html --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;jumbotron text-center&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>The Homey Page<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>This page demonstrates <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;text-danger&quot;</span><span class="nt">&gt;</span>nested<span class="nt">&lt;/span&gt;</span> views.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>现在我们就拥有自己的网站了！它不能实现很多，但是我们已经有了一个。
+(demo效果图略)</p>
+
+<p>在这些常规的东西完成之后，让我们看看为什么说UI-Router有一些很酷的特性吧。</p>
+
+<p>嵌套视图（Home Page）</p>
+
+<p>让我们看看如何嵌套视图。我们要添加两个按钮到home页，并且，在这个页面我们要根据我们点击的按钮显示不同的内容。</p>
+
+<p>我们将添加按钮到partial-home.html文件中，然后打开Angular文件，查看我们如何改变它添加嵌套视图。</p>
+
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- partial-home.html --&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;jumbotron text-center&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>The Homey Page<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>This page demonstrates <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;text-danger&quot;</span><span class="nt">&gt;</span>nested<span class="nt">&lt;/span&gt;</span> views.<span class="nt">&lt;/p&gt;</span>
+
+    <span class="nt">&lt;a</span> <span class="na">ui-sref=</span><span class="s">&quot;.list&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="nt">&gt;</span>List<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">ui-sref=</span><span class="s">&quot;.paragraph&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-danger&quot;</span><span class="nt">&gt;</span>Paragraph<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">ui-view</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+当我们要链接到一个嵌套视图的时候，要使用点标记，如：ui-sref=&quot;.list&quot; 和ui-sref=&quot;.pargraph&quot;。这些点标记将在Angular文件中定义，一旦我们在这里设置了它，我们将注入新的<span class="nt">&lt;div</span> <span class="na">ui-view</span><span class="nt">&gt;&lt;/div&gt;</span>。
+</code></pre></div>
+
+<p>在app.js文件中，让我们创建这些嵌套的状态。</p>
+
+<div class="highlight"><pre><code class="html">// app.js
+...
+
+$stateProvider
+
+  // HOME STATES AND NESTED VIEWS ========================================
+    .state(&#39;home&#39;, {
+        url: &#39;/home&#39;,
+        templateUrl: &#39;partial-home.html&#39;
+    })
+
+  // nested list with custom controller
+  .state(&#39;home.list&#39;, {
+        url: &#39;/list&#39;,
+        templateUrl: &#39;partial-home-list.html&#39;,
+        controller: function($scope) {
+            $scope.dogs = [&#39;Bernese&#39;, &#39;Husky&#39;, &#39;Goldendoodle&#39;];
+        }
+    })
+
+  // nested list with just some random string data
+    .state(&#39;home.paragraph&#39;, {
+        url: &#39;/paragraph&#39;,
+        template: &#39;I could sure use a drink right now.&#39;
+    })
+
+...
+</code></pre></div>
+
+<p>现在，我们在home.html文件中定义的ui-sref被连接到一个实际的状态。通过创建home.list和home.paragraph，这些链接将得到提供的模板并将它注入到ui-view中。</p>
+
+<p>我们需要为home页做的最后一件事是定义partial-home-list.html文件。We have also passed in a controller with a list of dogs that we will use in the template file.</p>
+
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- partial-home-list.html --&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">&quot;dog in dogs&quot;</span><span class="nt">&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div>
+
+<p>现在，当我们点击list按钮时，它会将我们的dogs列表注入到模板中。或者，如果我们单击Paragraph按钮的时候，它会将我们给定的字符串注入到模板中。</p>
+
+<p>你可以看到，根据state是多么容易改变应用程序的不同部分。我们不必用ngInclude、ngShow、ngHide、或者ngIf做任何形式的工作。这样可以保持我们的视图文件的简洁，因为所有的工作都是在app.js中完成的。</p>
+
+<p>让我们继续，看我们如何拥有多视图。</p>
+
+<p>多视图 (About Page)</p>
+
+<p>在你的应用中拥有多视图是非常强大的。也许在你的网站里有一个边栏，里边有一些内容，像Popular Posts、Recent Posts、Users、或者其他任何内容。这些内容也可以被分离，注入到我们的模板中。每一个都拥有自己的controller和模板文件，所以我们的app保持简洁。</p>
+
+<p>我们的应用像这样模块化也可以让我们在不同的模板中重用数据。</p>
+
+<p>对于About页面，我们做两列并且每列都有自己的数据。我们首先要处理视图，然后再看我们用UI-Router如何实现this。</p>
+
+<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- partial-about.html --&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;jumbotron text-center&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>The About Page<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>This page demonstrates <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;text-danger&quot;</span><span class="nt">&gt;</span>multiple<span class="nt">&lt;/span&gt;</span> and <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;text-danger&quot;</span><span class="nt">&gt;</span>named<span class="nt">&lt;/span&gt;</span> views.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row&quot;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- COLUMN ONE NAMED VIEW --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ui-view=</span><span class="s">&quot;columnOne&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="c">&lt;!-- COLUMN TWO NAMED VIEW --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-sm-6&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">ui-view=</span><span class="s">&quot;columnTwo&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>这个文件中有两个视图，一个是columnOne，另一个是columnTwo。</p>
+
+<p>为什么有人愿意用这种方式呢？这是一个很好的问题。我们创建一个很模块化的应用，这困惑吗？官方UI-Router文档里提到，有一个例子讲为什么你会有多个命名视图。在他们的例子中，展示应用的不同部分。每一部分都有它自己的数据，所以每一部分都有自己的controller和模板文件使得很容易创建像这样的东西。</p>
+
+<p>到现在，我们所有的视图都被创建了，接下来让我们看看我们如何将模板文件和控制器应用到每一个视图。让我们回到app.js文件。</p>
+
+<div class="highlight"><pre><code class="html">// app.js
+
+...
+
+    .state(&#39;about&#39;, {
+        url: &#39;/about&#39;,
+        views: {
+
+            // the main template will be placed here (relatively named)
+            &#39;&#39;: { templateUrl: &#39;partial-about.html&#39; },
+
+            // the child views will be defined here (absolutely named)
+            &#39;columnOne@about&#39;: { template: &#39;Look I am a column!&#39; },
+
+            // for column two, we&#39;ll define a separate controller
+            &#39;columnTwo@about&#39;: {
+                templateUrl: &#39;table-data.html&#39;,
+                controller: &#39;scotchController&#39;
+            }
+        }
+
+    });
+
+}); // closes $routerApp.config()
+
+
+// let&#39;s define the scotch controller that we call up in the about state
+routerApp.controller(&#39;scotchController&#39;, function($scope) {
+
+    $scope.message = &#39;test&#39;;
+
+    $scope.scotches = [
+        {
+            name: &#39;Macallan 12&#39;,
+            price: 50
+        },
+        {
+            name: &#39;Chivas Regal Royal Salute&#39;,
+            price: 10000
+        },
+        {
+            name: &#39;Glenfiddich 1937&#39;,
+            price: 20000
+        }
+    ];
+
+});
+
+...
+</code></pre></div>
+
+<p>像这样，我们的About页面就已经准备好了。现在也许还是很困惑，我们如何为about state在视图中嵌套每件事情。为什么没有为主页定义一个templateUrl，然后在一个嵌套视图对象中定义columns？这个原因就是给我们的真正伟大的工具。</p>
+
+<p>相对命名和绝对命名</p>
+
+<p>UI-Router分配给每一个视图一个绝对的命名。绝对命名的结构是viewName@stateName。因为我们主要的ui-view在about state里，我们就给它一个空白的名字。另外两个视图是columnOne@about和columnTwo@about。</p>
+
+<p>Having the naming scheme this way let’s us define multiple views inside a single state. The docs explain this concept very well and I’d encourage taking a look at their examples. Extremely powerful tools there.</p>
+
+<p>总结</p>
+
+<p>这是一篇关于强大工具UI-Router的概述。你能用它做的事情是令人难以置信的，当你看见你的应用程序作为states而不是ngRoute的时候，Angular应用可以很容易的被创建为模块化的和可扩展的。</p>
+
+<p><a href="http://scotch.io/tutorials/javascript/angular-routing-using-ui-router">http://scotch.io/tutorials/javascript/angular-routing-using-ui-router</a></p>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>

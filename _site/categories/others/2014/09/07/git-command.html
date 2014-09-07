@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="前端开发｜Web Developer">
-  <title></title>
+  <title>git命令速查表</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -78,30 +78,64 @@
       <div class="content">
         <!--Body content-->
         <div class="main">
-  <ul class="posts unstyled">
-    
-    <li><a href="/categories/others/2014/09/07/git-command.html" title="view all
-      posts">git命令速查表</a>
-    </li>
-    
-    <li><a href="/categories/others/2014/06/18/bdtest.html" title="view all
-      posts">bdtest</a>
-    </li>
-    
-    <li><a href="/categories/others/2014/04/30/Front-end-Developer-Interview-Questions.html" title="view all
-      posts">Front-end-Developer-Interview-Questions</a>
-    </li>
-    
-    <li><a href="/categories/others/2014/01/13/how-to-understand-the-web-standard.html" title="view all
-      posts">对web标准的理解</a>
-    </li>
-    
-    <li><a href="/categories/others/2014/01/13/my-first-blog.html" title="view all
-      posts">My first Blog</a>
-    </li>
-    
-  </ul>
+  <h2>git命令速查表</h2>
+  <p class="meta">07 Sep 2014</p>
+  <hr>
+  <div class="post">
+    <p>文章来自：<a href="https://gitcafe.com/GitCafe/Help/wiki/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8">Git-常用命令速查表</a></p>
+
+<div class="highlight"><pre><code class="html">创建版本库
+$ git clone <span class="nt">&lt;url&gt;</span> #克隆远程版本库
+$ git init #初始化本地版本库
+
+修改和提交
+$ git status #查看状态
+$ git diff #查看变更内容
+$ git add . #跟踪所有改动过的文件
+$ git add <span class="nt">&lt;file&gt;</span> #跟踪指定的文件
+$ git mv <span class="nt">&lt;old&gt;</span> <span class="nt">&lt;new&gt;</span> #文件改名
+$ git rm <span class="nt">&lt;file&gt;</span> #删除文件
+$ git rm --cached <span class="nt">&lt;file&gt;</span> #停止跟踪文件但不删除
+$ git commit -m “commit message” #提交所有更新过的文件
+$ git commit --amend #修改最后一次提交
+
+查看提交历史
+$ git log #查看提交历史
+$ git log -p <span class="nt">&lt;file&gt;</span> #查看指定文件的提交历史
+$ git blame <span class="nt">&lt;file&gt;</span> #以列表方式查看指定文件的提交历史
+
+撤消
+$ git reset --hard HEAD #撤消工作目录中所有未提交文件的修改内容
+$ git checkout HEAD <span class="nt">&lt;file&gt;</span> #撤消指定的未提交文件的修改内容
+$ git revert <span class="nt">&lt;commit&gt;</span> #撤消指定的提交
+
+分支与标签
+$ git branch #显示所有本地分支
+$ git checkout <span class="nt">&lt;branch</span><span class="err">/</span><span class="na">tag</span><span class="nt">&gt;</span> #切换到指定分支或标签
+$ git branch <span class="nt">&lt;new-branch&gt;</span> #创建新分支
+$ git branch -d <span class="nt">&lt;branch&gt;</span> #删除本地分支
+$ git tag #列出所有本地标签
+$ git tag <span class="nt">&lt;tagname&gt;</span> #基于最新提交创建标签
+$ git tag -d <span class="nt">&lt;tagname&gt;</span> #删除标签
+
+合并与衍合
+$ git merge <span class="nt">&lt;branch&gt;</span> #合并指定分支到当前分支
+$ git rebase <span class="nt">&lt;branch&gt;</span> #衍合指定分支到当前分支
+
+远程操作
+$ git remote -v #查看远程版本库信息
+$ git remote show <span class="nt">&lt;remote&gt;</span> #查看指定远程版本库信息
+$ git remote add <span class="nt">&lt;remote&gt;</span> <span class="nt">&lt;url&gt;</span> #添加远程版本库
+$ git fetch <span class="nt">&lt;remote&gt;</span> #从远程库获取代码
+$ git pull <span class="nt">&lt;remote&gt;</span> <span class="nt">&lt;branch&gt;</span> #下载代码及快速合并
+$ git push <span class="nt">&lt;remote&gt;</span> <span class="nt">&lt;branch&gt;</span> #上传代码及快速合并
+$ git push <span class="nt">&lt;remote&gt;</span> :<span class="nt">&lt;branch</span><span class="err">/</span><span class="na">tag-name</span><span class="nt">&gt;</span> #删除远程分支或标签
+$ git push --tags #上传所有标签
+</code></pre></div>
+
+  </div>
 </div>
+
         <div class="footer gap1">
 
           <hr>
