@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>js-返回顶部</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/others/" title="view all
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
+            </li>
+            
+            <li><a href="/categories/iehack/" title="view all
+              posts">categories/iehack (2)</a>
+            </li>
+            
+            <li><a href="/categories/css/" title="view all
+              posts">categories/css (2)</a>
+            </li>
+            
+            <li><a href="/categories/js/" title="view all
+              posts">categories/js (8)</a>
+            </li>
+            
+            <li><a href="/categories/css3/" title="view all
+              posts">categories/css3 (3)</a>
+            </li>
+            
+            <li><a href="/categories/demo/" title="view all
+              posts">categories/demo (10)</a>
+            </li>
+             -->
+            <li><a href="/allist.html">all</a></li>
+            
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
+            
+            <li><a href="/categories/iehack.html">iehack(2)</a></li>
+            
+            <li><a href="/categories/css.html">css(2)</a></li>
+            
+            <li><a href="/categories/js.html">js(8)</a></li>
+            
+            <li><a href="/categories/css3.html">css3(3)</a></li>
+            
+            <li><a href="/categories/demo.html">demo(10)</a></li>
+            
+
+            <!-- <li><a href="/csslist.html">css</a></li> -->
+          </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>js-返回顶部</h2>
+  <p class="meta">03 Oct 2014</p>
+  <hr>
+  <div class="post">
+    <style type="text/css">
+.list{
+  text-align: center;
+}
+.item{
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  width: 120px;
+}
+.item:hover .my-tooltip{
+  transform: scale(1);
+  transform-origin: 50% 100%;
+  transition: all 0.6s ease-in-out;
+  transition-delay: 0.2s;
+  bottom: 140%;
+  color: #000;
+}
+.my-tooltip{
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  padding: 10px;
+  width: 120px;
+  margin-left: -70px;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px #ccc;
+  border-radius: 3px;
+  text-align: left;
+  transform: scale(0);
+  transform-origin: 50% 100%;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  /*-webkit-*/
+}
+.item:hover .my-tooltip-fly{
+  bottom: 140%;
+  color: #000;
+  transition: all 0.15s ease-in-out;
+}
+.my-tooltip-fly{
+  position: absolute;
+  bottom: 500px;
+  left: 50%;
+  padding: 10px;
+  width: 120px;
+  margin-left: -70px;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px #ccc;
+  border-radius: 3px;
+  text-align: left;
+  transition: all 0.15s ease-in-out;
+}
+.my-tooltip .arrow,
+.my-tooltip-fly .arrow{
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  height: 0;
+  width: 0;
+  border: 6px solid #fff;
+  border-color: #fff transparent transparent transparent;
+}
+.my-tooltip p,
+.my-tooltip-fly p{
+  margin-bottom: 0;
+}
+</style>
+
+<div class="list">
+  <div class="item">
+    <a href="/categories/html/2014/04/30/EDM-rules.html">返回顶部实例</a>
+    <div class="my-tooltip">
+      <p>点击链接查看效果</p>
+      <span class="arrow"></span>
+    </div>
+  </div>
+  <div class="item">
+    <a href="/categories/html/2014/04/30/EDM-rules.html">返回顶部实例</a>
+    <div class="my-tooltip-fly">
+      <p>点击链接查看返回顶部实例效果</p>
+      <span class="arrow"></span>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>

@@ -16,7 +16,6 @@
     color: white; }
 
 .content {
-  width: 65.5%;
   margin-left: 24.5%; }
 
 .main {
@@ -55,3 +54,85 @@
 .posts li span {
   font-size: 0.75em;
   color: #999; }
+
+@media (max-width: 767px) {
+  body {
+    padding-left: 0;
+    padding-right: 0; } }
+@media (max-width: 640px) {
+  .menu, .myself {
+    position: static;
+    width: 100%;
+    overflow: hidden; }
+    .menu ul, .myself ul {
+      display: none; }
+    .menu .title a, .myself .title a {
+      display: inline-block; }
+
+  .content {
+    margin-left: 0; }
+
+  .menu-toggle {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: solid #fff;
+    border-width: 2px 0;
+    width: 24px;
+    height: 14px;
+    cursor: pointer;
+    border-radius: 20%; }
+    .menu-toggle:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 0;
+      right: 0;
+      border-top: 2px solid #fff;
+      background-color: #fff;
+      -webkit-animation: boxShadow 0.5s linear 1s infinite alternate;
+      -moz-animation: boxShadow 0.5s linear 1s infinite alternate;
+      -o-animation: boxShadow 0.5s linear 1s infinite alternate;
+      animation: boxShadow 0.5s linear 1s infinite alternate; } }
+@-webkit-keyframes boxShadow {
+  from {
+    box-shadow: none;
+    left: 0;
+    right: 0; }
+
+  to {
+    box-shadow: 0 0 10px white;
+    left: 15px;
+    right: 15px; } }
+@-moz-keyframes boxShadow {
+  from {
+    box-shadow: none;
+    left: 0;
+    right: 0; }
+
+  to {
+    box-shadow: 0 0 10px white;
+    left: 15px;
+    right: 15px; } }
+@-o-keyframes boxShadow {
+  from {
+    box-shadow: none;
+    left: 0;
+    right: 0; }
+
+  to {
+    box-shadow: 0 0 10px white;
+    left: 15px;
+    right: 15px; } }
+@keyframes boxShadow {
+  from {
+    box-shadow: none;
+    left: 0;
+    right: 0; }
+
+  to {
+    box-shadow: 0 0 10px white;
+    left: 15px;
+    right: 15px; } }

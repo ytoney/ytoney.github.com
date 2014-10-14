@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>css3-3D特效</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/others/" title="view all
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
+            </li>
+            
+            <li><a href="/categories/iehack/" title="view all
+              posts">categories/iehack (2)</a>
+            </li>
+            
+            <li><a href="/categories/css/" title="view all
+              posts">categories/css (2)</a>
+            </li>
+            
+            <li><a href="/categories/js/" title="view all
+              posts">categories/js (8)</a>
+            </li>
+            
+            <li><a href="/categories/css3/" title="view all
+              posts">categories/css3 (3)</a>
+            </li>
+            
+            <li><a href="/categories/demo/" title="view all
+              posts">categories/demo (10)</a>
+            </li>
+             -->
+            <li><a href="/allist.html">all</a></li>
+            
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
+            
+            <li><a href="/categories/iehack.html">iehack(2)</a></li>
+            
+            <li><a href="/categories/css.html">css(2)</a></li>
+            
+            <li><a href="/categories/js.html">js(8)</a></li>
+            
+            <li><a href="/categories/css3.html">css3(3)</a></li>
+            
+            <li><a href="/categories/demo.html">demo(10)</a></li>
+            
+
+            <!-- <li><a href="/csslist.html">css</a></li> -->
+          </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>css3-3D特效</h2>
+  <p class="meta">04 Oct 2014</p>
+  <hr>
+  <div class="post">
+    <ol>
+  <li>transition创建动画</li>
+  <li>创建简单的3D场景
+    <ul>
+      <li>
+        perspective: 800;
+      </li>
+      <li>
+        perspective-origin: 50% 50%;
+      </li>
+      <li>
+        -webkit-transform-style: preserve-3d;
+        transform: translate rotate;(X,Y,Z)
+      </li>
+      <li>
+        transform-origin 调整旋转中心；x轴（left,center,right）;y轴（top,center,bottom）;z轴（length px）
+      </li>
+    </ul>
+  </li>
+  <li>创建3D动画效果</li>
+</ol>
+
+<hr>
+
+<style type="text/css">
+  .experiment{
+    -webkit-perspective: 800;
+    -webkit-perspective-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+  }
+  .block{
+    width: 100px;
+    height: 100px;
+    background-color: #69c;
+    margin: 0 auto;
+    /*-webkit-transform: rotateX(45deg);*/
+  }
+
+  .controls span{
+    display: inline-block;
+    width: 80px;
+  }
+</style>
+
+<div class="experiment">
+  <div class="block" id="block"></div>
+</div>
+
+<div class="controls">
+  <p>
+    rotateX: <span id="degx">0deg</span>
+    <input value="0" id="rotatex" type="range" min="-360" max="360" onchange="rotate()">
+  </p>
+  <p>
+    rotateY: <span id="degy">0deg</span>
+    <input value="0" id="rotatey" type="range" min="-360" max="360" onchange="rotate()">
+  </p>
+  <p>
+    rotateZ: <span id="degz">0deg</span>
+    <input value="0" id="rotatez" type="range" min="-360" max="360" onchange="rotate()">
+  </p>
+</div>
+
+<div class="experiment">
+  <div class="block" id="block-translate"></div>
+</div>
+
+<div class="controls">
+  <p>
+    translateX: <span id="valuex">0px</span>
+    <input value="0" id="translatex" type="range" min="-360" max="360" onchange="mytranslate()">
+  </p>
+  <p>
+    translateY: <span id="valuey">0px</span>
+    <input value="0" id="translatey" type="range" min="-360" max="360" onchange="mytranslate()">
+  </p>
+  <p>
+    translateZ: <span id="valuez">0px</span>
+    <input value="0" id="translatez" type="range" min="-360" max="360" onchange="mytranslate()">
+  </p>
+</div>
+
+<script type="text/javascript">
+  function rotate(){
+    var x = document.getElementById('rotatex').value;
+    var y = document.getElementById('rotatey').value;
+    var z = document.getElementById('rotatez').value;
+
+    document.getElementById('block').style.webkitTransform = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)';
+
+    document.getElementById('degx').innerText = x + 'deg';
+    document.getElementById('degy').innerText = y + 'deg';
+    document.getElementById('degz').innerText = z + 'deg';
+  }
+
+  function mytranslate(){
+    var x = document.getElementById('translatex').value;
+    var y = document.getElementById('translatey').value;
+    var z = document.getElementById('translatez').value;
+
+    document.getElementById('block-translate').style.webkitTransform = 'translateX(' + x + 'px) translateY(' + y + 'px) translateZ(' + z + 'px)';
+
+    document.getElementById('valuex').innerText = x + 'px';
+    document.getElementById('valuey').innerText = y + 'px';
+    document.getElementById('valuez').innerText = z + 'px';
+  }
+</script>
+
+<hr>
+
+<style type="text/css">
+  .my3dspace{
+    -webkit-perspective: 800;
+    -webkit-perspective-origin: 50% 50%;
+
+    overflow: hidden;
+  }
+  .pagegroup{
+    position: relative;
+
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+
+    -webkit-transform-style: preserve-3d;
+  }
+  .page{
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+    background-color: #69c;
+    color: white;
+
+    font-weight: bold;
+    font-size: 160px;
+    line-height: 160px;
+    text-align: center;
+  }
+  #page1{
+    -webkit-transform-origin: bottom;
+    -webkit-transition: -webkit-transform 1s linear;
+  }
+  #page2,#page3,#page4,#page5,#page6{
+    -webkit-transform-origin: bottom;
+    -webkit-transition: -webkit-transform 2s linear;
+    -webkit-transform: rotateX(90deg);
+  }
+  #page1.active,
+  #page2.active,
+  #page3.active,
+  #page4.active,
+  #page5.active,
+  #page6.active{
+    -webkit-transform: rotateX(0deg);
+  }
+  .btns{
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
+
+<h4>创建3D动画效果</h4>
+
+<div id="my3dspace" class="my3dspace">
+  <div id="pagegroup" class="pagegroup">
+    <div class="page" id="page1">1</div>
+    <div class="page" id="page2">2</div>
+    <div class="page" id="page3">3</div>
+    <div class="page" id="page4">4</div>
+    <div class="page" id="page5">5</div>
+    <div class="page" id="page6">6</div>
+  </div>
+</div>
+
+<div id="btns" class="btns">
+  <a href="javascript:next();" class="btn" id="next">next</a>
+  <a href="javascript:prev();" class="btn" id="prev">prev</a>
+</div>
+
+<script type="text/javascript">
+  // function _$(id){
+  //   return typeof id === 'string' ? document.getElementById(id) : id;
+  // }
+  // var divs = _$('pagegroup').getElementsByTagName('div'),
+  //     next = _$('next'),
+  //     prev = _$('prev');
+
+  var curIndex = 1;
+
+
+  function next(){
+    if (curIndex === 6) {
+      return;
+    }
+    var curPage = document.getElementById('page' + curIndex);
+    curPage.style.webkitTransform = 'rotateX(-90deg)';
+
+    curIndex++;
+
+    var nextPage = document.getElementById('page' + curIndex);
+    nextPage.style.webkitTransform = 'rotateX(0deg)';
+  }
+  function prev () {
+    if (curIndex === 1) {
+      return;
+    }
+    var curPage = document.getElementById('page' + curIndex);
+    curPage.style.webkitTransform = 'rotateX(90deg)';
+
+    curIndex --;
+
+    var prevPage = document.getElementById('page' + curIndex);
+    prevPage.style.webkitTransform = 'rotateX(0deg)';
+  }
+
+</script>
+
+<!-- <a href="http://www.imooc.com" target="_blank">慕课网</a> -->
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>

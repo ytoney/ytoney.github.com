@@ -19,7 +19,11 @@
           <ul class="unstyled text-right">
             <!-- 
             <li><a href="/categories/others/" title="view all
-              posts">categories/others (5)</a>
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
             </li>
             
             <li><a href="/categories/iehack/" title="view all
@@ -27,44 +31,43 @@
             </li>
             
             <li><a href="/categories/css/" title="view all
-              posts">categories/css (3)</a>
+              posts">categories/css (2)</a>
             </li>
             
             <li><a href="/categories/js/" title="view all
-              posts">categories/js (7)</a>
+              posts">categories/js (8)</a>
             </li>
             
             <li><a href="/categories/css3/" title="view all
               posts">categories/css3 (3)</a>
             </li>
             
-            <li><a href="/categories/html/" title="view all
-              posts">categories/html (4)</a>
-            </li>
-            
             <li><a href="/categories/demo/" title="view all
-              posts">categories/demo (3)</a>
+              posts">categories/demo (10)</a>
             </li>
              -->
             <li><a href="/allist.html">all</a></li>
             
-            <li><a href="/categories/others.html">others(5)</a></li>
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
             
             <li><a href="/categories/iehack.html">iehack(2)</a></li>
             
-            <li><a href="/categories/css.html">css(3)</a></li>
+            <li><a href="/categories/css.html">css(2)</a></li>
             
-            <li><a href="/categories/js.html">js(7)</a></li>
+            <li><a href="/categories/js.html">js(8)</a></li>
             
             <li><a href="/categories/css3.html">css3(3)</a></li>
             
-            <li><a href="/categories/html.html">html(4)</a></li>
-            
-            <li><a href="/categories/demo.html">demo(3)</a></li>
+            <li><a href="/categories/demo.html">demo(10)</a></li>
             
 
             <!-- <li><a href="/csslist.html">css</a></li> -->
           </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
           <div class="myself">
             <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
             <p class="text-right"><small>2014,换个角度写代码！</small></p>
@@ -101,123 +104,114 @@
 
 <p>我们有一个主要的 <code>section</code> 元素，它包含一个网格div和一个内容区：</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;grid3d vertical&quot;</span> <span class="na">id=</span><span class="s">&quot;grid3d&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;grid-wrap&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;grid&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;figure&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;images/posts/1.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;images01&quot;</span><span class="nt">&gt;&lt;/figure&gt;</span>
-      <span class="nt">&lt;figure&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;images/posts/2.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;images02&quot;</span><span class="nt">&gt;&lt;/figure&gt;</span>
-      <span class="nt">&lt;figure&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;images/posts/3.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot;images03&quot;</span><span class="nt">&gt;&lt;/figure&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!-- /grid-wrap --&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;content&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;dummy-img&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;dummy-text&quot;</span><span class="nt">&gt;</span>some text1<span class="nt">&lt;/p&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;dummy-text&quot;</span><span class="nt">&gt;</span>some more text1<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;dummy-img&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;dummy-text&quot;</span><span class="nt">&gt;</span>some text2<span class="nt">&lt;/p&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;dummy-text&quot;</span><span class="nt">&gt;</span>some more text2<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;dummy-img&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;dummy-text&quot;</span><span class="nt">&gt;</span>some text3<span class="nt">&lt;/p&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;dummy-text&quot;</span><span class="nt">&gt;</span>some more text3<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;loading&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
-    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;icon close-content&quot;</span><span class="nt">&gt;&lt;/span&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/section&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;section class=&quot;grid3d vertical&quot; id=&quot;grid3d&quot;&gt;
+  &lt;div class=&quot;grid-wrap&quot;&gt;
+    &lt;div class=&quot;grid&quot;&gt;
+      &lt;figure&gt;&lt;img src=&quot;images/posts/1.jpg&quot; alt=&quot;images01&quot;&gt;&lt;/figure&gt;
+      &lt;figure&gt;&lt;img src=&quot;images/posts/2.jpg&quot; alt=&quot;images02&quot;&gt;&lt;/figure&gt;
+      &lt;figure&gt;&lt;img src=&quot;images/posts/3.jpg&quot; alt=&quot;images03&quot;&gt;&lt;/figure&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /grid-wrap --&gt;
+  &lt;div class=&quot;content&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;dummy-img&quot;&gt;&lt;/div&gt;
+      &lt;p class=&quot;dummy-text&quot;&gt;some text1&lt;/p&gt;
+      &lt;p class=&quot;dummy-text&quot;&gt;some more text1&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;dummy-img&quot;&gt;&lt;/div&gt;
+      &lt;p class=&quot;dummy-text&quot;&gt;some text2&lt;/p&gt;
+      &lt;p class=&quot;dummy-text&quot;&gt;some more text2&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;dummy-img&quot;&gt;&lt;/div&gt;
+      &lt;p class=&quot;dummy-text&quot;&gt;some text3&lt;/p&gt;
+      &lt;p class=&quot;dummy-text&quot;&gt;some more text3&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- ... --&gt;
+    &lt;span class=&quot;loading&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;icon close-content&quot;&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></div>
 
 <p>当我们点击网格项的时候，我们将按顺序旋转匹配的内容div。内容部分也包括两个span标签，一个是模拟加载的活动指示，一个是关闭X按钮。</p>
 
 <p>为了旋转和放大的效果，占位符将被动态的添加到网格，结构如下：</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;placeholder&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;front&quot;</span><span class="nt">&gt;</span><span class="c">&lt;!-- content of clicked grid item --&gt;</span><span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;back&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;div class=&quot;placeholder&quot;&gt;
+  &lt;div class=&quot;front&quot;&gt;&lt;!-- content of clicked grid item --&gt;&lt;/div&gt;
+  &lt;div class=&quot;back&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div>
 
 <p>接下来让我们看一些重要的样式。</p>
 
 <p><em>grid-wrap</em> div标签是一个带有perspective属性的元素：</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.grid-wrap</span><span class="p">{</span>
-  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span> <span class="k">auto</span> <span class="m">0</span><span class="p">;</span>
-  <span class="k">max-width</span><span class="o">:</span> <span class="m">1090px</span><span class="p">;</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
-  <span class="k">padding</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="n">perspective</span><span class="o">:</span> <span class="m">1500px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.grid-wrap{
+  margin: 10px auto 0;
+  max-width: 1090px;
+  width: 100%;
+  padding: 0;
+  perspective: 1500px;
+}</code></pre></div>
 
 <p>除了设置了perspective属性值外，我们也设置了perspective origin（透视原点）。但是，我们根据视图动态的设置。例如，如果你在较小的设备上看这个网格，这个网格的高度将变得比较大，我们不希望默认perspective origin的50%－50%，因为一个项目的整个网格的中心旋转离远离视窗（下降或上升）。我们将设置原点以浏览者为中心。
 &lt;!-- In addition to the perspective value, we also set the perspective origin. But that we do dynamically depending on the view. If you, for example, view this grid on a smaller device where the grid height becomes very large, we don’t want the default perspective origin of 50% 50% because then an item that is far from the center of the whole grid will rotate away from the viewport (down or up). We’ll set the origin to be central to the viewer instead. --&gt;</p>
 
 <p><em>grid</em> div有一个transition过渡，我们需要分配一个transform-style: perserve-3d;的属性给它，因为我们想要它的children可以以3d的效果旋转。</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.grid</span><span class="p">{</span>
-  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span>
-  <span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.5s</span> <span class="n">cubic</span><span class="o">-</span><span class="n">bezier</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">25</span><span class="o">,</span><span class="m">1</span><span class="p">);</span>
-  <span class="n">transform</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="n">persverve</span><span class="m">-3</span><span class="n">d</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.grid{
+  position: relative;
+  transition: all 0.5s cubic-bezier(0,0,0.25,1);
+  transform-style: persverve-3d;
+}</code></pre></div>
 
 <p>当我们单击一个网格项的时候，我们添加一个类名为wiew-full给网格，这个class将使grid移出：</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.view-full</span> <span class="nc">.grid</span> <span class="p">{</span>
-  <span class="n">transform</span><span class="o">:</span> <span class="n">translateZ</span><span class="p">(</span><span class="m">-1500px</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.view-full .grid {
+  transform: translateZ(-1500px);
+}</code></pre></div>
 
 <p>当我们单击网格项的时候，我们让其褪出（占位符将被放在这个位置）：</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.grid</span> <span class="nt">figure</span><span class="nc">.active</span><span class="p">{</span>
-  <span class="k">opacity</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.grid figure.active{
+  opacity: 0;
+}</code></pre></div>
 
 <p>占位符的pointer-events被设置成none,并且设置为决定定位，不同于网格中的figures。它也需要transform-style: preserve-3d;这个属性，因为我们要翻转它的背面：</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.grid</span> <span class="nc">.placeholder</span><span class="p">{</span>
-  <span class="k">pointer</span><span class="o">-</span><span class="n">events</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
-  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
-  <span class="n">transform</span><span class="o">-</span><span class="n">style</span><span class="o">:</span> <span class="n">preserve</span><span class="m">-3</span><span class="n">d</span><span class="p">;</span>
-  <span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.5s</span> <span class="n">ease</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.grid .placeholder{
+  pointer-events: none;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-out;
+}</code></pre></div>
 
 <p>下面是占位符正面和背面关键的3d 样式：</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.placeholder</span> <span class="o">&gt;</span> <span class="nt">div</span><span class="p">{</span>
-  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
-  <span class="n">backface</span><span class="o">-</span><span class="k">visibility</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nc">.placeholder</span> <span class="nc">.front</span> <span class="nt">img</span><span class="p">{</span>
-  <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
-  <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nc">.placeholder</span> <span class="nc">.back</span><span class="p">{</span>
-  <span class="k">background</span><span class="o">:</span> <span class="nb">white</span><span class="p">;</span>
-  <span class="n">transform</span><span class="o">:</span> <span class="n">rotateY</span><span class="p">(</span><span class="m">180</span><span class="n">deg</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.placeholder &gt; div{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.placeholder .front img{
+  width: 100%;
+  height: 100%;
+}
+.placeholder .back{
+  background: white;
+  transform: rotateY(180deg);
+}</code></pre></div>
 
 <p>我们添加到占位符正面的这个克隆图片是被扩大到完整的宽度和高度来填充所有的元素。</p>
 
 <p>当我们打开一个网格项，我们希望过渡有一个延迟和一个自定义的定时功能：</p>
 
-<div class="highlight"><pre><code class="css"><span class="nc">.view-full</span> <span class="nc">.placeholder</span><span class="p">{</span>
-  <span class="n">transition</span><span class="o">:</span> <span class="n">all</span> <span class="m">0.5s</span> <span class="n">cubic</span><span class="o">-</span><span class="n">bezier</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">.</span><span class="m">25</span><span class="o">,</span><span class="m">1</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">.view-full .placeholder{
+  transition: all 0.5s cubic-bezier(0,0,0.25,1)
+}</code></pre></div>
 
 <p>原文地址：<a href="http://tympanus.net/codrops/2014/03/27/3d-grid-effect/">http://tympanus.net/codrops/2014/03/27/3d-grid-effect/</a></p>
 

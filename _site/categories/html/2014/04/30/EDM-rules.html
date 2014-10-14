@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="前端开发｜Web Developer">
-  <title>【html】EDM邮件制作指南</title>
+  <title>EDM邮件制作指南</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -19,7 +19,11 @@
           <ul class="unstyled text-right">
             <!-- 
             <li><a href="/categories/others/" title="view all
-              posts">categories/others (5)</a>
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
             </li>
             
             <li><a href="/categories/iehack/" title="view all
@@ -27,44 +31,43 @@
             </li>
             
             <li><a href="/categories/css/" title="view all
-              posts">categories/css (3)</a>
+              posts">categories/css (2)</a>
             </li>
             
             <li><a href="/categories/js/" title="view all
-              posts">categories/js (7)</a>
+              posts">categories/js (8)</a>
             </li>
             
             <li><a href="/categories/css3/" title="view all
               posts">categories/css3 (3)</a>
             </li>
             
-            <li><a href="/categories/html/" title="view all
-              posts">categories/html (4)</a>
-            </li>
-            
             <li><a href="/categories/demo/" title="view all
-              posts">categories/demo (3)</a>
+              posts">categories/demo (10)</a>
             </li>
              -->
             <li><a href="/allist.html">all</a></li>
             
-            <li><a href="/categories/others.html">others(5)</a></li>
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
             
             <li><a href="/categories/iehack.html">iehack(2)</a></li>
             
-            <li><a href="/categories/css.html">css(3)</a></li>
+            <li><a href="/categories/css.html">css(2)</a></li>
             
-            <li><a href="/categories/js.html">js(7)</a></li>
+            <li><a href="/categories/js.html">js(8)</a></li>
             
             <li><a href="/categories/css3.html">css3(3)</a></li>
             
-            <li><a href="/categories/html.html">html(4)</a></li>
-            
-            <li><a href="/categories/demo.html">demo(3)</a></li>
+            <li><a href="/categories/demo.html">demo(10)</a></li>
             
 
             <!-- <li><a href="/csslist.html">css</a></li> -->
           </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
           <div class="myself">
             <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
             <p class="text-right"><small>2014,换个角度写代码！</small></p>
@@ -78,7 +81,7 @@
       <div class="content">
         <!--Body content-->
         <div class="main">
-  <h2>【html】EDM邮件制作指南</h2>
+  <h2>EDM邮件制作指南</h2>
   <p class="meta">30 Apr 2014</p>
   <hr>
   <div class="post">
@@ -95,8 +98,7 @@
 
   <li>请使用table表格来布局。
     
-<div class="highlight"><pre><code class="html">同一个<span class="nt">&lt;td&gt;</span>里只放一张图片，图片地址为绝对地址，如<span class="nt">&lt;td&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;http://www.hanlinweb.com/images/photo.jpg&quot;</span> <span class="nt">/&gt;&lt;/td&gt;</span>。所有的图片都要定义宽高,关键图片alt=”…” 属性要写得很清楚，不要使用背景图片。写alt属性是让浏览器在图片未被显示前提示图片内容。不使用背景图片是防止部分web邮箱和客户端对背景图片进行过滤，例如Qq邮箱中的背景图片会随窗口的大小变化而产生移动，而outlook2007干脆就过滤了背景图片。同一段文字放在同一<span class="nt">&lt;td&gt;</span>里,如果有3段文字，千万不要用回车换行。那样会导致代码里自动加入。这个标签会导致双倍行高。
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">同一个&lt;td&gt;里只放一张图片，图片地址为绝对地址，如&lt;td&gt;&lt;img src=&quot;http://www.hanlinweb.com/images/photo.jpg&quot; /&gt;&lt;/td&gt;。所有的图片都要定义宽高,关键图片alt=”…” 属性要写得很清楚，不要使用背景图片。写alt属性是让浏览器在图片未被显示前提示图片内容。不使用背景图片是防止部分web邮箱和客户端对背景图片进行过滤，例如Qq邮箱中的背景图片会随窗口的大小变化而产生移动，而outlook2007干脆就过滤了背景图片。同一段文字放在同一&lt;td&gt;里,如果有3段文字，千万不要用回车换行。那样会导致代码里自动加入。这个标签会导致双倍行高。</code></pre></div>
 </li>
 
   <li>如果需要邮件居中显示，请在table里设定align="center"。</li>
@@ -105,11 +107,9 @@
 
   <li>定义文字或图片的样式时，请不要使用外链的css样式。（外链的css样式在邮件里将不能被读取，所以发送出去的邮件因为没有链接到样式，将会使你的邮件看起来很难看）
     
-<div class="highlight"><pre><code class="html">    正确的做法请将样式书写在<span class="nt">&lt;td&gt;</span>或<span class="nt">&lt;font&gt;</span>里，写法如下：
-    <span class="nt">&lt;td</span> <span class="na">style=</span><span class="s">”font-family:宋体;</span> <span class="na">font-size:12px</span><span class="err">;</span> <span class="na">color:</span><span class="err">#</span><span class="na">000000</span><span class="err">;”</span> <span class="nt">&gt;</span>文字<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;font</span> <span class="na">style=</span><span class="s">”font-family:宋体;</span> <span class="na">font-size:12px</span><span class="err">;</span> <span class="na">color:</span><span class="err">#</span><span class="na">000000</span><span class="err">;”</span> <span class="nt">&gt;</span>文字<span class="nt">&lt;/font&gt;</span>
-    
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">正确的做法请将样式书写在&lt;td&gt;或&lt;font&gt;里，写法如下：
+    &lt;td style=”font-family:宋体; font-size:12px; color:#000000;” &gt;文字&lt;/td&gt;
+    &lt;font style=”font-family:宋体; font-size:12px; color:#000000;” &gt;文字&lt;/font&gt;</code></pre></div>
 
   </li>
 
@@ -119,17 +119,14 @@
 
   <li>有背景图时，style内容里面background可以设置color，但是img会被过滤，就是说不能通过CSS来设置背景图片了。但可以直接写在代码里。代码写法如下：
     
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;table</span> <span class="na">background=</span><span class="s">”background.gif”</span> <span class="na">cellspacing=</span><span class="s">”0″</span> <span class="na">cellpadding=</span><span class="s">”0″</span><span class="nt">&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;table background=”background.gif” cellspacing=”0″ cellpadding=”0″&gt;</code></pre></div>
 （在outlook中查看邮件时，背景图片不显示，这是因为outlook中对背景图片无法识别。同时，背景图需要用绝对地址）</li>
 
   <li>如果文字内容是写在<code>li</code>里，那么样式请尽量写在<code>ul</code>里，在sohu中写在<code>td</code>或<code>tr</code>里的样式会被过滤，其它邮箱没有问题。例如：
     
-<div class="highlight"><pre><code class="html">    <span class="nt">&lt;ul</span> <span class="na">style=</span><span class="s">”font-family:宋体;</span> <span class="na">font-size:12px</span><span class="err">;</span> <span class="na">color:</span><span class="err">#</span><span class="na">000000</span><span class="err">;”</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;li&gt;</span>你的文字<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
-    
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;ul style=”font-family:宋体; font-size:12px; color:#000000;”&gt;
+      &lt;li&gt;你的文字&lt;/li&gt;
+    &lt;/ul&gt;</code></pre></div>
 
   </li>
 
@@ -161,9 +158,7 @@
   <li>如果整个邮件模板只有一张图，一定要裁成2-3张小图，并适当保留一些文字。</li>
   <li>Gmail、qq邮箱的要求又改变，图片的属性一定要定义完整，例如
     
-<div class="highlight"><pre><code class="html">    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;images/1.jpg&quot;</span> <span class="na">style=</span><span class="s">&quot;vertical-align:top;&quot;</span> <span class="na">height=</span><span class="s">&quot;30&quot;</span> <span class="na">width=</span><span class="s">&quot;100&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
-    
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;img src=&quot;images/1.jpg&quot; style=&quot;vertical-align:top;&quot; height=&quot;30&quot; width=&quot;100&quot; alt=&quot;&quot; /&gt;</code></pre></div>
 
     这里的 style="vertical-align:top;" 一定要定义，否则图片之间会有缝隙、变形等显示异常的情况。
   </li>
@@ -184,6 +179,93 @@
 
 <p><a href="http://www.cnblogs.com/yjzhu/archive/2012/11/05/2755155.html">参考地址</a>
 <a href="http://www.maildesign.cn/archives/1380">参考地址</a></p>
+
+<p><a href="javascript:;" id="gotop" class="gotop">gotop</a></p>
+
+<style type="text/css">
+  .gotop{
+    position: fixed;
+    bottom: 10px;
+    right: 28px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,.5);
+    text-decoration: none;
+    color: #fff;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .gotop.show{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  .gotop:hover{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    background-color: rgba(0,0,0,.8);
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
+
+<script type="text/javascript">
+  // 页面加载完后触发
+  window.onload = function(){
+    var gotop = document.getElementById('gotop');
+    var clientHeight = document.documentElement.clientHeight;
+    var timer = null;
+    var isTop = true;
+
+    // 滚动条滚动时触发
+    window.onscroll = function(){
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //前者兼容ie，后者兼容chrome
+      if (scrollTop >= clientHeight) {
+        gotop.className = 'gotop show';
+      }else{
+        gotop.className = 'gotop';
+      }
+      if (!isTop) {
+        clearInterval(timer);
+      }
+      isTop = false;
+    }
+
+    gotop.onclick = function(e){
+      e = event || window.event;
+      if (e.preventDefault) {
+        e.preventDefault();
+      }else{
+        e.returnValue = false;
+      }
+
+      timer = setInterval(function(){
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //前者兼容ie，后者兼容chrome
+        var ispeed = Math.floor(-scrollTop / 5);
+        document.documentElement.scrollTop = document.body.scrollTop = scrollTop + ispeed;
+        console.log(scrollTop)
+
+        isTop = true;
+
+        if (scrollTop == 0) {
+          clearInterval(timer);
+        };
+      }, 30);
+    }
+  }
+</script>
 
   </div>
 </div>

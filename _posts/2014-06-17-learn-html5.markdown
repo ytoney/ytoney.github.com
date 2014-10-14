@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "学习html5"
+title:  "html5-学习笔记"
 date:   2014-06-17 18:40:34
 categories: categories/html
 ---
@@ -535,3 +535,6 @@ Datalist标签配合option标签实现的自动填充表单功能：
   <input type="number" name="no2">
   <output name="result"></output>
 </form>
+
+
+<!-- <a href="http://study.163.com/course/courseLearn.htm?courseId=267002#/learn/video?lessonId=374027&courseId=267002">HTML5视频教程-网易云课堂</a> -->

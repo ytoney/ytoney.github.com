@@ -5,7 +5,7 @@ date:   2014-04-14 12:10:34
 categories: categories/js
 ---
 
-
+<!-- angular web应用 -->
 ####一些概念####
 
 1.客户端模版

@@ -1,0 +1,274 @@
+---
+layout: post
+title:  "js-QQ面板拖拽效果-鼠标事件"
+date:   2014-09-18 15:00:34
+categories: categories/demo
+---
+
+<style type="text/css">
+  .post{
+    height: 220px;
+  }
+  .ui_boxClose{
+    margin-right: 15px;
+    margin-top: 9px;
+  }
+  .loginPanel{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -100px;
+    width: 300px;
+    height: 206px;
+    /*padding: 15px;*/
+  }
+  .login-state{
+    position: relative;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+  .login-state > div{
+    display: inline-block;
+  }
+  .bottomDiv{
+    padding-left: 63px;
+  }
+  .statePanel{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    list-style: none;
+    margin-left: 0;
+    display: none;
+  }
+  .statePanel_li{
+    padding: 0 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+  /**/
+  .login-state-down{
+    text-indent: -9999px;
+    color: transparent;
+  }
+  .login-state-down:after{
+    display: inline-block;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 4px solid #000;
+    border-color: #000 transparent transparent transparent;
+    /*background-color: #000;*/
+  }
+  .stateSelect_icon.online,
+  .stateSelect_icon.callme,
+  .stateSelect_icon.away,
+  .stateSelect_icon.busy{
+    float: left;
+  }
+
+  .login-state-show{
+    color: transparent;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-top: -5px;
+  }
+  .online:before,
+  .callme:before,
+  .away:before,
+  .busy:before{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: #000;
+  }
+  .online:before{
+    content: '';
+  }
+  .callme:before{
+    content: '®';
+  }
+  .away:before{
+    content: '§';
+  }
+  .busy:before{
+    content: '¶';
+  }
+</style>
+
+<div class="loginPanel modal" id="loginPanel">
+  <!-- close button -->
+  <div>
+    <div class="ui_boxClose close" id="ui_boxClose">&times;</div>
+  </div>
+  <!-- drag area -->
+  <div class="login_logo_webqq text-center modal-header">登陆</div>
+  <!-- inputs -->
+  <div class="inputs modal-body">
+    <div class="sign-input">
+      <span>账号：</span>
+      <span>
+        <input type="text" class="input01" autocomplete="on" name="u" id="u" tabindex="1" value="QQ号码或Email账号" onFocus="if (value == 'QQ号码或Email账号'){value == ''}" onBlur="if (value == ''){value = 'QQ号码或Email账号';}">
+      </span>
+    </div>
+    <div class="sign-input">
+      <span>密码：</span>
+      <span>
+        <input type="password" class="input01" name="p" id="p" maxlength="16" tabindex="2">
+      </span>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="bottomDiv modal-footer">
+    <div class="btn btn-small" style="float:left;">登陆</div>
+    <div>
+      <div id="loginState" class="login-state-trigger login-state-trigger2 login-state" title="选择在线状态">
+        <div id="loginStateShow" class="login-state-show online">状态</div>
+        <div class="login-state-down">下</div>
+        <div class="login-state-txt" id="login2qq_state_txt">在线</div>
+        <ul id="loginStatePanel" class="statePanel login-state dropdown-menu">
+          <li id="online" class="statePanel_li">
+            <div class="stateSelect_icon online"></div>
+            <div class="stateSelect_text">
+              我在线上
+            </div>
+          </li>
+          <li id="callme" class="statePanel_li">
+            <div class="stateSelect_icon callme"></div>
+            <div class="stateSelect_text">
+              Q我吧
+            </div>
+          </li>
+          <li id="away" class="statePanel_li">
+            <div class="stateSelect_icon away"></div>
+            <div class="stateSelect_text">
+              离开
+            </div>
+          </li>
+          <li id="busy" class="statePanel_li">
+            <div class="stateSelect_icon busy"></div>
+            <div class="stateSelect_text">
+              忙碌
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // 封装一个通过class获取元素的方法
+  function getByClass(clsName, parent){
+    var oParent = parent ? document.getElementById(parent) : document,
+        eles = [],
+        elements = oParent.getElementsByTagName('*');
+    for(var i = 0, l = elements.length; i < l; i++){
+      if(elements[i].className == clsName){
+        eles.push(elements[i]);
+      }
+    }
+    return eles;
+  }
+
+
+  window.onload = drag;
+
+  function drag(){
+    var oTitle = getByClass('login_logo_webqq', 'loginPanel')[0];
+    // 拖动
+    oTitle.onmousedown = fnDown;
+    // 关闭
+    var oClose = document.getElementById('ui_boxClose');
+    oClose.onclick = function(){
+      document.getElementById('loginPanel').style.display = 'none';
+    }
+    // 切换状态
+    var loginState = document.getElementById('loginState'),
+        stateList = document.getElementById('loginStatePanel'),
+        lis = stateList.getElementsByTagName('li'),
+        stateTXT = document.getElementById('login2qq_state_txt'),
+        loginStateShow = document.getElementById('loginStateShow');
+
+    loginState.onclick = function(e){
+      e = event || window.event;
+      if (e.stopProgation) {
+        e.stopProgation();
+      }else{
+        e.cancelBubble = true;
+      }
+      stateList.style.display = 'block';
+    }
+
+    // 鼠标滑过、离开和点击状态列表时
+    for(var i = 0, l = lis.length; i < l; i++){
+      lis[i].onmouseover = function(){
+        this.style.background = '#567';
+      }
+      lis[i].onmouseout = function(){
+        this.style.background = '#fff';
+
+      }
+      lis[i].onclick = function(e){
+        e = event || window.event;
+        if(e.stopProgation){
+          e.stopProgation();
+        }else{
+          e.cancelBubble = true;
+        }
+        var id = this.id;
+        stateList.style.display = 'none';
+        stateTXT.innerHTML = getByClass('stateSelect_text', id)[0].innerHTML;
+        loginStateShow.className = '';
+        loginStateShow.className = 'login-state-show ' + id;
+      }
+    }
+    document.onclick = function(){
+      stateList.style.display = 'none';
+    }
+  }
+
+  function fnDown(event){
+    event = event || window.event;
+    var oDrag = document.getElementById('loginPanel'),
+        disX = event.clientX - oDrag.offsetLeft,
+        disY = event.clientY - oDrag.offsetTop;
+    // 移动
+    document.onmousemove = function(event){
+      event = event || window.event;
+      fnMove(event, disX, disY);
+    }
+    // 释放鼠标
+    document.onmouseup = function(){
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+  }
+  function fnMove(e, posX, posY){
+    var oDrag = document.getElementById('loginPanel'),
+        l = e.clientX - posX,
+        t = e.clientY - posY,
+        winW = document.documentElement.clientWidth || document.body.clientWidth,
+        winH = document.documentElement.clientHeight || document.body.clientHeight
+        maxW = winW - oDrag.offsetWidth,
+        maxH = winH - oDrag.offsetHeight;
+    if (l < 0) {
+      l = 0;
+    }else if(l > maxW){
+      l = maxW
+    }
+    if (t < 0) {
+      t = 0;
+    }else if(t > maxH){
+      t = maxH;
+    }
+    oDrag.style.left = l + 'px';
+    oDrag.style.top = t + 'px';
+  }
+</script>

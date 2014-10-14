@@ -1,4 +1,4 @@
 name: ThreeMonths
 markdown: redcarpet
-pygments: true
+highlighter: true
 timezone: Beijing

@@ -19,7 +19,11 @@
           <ul class="unstyled text-right">
             <!-- 
             <li><a href="/categories/others/" title="view all
-              posts">categories/others (5)</a>
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
             </li>
             
             <li><a href="/categories/iehack/" title="view all
@@ -27,44 +31,43 @@
             </li>
             
             <li><a href="/categories/css/" title="view all
-              posts">categories/css (3)</a>
+              posts">categories/css (2)</a>
             </li>
             
             <li><a href="/categories/js/" title="view all
-              posts">categories/js (7)</a>
+              posts">categories/js (8)</a>
             </li>
             
             <li><a href="/categories/css3/" title="view all
               posts">categories/css3 (3)</a>
             </li>
             
-            <li><a href="/categories/html/" title="view all
-              posts">categories/html (4)</a>
-            </li>
-            
             <li><a href="/categories/demo/" title="view all
-              posts">categories/demo (3)</a>
+              posts">categories/demo (10)</a>
             </li>
              -->
             <li><a href="/allist.html">all</a></li>
             
-            <li><a href="/categories/others.html">others(5)</a></li>
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
             
             <li><a href="/categories/iehack.html">iehack(2)</a></li>
             
-            <li><a href="/categories/css.html">css(3)</a></li>
+            <li><a href="/categories/css.html">css(2)</a></li>
             
-            <li><a href="/categories/js.html">js(7)</a></li>
+            <li><a href="/categories/js.html">js(8)</a></li>
             
             <li><a href="/categories/css3.html">css3(3)</a></li>
             
-            <li><a href="/categories/html.html">html(4)</a></li>
-            
-            <li><a href="/categories/demo.html">demo(3)</a></li>
+            <li><a href="/categories/demo.html">demo(10)</a></li>
             
 
             <!-- <li><a href="/csslist.html">css</a></li> -->
           </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
           <div class="myself">
             <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
             <p class="text-right"><small>2014,换个角度写代码！</small></p>
@@ -153,6 +156,8 @@
 
 <p>css transition属性是<code>transition-property</code>, <code>transition-duration</code>, <code>transition-timing-function</code>和<code>transition-delay</code>的简写方式。它允许在一个元素上定义两个声明之间的过渡。不同的声明也许用伪类定义，像:hover,:active或者通过js设置动态的效果。</p>
 
+<p><code>transition</code>：&lt;过度属性名称&gt; &lt;过度时间&gt; &lt;过渡模式&gt;</p>
+
 <p>初始值：</p>
 
 <p><code>transition-delay: 0s</code></p>
@@ -161,12 +166,11 @@
 
 <p><code>transition-property: all</code></p>
 
-<p><code>transition-timing-function: ease</code></p>
+<p><code>transition-timing-function: ease</code>。transition-timing-function有5种过渡模式：<code>ease</code> 缓慢的开始，缓慢的结束；<code>linear</code> 匀速；<code>ease-in</code> 缓慢开始；<code>ease-out</code> 缓慢结束；<code>ease-in-out</code> 缓慢开始，缓慢结束（和ease稍有区别）；</p>
 
 <h5 id="syntax">语法</h5>
 
-<div class="highlight"><pre><code class="css"><span class="err">语法形式：</span><span class="nt">_</span><span class="o">[</span> <span class="nt">none</span> <span class="o">|</span> <span class="o">&lt;</span><span class="nt">single-transition-property</span><span class="o">&gt;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nt">time</span><span class="o">&gt;</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nt">timing-function</span><span class="o">&gt;</span> <span class="o">||</span> <span class="o">&lt;</span><span class="nt">time</span><span class="o">&gt;</span><span class="nt">_</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-css" data-lang="css">语法形式：_[ none | &lt;single-transition-property&gt; ] || &lt;time&gt; || &lt;timing-function&gt; || &lt;time&gt;_</code></pre></div>
 
 <p>例：<code>transition: width 300ms, height 300ms, box-shadow 1500ms;</code></p>
 
@@ -199,6 +203,89 @@
     transition_box.classList.toggle('active')
   }
 </script>
+
+<div class="transform_box" id="transform_box">
+  <h5>Section 1</h5>
+  第一最好不相见，如此便可不相恋。
+  第二最好不相知，如此便可不相思。
+  但曾相见便相知，相见何如不见时。
+  安得与君相决绝，免教辛苦作相思。
+</div>
+
+<style type="text/css">
+  .transform_box{
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    margin-top: 30px;
+    padding: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    transform: translateY(0) scale(0.95,0.95);
+    transition: all 0.5s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+    cursor: pointer;
+  }
+</style>
+
+<script type="text/javascript">
+  window.onload = function(){
+    var flag = true;
+    var transform_box = document.getElementById('transform_box');
+    transform_box.onclick = function(){
+      if (flag) {
+        this.style.webkitTransform = 'translateY(-20px) scale(1.0,1.0)';
+        this.style.boxShadow = '0 8px 30px rgba(0,0,0,0.3)';
+        flag = false;
+      }else{
+        this.style.webkitTransform = 'translateY(0) scale(0.95,0.95)';
+        this.style.boxShadow = '0 1px 1px rgba(0,0,0,0.3)';
+        flag = true;
+      }
+    }
+  }
+</script>
+
+<div class="ball"><span class="round"></span></div>
+
+<style type="text/css">
+  .ball{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: darkseagreen;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+
+    -webkit-animation: myrotate 5s linear 3s infinite alternate;
+  }
+  @-webkit-keyframes myrotate {
+    0% {
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+    }
+    100% {
+      -webkit-transform: translate(200px,0) rotate(360deg);
+      -webkit-transition: transform 2s;
+    }
+  }
+
+  /**/
+  .round{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url(/images/posts/12.jpg) no-repeat -141px -35px;
+    background-size: initial;
+    border-radius: 50%;
+    border: 0;
+    transition: background-position 0.3s;
+  }
+  .ball:hover .round{
+    background-position: -71px -61px;
+    transition: background-position 0.3s;
+  }
+</style>
 
 <h3>transform</h3>
 

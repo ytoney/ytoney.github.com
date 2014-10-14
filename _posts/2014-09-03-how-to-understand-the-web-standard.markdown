@@ -2,7 +2,7 @@
 layout: post
 title:  "对web标准的理解"
 date:   2014-01-13 16:40:34
-categories: categories/others
+categories: categories/html
 ---
 
 文章来自： <a href="http://blog.sina.com.cn/s/blog_5fb4754f0100d38a.html">张鹏的博客</a>

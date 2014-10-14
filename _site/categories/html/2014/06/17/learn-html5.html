@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="前端开发｜Web Developer">
-  <title>学习html5</title>
+  <title>html5-学习笔记</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -19,7 +19,11 @@
           <ul class="unstyled text-right">
             <!-- 
             <li><a href="/categories/others/" title="view all
-              posts">categories/others (5)</a>
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
             </li>
             
             <li><a href="/categories/iehack/" title="view all
@@ -27,44 +31,43 @@
             </li>
             
             <li><a href="/categories/css/" title="view all
-              posts">categories/css (3)</a>
+              posts">categories/css (2)</a>
             </li>
             
             <li><a href="/categories/js/" title="view all
-              posts">categories/js (7)</a>
+              posts">categories/js (8)</a>
             </li>
             
             <li><a href="/categories/css3/" title="view all
               posts">categories/css3 (3)</a>
             </li>
             
-            <li><a href="/categories/html/" title="view all
-              posts">categories/html (4)</a>
-            </li>
-            
             <li><a href="/categories/demo/" title="view all
-              posts">categories/demo (3)</a>
+              posts">categories/demo (10)</a>
             </li>
              -->
             <li><a href="/allist.html">all</a></li>
             
-            <li><a href="/categories/others.html">others(5)</a></li>
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
             
             <li><a href="/categories/iehack.html">iehack(2)</a></li>
             
-            <li><a href="/categories/css.html">css(3)</a></li>
+            <li><a href="/categories/css.html">css(2)</a></li>
             
-            <li><a href="/categories/js.html">js(7)</a></li>
+            <li><a href="/categories/js.html">js(8)</a></li>
             
             <li><a href="/categories/css3.html">css3(3)</a></li>
             
-            <li><a href="/categories/html.html">html(4)</a></li>
-            
-            <li><a href="/categories/demo.html">demo(3)</a></li>
+            <li><a href="/categories/demo.html">demo(10)</a></li>
             
 
             <!-- <li><a href="/csslist.html">css</a></li> -->
           </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
           <div class="myself">
             <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
             <p class="text-right"><small>2014,换个角度写代码！</small></p>
@@ -78,7 +81,7 @@
       <div class="content">
         <!--Body content-->
         <div class="main">
-  <h2>学习html5</h2>
+  <h2>html5-学习笔记</h2>
   <p class="meta">17 Jun 2014</p>
   <hr>
   <div class="post">
@@ -135,61 +138,57 @@ IE9+,Firefox,Opear,Safari(webkit),Chrome(webkit)</p>
 
 <p>二、新增的HTML5标签</p>
 
-<div class="highlight"><pre><code class="html">新增的HTML5标签-结构标签
+<div class="highlight"><pre><code class="language-html" data-lang="html">新增的HTML5标签-结构标签
 结构标签：(块状元素) 有意义的div
-  <span class="nt">&lt;article&gt;</span>  标记定义一篇文章
-  <span class="nt">&lt;header&gt;</span>   标记定义一个页面或一个区域的头部
-  <span class="nt">&lt;nav&gt;</span>     标记定义导航链接
-  <span class="nt">&lt;section&gt;</span>  标记定义一个区域
-  <span class="nt">&lt;aside&gt;</span>   标记定义页面内容部分的侧边栏
-  <span class="nt">&lt;hgroup&gt;</span>   标记定义文件中一个区块的相关信息
-  <span class="nt">&lt;figure&gt;</span>  标记定义一组媒体内容以及它们的标题
-  <span class="nt">&lt;figcaption&gt;</span>   标签定义 figure 元素的标题。
-  <span class="nt">&lt;footer&gt;</span>  标记定义一个页面或一个区域的底部
-  <span class="nt">&lt;dialog&gt;</span>   标记定义一个对话框(会话框)类似微信
-</code></pre></div>
+  &lt;article&gt;  标记定义一篇文章
+  &lt;header&gt;   标记定义一个页面或一个区域的头部
+  &lt;nav&gt;     标记定义导航链接
+  &lt;section&gt;  标记定义一个区域
+  &lt;aside&gt;   标记定义页面内容部分的侧边栏
+  &lt;hgroup&gt;   标记定义文件中一个区块的相关信息
+  &lt;figure&gt;  标记定义一组媒体内容以及它们的标题
+  &lt;figcaption&gt;   标签定义 figure 元素的标题。
+  &lt;footer&gt;  标记定义一个页面或一个区域的底部
+  &lt;dialog&gt;   标记定义一个对话框(会话框)类似微信</code></pre></div>
 
 <p><strong>新的结构标签带来的是网页布局的改变及提升对搜索引擎的友好</strong></p>
 
-<div class="highlight"><pre><code class="html">新增的HTML5标签-多媒体标签
+<div class="highlight"><pre><code class="language-html" data-lang="html">新增的HTML5标签-多媒体标签
 多媒体交互标签
-  <span class="nt">&lt;video&gt;</span> 标记定义一个视频
-  <span class="nt">&lt;audio&gt;</span> 标记定义音频内容
-  <span class="nt">&lt;source&gt;</span> 标记定义媒体资源
+  &lt;video&gt; 标记定义一个视频
+  &lt;audio&gt; 标记定义音频内容
+  &lt;source&gt; 标记定义媒体资源
 
-  <span class="nt">&lt;canvas&gt;</span> 标记定义图片
+  &lt;canvas&gt; 标记定义图片
 
-  <span class="nt">&lt;embed&gt;</span> 标记定义外部的可交互的内容或插件 比如flash
-</code></pre></div>
+  &lt;embed&gt; 标记定义外部的可交互的内容或插件 比如flash</code></pre></div>
 
 <p><strong>HTML5的多媒体标签的出现意味着富媒体的发展以及支持不使用插件的情况下即可操作媒体文件，极大地提升了用户体验</strong></p>
 
-<div class="highlight"><pre><code class="html">新增的HTML5标签-Web应用标签
+<div class="highlight"><pre><code class="language-html" data-lang="html">新增的HTML5标签-Web应用标签
 Web应用标签
-<span class="nt">&lt;menu&gt;</span>命令列表
-<span class="nt">&lt;menuitem&gt;</span>menu命令列表标签 FF（嵌入系统）
-<span class="nt">&lt;command&gt;</span> menu标记定义一个命令按钮
+&lt;menu&gt;命令列表
+&lt;menuitem&gt;menu命令列表标签 FF（嵌入系统）
+&lt;command&gt; menu标记定义一个命令按钮
 
-<span class="nt">&lt;meter&gt;</span>状态标签(实时状态显示:气压、气温)C、O
-<span class="nt">&lt;progress&gt;</span>状态标签 (任务过程:安装、加载) C、F、O
+&lt;meter&gt;状态标签(实时状态显示:气压、气温)C、O
+&lt;progress&gt;状态标签 (任务过程:安装、加载) C、F、O
 
-<span class="nt">&lt;datalist&gt;</span> 为input标记定义一个下拉列表,配合option F、O
-<span class="nt">&lt;details&gt;</span> 标记定义一个元素的详细内容 ，配合dt、dd   C
-</code></pre></div>
+&lt;datalist&gt; 为input标记定义一个下拉列表,配合option F、O
+&lt;details&gt; 标记定义一个元素的详细内容 ，配合dt、dd   C</code></pre></div>
 
-<div class="highlight"><pre><code class="html">新增的HTML5标签-其他标签
+<div class="highlight"><pre><code class="language-html" data-lang="html">新增的HTML5标签-其他标签
 注释标签
-<span class="nt">&lt;ruby&gt;</span> 标记定义 注释或音标
-<span class="nt">&lt;rp&gt;</span> 告诉那些不支持 Ruby元素的浏览器如何去显示
-<span class="nt">&lt;rt&gt;</span> 标记定义对ruby的注释内容文本
+&lt;ruby&gt; 标记定义 注释或音标
+&lt;rp&gt; 告诉那些不支持 Ruby元素的浏览器如何去显示
+&lt;rt&gt; 标记定义对ruby的注释内容文本
 
 其他标签
-<span class="nt">&lt;keygen&gt;</span> 标记定义表单里一个生成的键值(加密信息传送)O、F
-<span class="nt">&lt;mark&gt;</span> 标记定义有标记的文本 (黄色选中状态)
-<span class="nt">&lt;output&gt;</span> 标记定义一些输出类型,计算表单结果配合oninput事件
+&lt;keygen&gt; 标记定义表单里一个生成的键值(加密信息传送)O、F
+&lt;mark&gt; 标记定义有标记的文本 (黄色选中状态)
+&lt;output&gt; 标记定义一些输出类型,计算表单结果配合oninput事件
 
-<span class="nt">&lt;time&gt;</span> 标记定义一个日期/时间 目前所有主流浏览器都不支持
-</code></pre></div>
+&lt;time&gt; 标记定义一个日期/时间 目前所有主流浏览器都不支持</code></pre></div>
 
 <p>三、删除的HTML标签</p>
 
@@ -204,16 +203,15 @@ acronym ，applet，isindex，dir。</p>
 
 <p>四、重新定义的HTML标签</p>
 
-<div class="highlight"><pre><code class="html">HTML元素  HTML5中的意义
-<span class="nt">&lt;b&gt;</span> 代表内联文本，通常是粗体，没有传递表示重要的意思
-<span class="nt">&lt;i&gt;</span> 代表内联文本，通常是斜体，没有传递表示重要的意思
-<span class="nt">&lt;dd&gt;</span>  可以同details与figure一同使用，定义包含文本，dialog也可用
-<span class="nt">&lt;dt&gt;</span>  可以同details与figure一同使用，汇总细节，dialog也可用
-<span class="nt">&lt;hr&gt;</span>  表示主题结束，而不是水平线，虽然显示相同
-<span class="nt">&lt;menu&gt;</span>  重新定义用户界面的菜单，配合commond或者menuitem使用
-<span class="nt">&lt;small&gt;</span> 表示小字体，例如打印注释或者法律条款
-<span class="nt">&lt;strong&gt;</span>  表示重要性而不是强调符号
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">HTML元素  HTML5中的意义
+&lt;b&gt; 代表内联文本，通常是粗体，没有传递表示重要的意思
+&lt;i&gt; 代表内联文本，通常是斜体，没有传递表示重要的意思
+&lt;dd&gt;  可以同details与figure一同使用，定义包含文本，dialog也可用
+&lt;dt&gt;  可以同details与figure一同使用，汇总细节，dialog也可用
+&lt;hr&gt;  表示主题结束，而不是水平线，虽然显示相同
+&lt;menu&gt;  重新定义用户界面的菜单，配合commond或者menuitem使用
+&lt;small&gt; 表示小字体，例如打印注释或者法律条款
+&lt;strong&gt;  表示重要性而不是强调符号</code></pre></div>
 
 <p>五、崭新的页面布局</p>
 
@@ -233,20 +231,19 @@ acronym ，applet，isindex，dir。</p>
 
 <p><strong>WebM</strong>=带有VP8视频编码+Vorbis音频编码的WebM格式 <strong>支持的浏览器: I、F、C、O</strong></p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;video&gt;</span>的使用
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;video&gt;的使用
 
-<span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">&quot;文件地址&quot;</span> <span class="na">controls=</span><span class="s">&quot;controls&quot;</span><span class="nt">&gt;&lt;/video&gt;</span>
+&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;
 
-<span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">&quot;文件地址&quot;</span> <span class="na">controls=</span><span class="s">&quot;controls&quot;</span><span class="nt">&gt;</span>
+&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;
   您的浏览器暂不支持video标签。播放视频
-<span class="nt">&lt;/video &gt;</span>
+&lt;/video &gt;
 
-<span class="nt">&lt;video</span>  <span class="na">controls=</span><span class="s">&quot;controls&quot;</span>  <span class="na">width=</span><span class="s">&quot;300&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">&quot;/images/posts/video/video.ogg&quot;</span> <span class="na">type=</span><span class="s">&quot;video/ogg&quot;</span> <span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">&quot;/images/posts/video/video.mp4&quot;</span> <span class="na">type=</span><span class="s">&quot;video/mp4&quot;</span> <span class="nt">&gt;</span>
+&lt;video  controls=&quot;controls&quot;  width=&quot;300&quot;&gt;
+  &lt;source src=&quot;/images/posts/video/video.ogg&quot; type=&quot;video/ogg&quot; &gt;
+  &lt;source src=&quot;/images/posts/video/video.mp4&quot; type=&quot;video/mp4&quot; &gt;
   您的浏览器暂不支持video标签。播放视频
-<span class="nt">&lt;/video &gt;</span>
-</code></pre></div>
+&lt;/video &gt;</code></pre></div>
 
 <p><video  controls="controls"  width="300">
   <source src="/images/posts/video/video.webm" type="video/webm" >
@@ -256,7 +253,7 @@ acronym ，applet，isindex，dir。</p>
 
 <p><strong>Video的常见属性</strong></p>
 
-<div class="highlight"><pre><code class="html">属性  值 描述
+<div class="highlight"><pre><code class="language-html" data-lang="html">属性  值 描述
 Autoplay  Autoplay  视频就绪自动播放
 controls  controls  向用户显示播放控件
 Width Pixels(像素)  设置播放器宽度
@@ -265,8 +262,7 @@ Loop  Loop  播放完是否继续播放该视频，循环播放
 Preload Proload 是否等加载完再播放
 Src url 视频url地址
 Poster  Imgurl  加载等待的画面图片
-Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有效
-</code></pre></div>
+Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有效</code></pre></div>
 
 <p><code><a href="/categories/html/2014/06/24/video-API.html">video的API方法</a></code>
 <code><a href="/categories/html/2014/06/24/video-API.html">video的API属性</a></code>
@@ -300,19 +296,18 @@ Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有�
 
 <p>src url 要播放的音频的 URL。</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;audio&gt;</span>的使用
-<span class="nt">&lt;audio</span>  <span class="na">src=</span><span class="s">&quot;文件地址&quot;</span> <span class="na">controls=</span><span class="s">&quot;controls&quot;</span><span class="nt">&gt;&lt;/audio&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;audio&gt;的使用
+&lt;audio  src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/audio&gt;
 
-<span class="nt">&lt;audio</span> <span class="na">src=</span><span class="s">&quot;文件地址&quot;</span> <span class="na">controls=</span><span class="s">&quot;controls&quot;</span><span class="nt">&gt;</span>
+&lt;audio src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;
   您的浏览器暂不支持audio标签。播放视频
-<span class="nt">&lt;/audio &gt;</span>
+&lt;/audio &gt;
 
-<span class="nt">&lt;audio</span> <span class="na">controls=</span><span class="s">&quot;controls&quot;</span>  <span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">&quot;happy.MP3&quot;</span> <span class="na">type=</span><span class="s">&quot;video/mpeg&quot;</span> <span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">&quot;happy.ogg&quot;</span> <span class="na">type=</span><span class="s">&quot;video/ogg&quot;</span> <span class="nt">&gt;</span>
+&lt;audio controls=&quot;controls&quot;  &gt;
+  &lt;source src=&quot;happy.MP3&quot; type=&quot;video/mpeg&quot; &gt;
+  &lt;source src=&quot;happy.ogg&quot; type=&quot;video/ogg&quot; &gt;
   您的浏览器暂不支持audio标签。播放视频
-<span class="nt">&lt;/audio&gt;</span>
-</code></pre></div>
+&lt;/audio&gt;</code></pre></div>
 
 <p><audio controls="controls" src="/images/posts/video/video.mp3" ></audio></p>
 
@@ -322,10 +317,9 @@ Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有�
 
 <p><strong>Canvas的使用</strong></p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;canvas&quot;</span>  <span class="na">height=</span><span class="s">&quot;300&quot;</span> <span class="na">width=</span><span class="s">&quot;300&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;canvas id=&quot;canvas&quot;  height=&quot;300&quot; width=&quot;300&quot;&gt;
   您的浏览器不支持canvas标签
-<span class="nt">&lt;/canvas&gt;</span>
-</code></pre></div>
+&lt;/canvas&gt;</code></pre></div>
 
 <p>canvas标签在页面中只显示一个设定背景色的画布，如果要产生新内容或
 者进行画图操作，需要借助canvas API(HTML5的内置对context 对象)和
@@ -499,15 +493,14 @@ javascript操作实现画图或者其他图像操作</p>
 
 <p>方法:from指定ID，所有表单标签均添加from=id属性。</p>
 
-<div class="highlight"><pre><code class="html">  <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">id=</span><span class="s">&quot;register&quot;</span> <span class="nt">&gt;&lt;/form&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;form action=&quot;&quot; method=&quot;post&quot; id=&quot;register&quot; &gt;&lt;/form&gt;
 
-  <span class="nt">&lt;input</span>  <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;user&quot;</span> <span class="na">form=</span><span class="s">&quot;register&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;year&quot;</span> <span class="na">form=</span><span class="s">&quot;register&quot;</span> <span class="nt">&gt;</span>
-    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;1999&quot;</span><span class="nt">&gt;&lt;/option&gt;</span>
-  <span class="nt">&lt;/select&gt;</span>
-  <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;ext&quot;</span> <span class="na">form=</span><span class="s">&quot;register&quot;</span> <span class="nt">&gt;&lt;/textarea&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">form=</span><span class="s">&quot;register&quot;</span> <span class="nt">&gt;</span>提交<span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
+  &lt;input  type=&quot;text&quot; name=&quot;user&quot; form=&quot;register&quot; /&gt;
+  &lt;select name=&quot;year&quot; form=&quot;register&quot; &gt;
+    &lt;option value=&quot;1999&quot;&gt;&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;textarea name=&quot;ext&quot; form=&quot;register&quot; &gt;&lt;/textarea&gt;
+  &lt;button type=&quot;submit&quot; form=&quot;register&quot; &gt;提交&lt;/button&gt;</code></pre></div>
 
 <p>智能表单的使用和规范</p>
 
@@ -562,13 +555,12 @@ javascript操作实现画图或者其他图像操作</p>
 
 <p>Datalist标签配合option标签实现的自动填充表单功能：</p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">name=</span><span class="s">&quot;move&quot;</span> <span class="na">list=</span><span class="s">&quot;search&quot;</span> <span class="nt">&gt;</span>
-<span class="nt">&lt;datalist</span> <span class="na">id=</span><span class="s">&quot;search&quot;</span> <span class="nt">&gt;</span>
-  <span class="nt">&lt;option&gt;</span>黑老师的由来<span class="nt">&lt;/option&gt;</span>
-  <span class="nt">&lt;option&gt;</span>男人缘<span class="nt">&lt;/option&gt;</span>
-  <span class="nt">&lt;option&gt;</span>佳佳婕婕不得不说的故事<span class="nt">&lt;/option&gt;</span>
-<span class="nt">&lt;/datalist&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;input type=&quot;search&quot; name=&quot;move&quot; list=&quot;search&quot; &gt;
+&lt;datalist id=&quot;search&quot; &gt;
+  &lt;option&gt;黑老师的由来&lt;/option&gt;
+  &lt;option&gt;男人缘&lt;/option&gt;
+  &lt;option&gt;佳佳婕婕不得不说的故事&lt;/option&gt;
+&lt;/datalist&gt;</code></pre></div>
 
 <p><input type="search" name="move" list="search" >
 <datalist id="search" >
@@ -579,18 +571,19 @@ javascript操作实现画图或者其他图像操作</p>
 
 <p><strong>output的使用</strong></p>
 
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span> <span class="na">oninput=</span><span class="s">&quot;result.value=parseInt(no1.value)*parseInt(no2.value)&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;number&quot;</span> <span class="na">name=</span><span class="s">&quot;no1&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;number&quot;</span> <span class="na">name=</span><span class="s">&quot;no2&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;output</span> <span class="na">name=</span><span class="s">&quot;result&quot;</span><span class="nt">&gt;&lt;/output&gt;</span>
-<span class="nt">&lt;/form&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;form action=&quot;&quot; method=&quot;post&quot; oninput=&quot;result.value=parseInt(no1.value)*parseInt(no2.value)&quot;&gt;
+  &lt;input type=&quot;number&quot; name=&quot;no1&quot;&gt;
+  &lt;input type=&quot;number&quot; name=&quot;no2&quot;&gt;
+  &lt;output name=&quot;result&quot;&gt;&lt;/output&gt;
+&lt;/form&gt;</code></pre></div>
 
 <form action="" method="post" oninput="result.value=parseInt(no1.value)*parseInt(no2.value)">
   <input type="number" name="no1">
   <input type="number" name="no2">
   <output name="result"></output>
 </form>
+
+<!-- <a href="http://study.163.com/course/courseLearn.htm?courseId=267002#/learn/video?lessonId=374027&courseId=267002">HTML5视频教程-网易云课堂</a> -->
 
   </div>
 </div>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>js事件探秘-学习笔记</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/others/" title="view all
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
+            </li>
+            
+            <li><a href="/categories/iehack/" title="view all
+              posts">categories/iehack (2)</a>
+            </li>
+            
+            <li><a href="/categories/css/" title="view all
+              posts">categories/css (2)</a>
+            </li>
+            
+            <li><a href="/categories/js/" title="view all
+              posts">categories/js (8)</a>
+            </li>
+            
+            <li><a href="/categories/css3/" title="view all
+              posts">categories/css3 (3)</a>
+            </li>
+            
+            <li><a href="/categories/demo/" title="view all
+              posts">categories/demo (10)</a>
+            </li>
+             -->
+            <li><a href="/allist.html">all</a></li>
+            
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
+            
+            <li><a href="/categories/iehack.html">iehack(2)</a></li>
+            
+            <li><a href="/categories/css.html">css(2)</a></li>
+            
+            <li><a href="/categories/js.html">js(8)</a></li>
+            
+            <li><a href="/categories/css3.html">css3(3)</a></li>
+            
+            <li><a href="/categories/demo.html">demo(10)</a></li>
+            
+
+            <!-- <li><a href="/csslist.html">css</a></li> -->
+          </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>js事件探秘-学习笔记</h2>
+  <p class="meta">18 Sep 2014</p>
+  <hr>
+  <div class="post">
+    <div class="highlight">
+  <h5>1、事件流：事件冒泡、事件捕获</h5>
+
+  <h5>2、使用事件处理程序的方法：</h5>
+
+  <ul class="media-list">
+    <li class="media">
+      <strong class="pull-left">HTML事件处理程序:</strong>
+      <div class="media-body">
+        <p>直接添加在html文件中;</p>
+        <p>如：< input onclick="clickName()"></p>
+        <p>缺点：html和js代码紧密的耦合在一起;</p>
+      </div>
+    </li>
+    <li class="media">
+      <strong class="pull-left">DOM0级事件处理程序:</strong>
+      <div class="media-body">
+        <p>把一个函数赋值给一个事件的处理程序属性</p>
+        <pre>
+          < input type="button" value="点击我" id="inputBtn">
+
+          var inputBtn = document.getElementById('inputBtn');
+          inputBtn.onclick = function(){
+            alert('hello world!');
+          };
+          inputBtn.onclick = null;//删除事件
+        </pre>
+        <p>优势：用的比较多，简单，跨浏览器；可以给一个元素添加多个事件处理程序；</p>
+      </div>
+    </li>
+    <li class="media">
+      <strong class="pull-left">DOM2级事件处理程序:</strong>
+      <div class="media-body">
+        <p>DOM2级事件定义了两个方法：用于处理指定和删除事件处理程序的操作</p>
+        <p>addEventListener()和 removeEventListener();</p>
+        <p>接收三个参数：要处理的事件名、作为事件处理程序的函数和布尔值;//true:表示在捕获阶段调用事件处理程序，false:表示在冒泡阶段调用事件处理程序</p>
+        <p>input.addEventListener(‘click’, function(){alert('hello')}, false);</p>
+      </div>
+    </li>
+    <li class="media">
+      <strong class="pull-left">ie事件处理程序:</strong>
+      <div class="media-body">
+        <p>attachEvent()添加事件、detachEvent()删除事件</p>
+        <p>接收相同的两个参数：事件处理程序的名称和事件处理程序的函数</p>
+        <p>input.attachEvent(‘onclick’, function(){alert('hello')});</p>
+      </div>
+    </li>
+    <li class="media">
+      <strong class="pull-left">跨浏览器事件处理程序:</strong>
+      <div class="media-body">
+        <pre>
+        var eventUtil = {
+          //添加句柄
+          addHandler: function(element, type, handler){
+            if(element.addEventListener){
+              element.addEventListener(type, handler, false);
+            }else if(element.attachEvent){
+              element.attachEvent('on' + type, handler);
+            }else{
+              element['on' + type] = handler;
+            }
+          },
+          //删除句柄
+          removeHandler: function(element, type, handler){
+            if(element.removeEventListener){
+              element.removeEventListener(type, handler, false);
+            }else if(element.detachEvent){
+              element.detachEvent('on' + type, handler);
+            }else{
+              element['on' + type] = null;
+            }
+          },
+          getEvent: function(event){
+            return event ? event : window.event;
+          },
+          getType: functon(event){
+            return event.type;
+          },
+          getElement: function(event){
+            return event.target || event.srcElement;
+          },
+          preventDefault: function(event){
+            if(event.preventDefault){
+              event.preventDefault();
+            }else{
+              event.returnValue = false;
+            }
+          },
+          stopPropagation: function(event){
+            if(event.stopPropagation){
+              event.stopPropagation();
+            }else{
+              event.cancelBubble = true;
+            }
+          }
+        };
+
+        eventUtil.addHandler(btn1, 'click', function(e){
+          //doing something
+          e=eventUtil.getEvent(e);
+          eventUtil.preventDefault(e);
+          eventUtil.stopPropagation(e);
+        });
+
+        <input type="button" value="点击我" id="btn1">
+        <!-- <input type="button" value="点击我" id="btn2"> -->
+        <a href="www.baidu.com" target="_blank" id="go">go</a>
+        </pre>
+        <script type="text/javascript">
+          function showMsg(){
+            alert('hello world');
+          };
+          var btn1 = document.getElementById('btn1');
+          var go = document.getElementById('go');
+          // alert(btn1.nodeName);
+
+          // 跨浏览器事件处理程序
+          var eventUtil = {
+            //添加句柄
+            addHandler: function(element, type, handler){
+              if(element.addEventListener){
+                element.addEventListener(type, handler, false);
+              }else if(element.attachEvent){
+                element.attachEvent('on' + type, handler);
+              }else{
+                element['on' + type] = handler;
+              }
+            },
+            //删除句柄
+            removeHandler: function(element, type, handler){
+              if(element.removeEventListener){
+                element.removeEventListener(type, handler, false);
+              }else if(element.detachEvent){
+                element.detachEvent('on' + type, handler);
+              }else{
+                element['on' + type] = null;
+              }
+            },
+            getEvent: function(event){
+              return event ? event : window.event;
+            },
+            getType: function(event){
+              return event.type;
+            },
+            getElement: function(event){
+              return event.target || event.srcElement;
+            },
+            preventDefault: function(event){
+              if(event.preventDefault){
+                event.preventDefault();
+              }else{
+                event.returnValue = false;
+              }
+            },
+            stopPropagation: function(event){
+              if(event.stopPropagation){
+                event.stopPropagation();
+              }else{
+                event.cancelBubble = true;
+              }
+            }
+          };
+          eventUtil.addHandler(btn1, 'click', showMsg);
+          eventUtil.addHandler(go, 'click', function(e){
+            e = eventUtil.getEvent(e);
+            alert(eventUtil.getElement(e));
+            eventUtil.preventDefault(e);
+          });
+        </script>
+      </div>
+    </li>
+  </ul>
+
+  <h5>3、事件对象:</h5>
+  <ul class="media-list">
+    <li class="media">
+      <div class="media-body">
+        <p>在触发DOM上的事件时都会产生一个对象</p>
+        <p>事件对象event</p>
+        <div class="media">
+          <strong class="pull-left">DOM中的事件对象：</strong>
+          <div class="media-body">
+            <p>type属性-用于获取事件类型；</p>
+            <p>target属性-用户获取事件目标；</p>
+            <p>stopPropagation()方法-用于阻止事件冒泡；</p>
+            <p>preventDefault()方法-用于阻止事件的默认行为；</p>
+          </div>
+        </div>
+        <div class="media">
+          <strong class="pull-left">IE中的事件对象：</strong>
+          <div class="media-body">
+            <p>type属性-用于获取事件类型；</p>
+            <p>srcElement属性-用于获取事件目标；(var ele = event.target || event.srcElement;)(event = event || window.event;//ie8之前引用的是window.event)</p>
+            <p>cancelBubble属性-用于阻止事件冒泡；(设为true表示阻止冒泡，设为false表示不阻止事件冒泡；)</p>
+            <p>returnValue属性-用于阻止事件的默认行为（设置为false为阻止）；</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <h5>4、不同的事件类型:</h5>
+  <ul class="media-list">
+    <li class="media">
+      <div class="media-body">
+        <div class="media">
+          <strong class="pull-left">鼠标事件：</strong>
+          <div class="media-body">
+            <p>click、mouseover、mouse out…</p>
+          </div>
+        </div>
+        <div class="media">
+          <strong class="pull-left">键盘事件</strong>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- <a href="http://www.imooc.com/learn/138" target="_blank">慕课网</a> -->
+
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>

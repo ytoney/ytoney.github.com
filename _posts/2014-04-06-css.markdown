@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "css"
+title:  "css-基本语法"
 date:   2014-04-06 16:40:34
 categories: categories/css
 ---

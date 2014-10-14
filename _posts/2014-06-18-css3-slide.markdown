@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "纯css幻灯片效果"
+title:  "css-纯css幻灯片效果"
 date:   2014-06-18 13:40:34
-categories: categories/css
+categories: categories/demo
 ---
 
 
