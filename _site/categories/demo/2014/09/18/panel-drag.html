@@ -179,6 +179,10 @@
   .busy:before{
     content: '¶';
   }
+
+  .login_logo_webqq{
+    cursor: move;
+  }
 </style>
 
 <div class="loginPanel modal" id="loginPanel">
@@ -250,6 +254,7 @@
         eles = [],
         elements = oParent.getElementsByTagName('*');
     for(var i = 0, l = elements.length; i < l; i++){
+      // console.log(elements[i].className == clsName)
       if(elements[i].className == clsName){
         eles.push(elements[i]);
       }
@@ -261,7 +266,7 @@
   window.onload = drag;
 
   function drag(){
-    var oTitle = getByClass('login_logo_webqq', 'loginPanel')[0];
+    var oTitle = getByClass('login_logo_webqq text-center modal-header', 'loginPanel')[0];
     // 拖动
     oTitle.onmousedown = fnDown;
     // 关闭
@@ -317,8 +322,8 @@
   function fnDown(event){
     event = event || window.event;
     var oDrag = document.getElementById('loginPanel'),
-        disX = event.clientX - oDrag.offsetLeft,
-        disY = event.clientY - oDrag.offsetTop;
+        disX = event.clientX - oDrag.offsetLeft -150,
+        disY = event.clientY - oDrag.offsetTop -100;
     // 移动
     document.onmousemove = function(event){
       event = event || window.event;
@@ -336,15 +341,16 @@
         t = e.clientY - posY,
         winW = document.documentElement.clientWidth || document.body.clientWidth,
         winH = document.documentElement.clientHeight || document.body.clientHeight
-        maxW = winW - oDrag.offsetWidth,
-        maxH = winH - oDrag.offsetHeight;
-    if (l < 0) {
-      l = 0;
+        maxW = winW - oDrag.offsetWidth + 150,
+        maxH = winH - oDrag.offsetHeight + 100;
+        // console.log(l)
+    if (l < 150) {
+      l = 150;
     }else if(l > maxW){
       l = maxW
     }
-    if (t < 0) {
-      t = 0;
+    if (t < 100) {
+      t = 100;
     }else if(t > maxH){
       t = maxH;
     }
