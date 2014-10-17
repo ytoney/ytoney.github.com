@@ -93,3 +93,49 @@ categories: categories/demo
     </div>
   </div>
 </div>
+
+<pre>
+  // 页面加载完后触发
+  window.onload = function(){
+    var gotop = document.getElementById('gotop');
+    var clientHeight = document.documentElement.clientHeight;
+    var timer = null;
+    var isTop = true;
+
+    // 滚动条滚动时触发
+    window.onscroll = function(){
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //前者兼容ie，后者兼容chrome
+      if (scrollTop >= clientHeight) {
+        gotop.className = 'gotop show';
+      }else{
+        gotop.className = 'gotop';
+      }
+      if (!isTop) {
+        clearInterval(timer);
+      }
+      isTop = false;
+    }
+
+    gotop.onclick = function(e){
+      e = event || window.event;
+      if (e.preventDefault) {
+        e.preventDefault();
+      }else{
+        e.returnValue = false;
+      }
+
+      timer = setInterval(function(){
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //前者兼容ie，后者兼容chrome
+        var ispeed = Math.floor(-scrollTop / 5);
+        document.documentElement.scrollTop = document.body.scrollTop = scrollTop + ispeed;
+        console.log(scrollTop)
+
+        isTop = true;
+
+        if (scrollTop == 0) {
+          clearInterval(timer);
+        };
+      }, 30);
+    }
+  }
+</pre>

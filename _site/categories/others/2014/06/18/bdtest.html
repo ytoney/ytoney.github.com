@@ -127,9 +127,36 @@ window.onload = function(){
   };</code></pre></div>
 
 <ol>
-<li><p>数组a=[0,1,2]，数组b=[a,b,c]，合并这2个数组、并且删除新数组中的第二个元素；</p></li>
-<li><p>随机生成10个1-100的数字，对这组数字进行排序</p></li>
+<li> 数组a=[0,1,2]，数组b=[a,b,c]，合并这2个数组、并且删除新数组中的第二个元素；</li>
 </ol>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">var a = [0,1,2],b=[a,b,c],c;
+c=a.concat(b);
+c.splice(1,1);
+splice参数中第一个1,是删除的起始索引(从0算起),在此是数组第二个元素
+第二个1,是删除元素的个数,在此只删除一个元素,即’1&#39;;</code></pre></div>
+
+<ol>
+<li> 随机生成10个1-100的数字，对这组数字进行排序</li>
+</ol>
+
+<pre>
+<script language="javascript">
+ var   na= new Array(10);// 生随机成十个(1-100以内)不相等的整数,存放在一维数组numArr中, 对该数组排序，并输出显示
+
+ for(var i=0;i<na.length;i++)
+ {
+   na[i]=Math.floor(Math.random()*100+1);
+   // console.log(na.indexOf(na[i]))
+   // console.log(na[i])
+   // if (na.indexOf(na[i]) != -1) {
+
+   // };
+ }
+ for( i in na)
+  document.write(na[i]+" ")
+</script>
+</pre>
 
 <p>样式题：</p>
 

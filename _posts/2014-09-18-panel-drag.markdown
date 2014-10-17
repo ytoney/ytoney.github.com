@@ -7,7 +7,7 @@ categories: categories/demo
 
 <style type="text/css">
   .post{
-    height: 220px;
+    min-height: 220px;
   }
   .ui_boxClose{
     margin-right: 15px;
@@ -166,6 +166,118 @@ categories: categories/demo
     </div>
   </div>
 </div>
+
+<pre>
+  // 封装一个通过class获取元素的方法
+  function getByClass(clsName, parent){
+    var oParent = parent ? document.getElementById(parent) : document,
+        eles = [],
+        elements = oParent.getElementsByTagName('*');
+    for(var i = 0, l = elements.length; i < l; i++){
+      // console.log(elements[i].className == clsName)
+      if(elements[i].className == clsName){
+        eles.push(elements[i]);
+      }
+    }
+    return eles;
+  }
+
+
+  window.onload = drag;
+
+  function drag(){
+    var oTitle = getByClass('login_logo_webqq text-center modal-header', 'loginPanel')[0];
+    // 拖动
+    oTitle.onmousedown = fnDown;
+    // 关闭
+    var oClose = document.getElementById('ui_boxClose');
+    oClose.onclick = function(){
+      document.getElementById('loginPanel').style.display = 'none';
+    }
+    // 切换状态
+    var loginState = document.getElementById('loginState'),
+        stateList = document.getElementById('loginStatePanel'),
+        lis = stateList.getElementsByTagName('li'),
+        stateTXT = document.getElementById('login2qq_state_txt'),
+        loginStateShow = document.getElementById('loginStateShow');
+
+    loginState.onclick = function(e){
+      e = event || window.event;
+      if (e.stopProgation) {
+        e.stopProgation();
+      }else{
+        e.cancelBubble = true;
+      }
+      stateList.style.display = 'block';
+    }
+
+    // 鼠标滑过、离开和点击状态列表时
+    for(var i = 0, l = lis.length; i < l; i++){
+      lis[i].onmouseover = function(){
+        this.style.background = '#567';
+      }
+      lis[i].onmouseout = function(){
+        this.style.background = '#fff';
+
+      }
+      lis[i].onclick = function(e){
+        e = event || window.event;
+        if(e.stopProgation){
+          e.stopProgation();
+        }else{
+          e.cancelBubble = true;
+        }
+        var id = this.id;
+        stateList.style.display = 'none';
+        stateTXT.innerHTML = getByClass('stateSelect_text', id)[0].innerHTML;
+        loginStateShow.className = '';
+        loginStateShow.className = 'login-state-show ' + id;
+      }
+    }
+    document.onclick = function(){
+      stateList.style.display = 'none';
+    }
+  }
+
+  function fnDown(event){
+    event = event || window.event;
+    var oDrag = document.getElementById('loginPanel'),
+        disX = event.clientX - oDrag.offsetLeft -150,
+        disY = event.clientY - oDrag.offsetTop -100;
+    // 移动
+    document.onmousemove = function(event){
+      event = event || window.event;
+      fnMove(event, disX, disY);
+    }
+    // 释放鼠标
+    document.onmouseup = function(){
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+  }
+  function fnMove(e, posX, posY){
+    var oDrag = document.getElementById('loginPanel'),
+        l = e.clientX - posX,
+        t = e.clientY - posY,
+        winW = document.documentElement.clientWidth || document.body.clientWidth,
+        winH = document.documentElement.clientHeight || document.body.clientHeight
+        maxW = winW - oDrag.offsetWidth + 150,
+        maxH = winH - oDrag.offsetHeight + 100;
+        // console.log(l)
+    if (l < 150) {
+      l = 150;
+    }else if(l > maxW){
+      l = maxW
+    }
+    if (t < 100) {
+      t = 100;
+    }else if(t > maxH){
+      t = maxH;
+    }
+    oDrag.style.left = l + 'px';
+    oDrag.style.top = t + 'px';
+  }
+</pre>
 
 <script type="text/javascript">
   // 封装一个通过class获取元素的方法

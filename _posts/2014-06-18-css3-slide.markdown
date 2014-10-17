@@ -5,6 +5,7 @@ date:   2014-06-18 13:40:34
 categories: categories/demo
 ---
 
+通过锚点定位
 
 <div id="gallery">
   <div id="fullimg">
@@ -51,5 +52,6 @@ ul{
   height: 150px;
   top: 0;
   text-align: center;
+  transition: all 2s;
 }
 </style>

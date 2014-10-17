@@ -510,6 +510,128 @@
   </div>
 </div>
 
+<pre>
+  // 把获取id单独封装为一个函数
+  function _$(id){
+    return typeof id === 'string' ? document.getElementById(id) : id;
+  }
+
+  window.onload = function(){
+    // 没有延迟的切换效果========================================================
+    // 获取鼠标滑过或点击的标签和要切换内容的元素
+    var titles = _$('notice-tit').getElementsByTagName('li'),
+        divs = _$('notice-con').getElementsByTagName('div');
+        // alert(titles.length)
+    if (titles.length != divs.length) {
+      return;
+    }
+
+    // 遍历titles下的所有li
+    for (var i = 0;i < titles.length; i++) {
+      titles[i].id = i;
+      titles[i].onmouseover = function(){ // onclick
+        // alert(this.id);
+        // 清楚所有li上的class
+        for (var j = 0; j < titles.length; j++) {
+          titles[j].className = '';
+          divs[j].style.display = 'none';
+        }
+        //设置当前为高亮显示
+        this.className = 'active';
+        divs[this.id].style.display = 'block';
+      }
+    }
+
+
+
+    // 延迟切换 beginning ====================================================
+    // 标签的索引
+    var index = 0;
+    var timer = null;
+
+    var delayTits = _$('notice-delay-tit').getElementsByTagName('li'),
+        delayDivs = _$('notice-delay-con').getElementsByTagName('div');
+
+    if (delayTits.length != delayDivs.length) {
+      return;
+    }
+    // console.log(delayDivs.length)
+    // 遍历所有的页签
+    for(var m = 0; m < delayTits.length; m++){
+      delayTits[m].id = 'delay' + m;
+      delayTits[m].onmouseover = function(){
+        // 用that这个变量来引用当前滑过的li
+        var that = this;
+        // 如果存在了准备执行的定时器，立刻清除，只有当前停留时间大于500ms时才开始执行
+        if (timer) {
+          clearTimeout(timer);
+          timer = null;
+        }
+        // 延迟半秒执行
+        timer = setTimeout(function(){ //setTimeout()的全称是window.setTimeout(),setTimeout()是window的方法。window的所有方法和属性都可以省略window,所以此时的this是window
+          for(var n = 0; n < delayTits.length; n++){
+            delayTits[n].className = '';
+            delayDivs[n].style.display = 'none';
+          }
+          // alert(this);// 此时的this变成了window
+          delayTits[that.id].className = 'active';
+          delayDivs[that.id.slice(5)].style.display = 'block';
+        }, 500);
+
+      }
+    }
+
+
+
+    // 自动切换 beginning ====================================================
+    // 当前高亮显示的页签的索引
+    var index = 0;
+    var timerAuto = null;
+
+    var autoTits = _$('notice-auto-tit').getElementsByTagName('li'),
+        autoDivs = _$('notice-auto-con').getElementsByTagName('div');
+
+    // 变量每一个页签且给他们绑定事件
+    for(var x = 0; x < autoTits.length; x++){
+      autoTits[x].id = 'auto' + x;
+      autoTits[x].onmouseover = function(){
+        clearTimeout(timerAuto);
+        changeOption(this.id.slice(4));
+      }
+      autoTits[x].onmouseout = function(){
+        // clearTimeout(timerAuto);
+        timerAuto = setInterval(autoPlay, 2000);
+      }
+    }
+
+    if (timerAuto) {
+      clearTimeout(timerAuto);
+      timerAuto = null;
+    }
+    // 添加定时器，改变当前高亮的索引
+    timerAuto = setInterval(autoPlay, 2000);
+
+    function autoPlay(){
+      index++;
+      if (index >= autoTits.length) {
+        index = 0;
+      }
+      changeOption(index);
+    }
+
+    function changeOption(curIndex){
+      for(var d = 0; d < autoTits.length; d++){
+        autoTits[d].className = '';
+        autoDivs[d].style.display = 'none';
+      }
+      // console.log(index);
+      autoTits[curIndex].className = 'active';
+      autoDivs[curIndex].style.display = 'block';
+      index = curIndex;
+    }
+  }
+</pre>
+
 <script type="text/javascript">
   // 把获取id单独封装为一个函数
   function _$(id){
