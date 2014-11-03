@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="前端开发｜Web Developer">
-  <title>常用jquery插件</title>
+  <title>input type range自定义样式</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -81,54 +81,109 @@
       <div class="content">
         <!--Body content-->
         <div class="main">
-  <h2>常用jquery插件</h2>
-  <p class="meta">04 Jul 2014</p>
+  <h2>input type range自定义样式</h2>
+  <p class="meta">21 Oct 2014</p>
   <hr>
   <div class="post">
-    <ol>
-  <li><a href="http://vitalets.github.io/x-editable/">x-editable</a></li>
-  <li><a href="http://vitalets.github.io/bootstrap-editable/">bootstrap-editable</a></li>
+    <div>
+  默认样式：
+  <input type="range">
+</div>
 
-  <li><a href="http://www.eyecon.ro/bootstrap-datepicker/">bootstrap-datepicker</a></li>
-  <li><a href="https://github.com/dangrossman/bootstrap-daterangepicker/">bootstrap-daterangepicker</a></li>
-  <li><a href="http://filamentgroup.com/examples/daterangepicker_v2/">daterangepicker_v2（JQuery UI）</a></li>
+<div class="myrange">
+  自定义样式：
+  <input type="range">
+</div>
 
-  <li><a href="https://github.com/mindmup/bootstrap-wysiwyg">bootstrap-wysiwyg</a></li>
+<style type="text/css">
+.myrange input[type="range"] {
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 2px;
+  padding-left: 1px;
+  width: auto;
+  height: 35px;
+  outline: none;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccc), color-stop(100%, #ccc));
+  background: linear-gradient(to right, #ccc 0%, #ccc 100%);
+  background-position: center;
+  background-size: 99% 4px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none; }
+.myrange input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    -webkit-appearance: none; }
+.myrange input[type="range"]::-webkit-slider-thumb:before {
+    /* what creates the colorful line on the left side of the slider */
+    position: absolute;
+    top: 8px;
+    left: -2001px;
+    width: 2000px;
+    height: 4px;
+    background: #444;
+    content: ' '; }
+.myrange input[type="range"]::-webkit-slider-thumb:after {
+    /* create a larger (but hidden) hit area */
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    padding: 30px;
+    content: ' '; }
 
-  <li><a href="http://reactiveraven.github.io/jqBootstrapValidation/">jqBootstrapValidation</a></li>
+</style>
 
-  <li><a href="http://ivaynberg.github.io/select2/index.html">select2</a></li>
-  <li><a href="http://www.bulgaria-web-developers.com/projects/javascript/selectbox/">selectbox</a></li>
+<pre>
+.myrange input[type="range"] {
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 2px;
+  padding-left: 1px;
+  width: auto;
+  height: 35px;
+  outline: none;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccc), color-stop(100%, #ccc));
+  background: linear-gradient(to right, #ccc 0%, #ccc 100%);
+  background-position: center;
+  background-size: 99% 4px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none; }
+.myrange input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 1px 3px 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    -webkit-appearance: none; }
+.myrange input[type="range"]::-webkit-slider-thumb:before {
+    /* what creates the colorful line on the left side of the slider */
+    position: absolute;
+    top: 8px;
+    left: -2001px;
+    width: 2000px;
+    height: 4px;
+    background: #444;
+    content: ' '; }
+.myrange input[type="range"]::-webkit-slider-thumb:after {
+    /* create a larger (but hidden) hit area */
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    padding: 30px;
+    content: ' '; }
 
-  <li><a href="http://www.ztree.me/v3/main.php#_zTreeInfo">ztree</a></li>
-
-  <li><a href="http://www.uploadify.com/">uploadify</a></li>
-
-  <li><a href="http://skidding.github.io/dragdealer/">dragdealer</a></li>
-
-  <li><a href="http://arshaw.com/fullcalendar/docs/">fullcalendar</a></li>
-
-  <li><a href="http://www.jacklmoore.com/colorbox/">colorbox</a></li>
-
-  <li><a href="http://masonry.desandro.com/">masonry</a></li>
-
-  <li><a href="http://www.appelsiini.net/projects/lazyload">lazyload</a></li>
-
-  <li><a href="https://github.com/flot/flot/blob/master/API.md#plot-options">flot</a></li>
-  <li><a href="http://api.highcharts.com/highcharts">highcharts</a></li>
-  <li><a href="http://www.amcharts.com/demos/clustered-bar-chart/">amcharts</a></li>
-  <li><a href="http://g.raphaeljs.com/">raphaeljs</a></li>
-
-  <li><a href="http://www.tablefixedheader.com/">tablefixedheader</a></li>
-
-  <li><a href="http://hpneo.github.io/gmaps/">gmaps</a></li>
-
-  <li><a href="http://remysharp.com/2008/09/10/the-silky-smooth-marquee/">the-silky-smooth-marquee</a></li>
-
-  <li><a href="http://gridster.net/">gridster</a></li>
-
-
-</ol>
+</pre>
 
   </div>
 </div>
