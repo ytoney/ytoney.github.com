@@ -242,14 +242,59 @@ src url 要播放的音频的 URL。
   您的浏览器暂不支持audio标签。播放视频
 </audio >
 
-<audio controls="controls"  >
+<audio controls="controls" id="J_video">
   <source src="happy.MP3" type="video/mpeg" >
   <source src="happy.ogg" type="video/ogg" >
   您的浏览器暂不支持audio标签。播放视频
 </audio>
+
+<button onclick="shutup()" id="J_button">dd</button>
+
+var obj = document.getElementById('J_button');
+var video = document.getElementById('J_video');
+function shutup(){
+  if(video.muted){
+    obj.innerHTML="暂停";
+    video.muted=false;
+  }else{
+    obj.innerHTML="播放";
+    video.muted=true;
+  }
+}
+
+function shutup(){
+  console.log(obj)
+  if(video.paused){
+    obj.innerHTML="暂停";
+    video.paused=false;
+    video.play();
+  }else{
+    obj.innerHTML="播放";
+    video.paused=true;
+    video.pause();
+  }
+}
 {% endhighlight %}
 
-<audio controls="controls" src="/images/posts/video/video.mp3" ></audio>
+<button onclick="shutup()" id="J_button" class="btn">播放</button><br><br>
+<audio controls="controls" id="J_video" src="/images/posts/video/video.mp3" ></audio>
+
+<script type="text/javascript">
+var obj = document.getElementById('J_button');
+var video = document.getElementById('J_video');
+function shutup(){
+  console.log(obj)
+  if(video.paused){
+    obj.innerHTML="暂停";
+    video.paused=false;
+    video.play();
+  }else{
+    obj.innerHTML="播放";
+    video.paused=true;
+    video.pause();
+  }
+}
+</script>
 
 <hr>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="前端开发｜Web Developer">
-  <title>常用jquery插件</title>
+  <title>判断终端设备系统</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
@@ -81,54 +81,73 @@
       <div class="content">
         <!--Body content-->
         <div class="main">
-  <h2>常用jquery插件</h2>
-  <p class="meta">04 Jul 2014</p>
+  <h2>判断终端设备系统</h2>
+  <p class="meta">24 Mar 2015</p>
   <hr>
   <div class="post">
-    <ol>
-  <li><a href="http://vitalets.github.io/x-editable/">x-editable</a></li>
-  <li><a href="http://vitalets.github.io/bootstrap-editable/">bootstrap-editable</a></li>
+    <h3>第一种</h3>
 
-  <li><a href="http://www.eyecon.ro/bootstrap-datepicker/">bootstrap-datepicker</a></li>
-  <li><a href="https://github.com/dangrossman/bootstrap-daterangepicker/">bootstrap-daterangepicker</a></li>
-  <li><a href="http://filamentgroup.com/examples/daterangepicker_v2/">daterangepicker_v2（JQuery UI）</a></li>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//判断访问终端
+var browser={
+  versions:function(){
+    var u = navigator.userAgent, app = navigator.appVersion;
+    return {
+      trident: u.indexOf(&#39;Trident&#39;) &gt; -1, //IE内核
+      presto: u.indexOf(&#39;Presto&#39;) &gt; -1, //opera内核
+      webKit: u.indexOf(&#39;AppleWebKit&#39;) &gt; -1, //苹果、谷歌内核
+      gecko: u.indexOf(&#39;Gecko&#39;) &gt; -1 &amp;&amp; u.indexOf(&#39;KHTML&#39;) == -1,//火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf(&#39;Android&#39;) &gt; -1 || u.indexOf(&#39;Linux&#39;) &gt; -1, //android终端或者uc浏览器
+      iPhone: u.indexOf(&#39;iPhone&#39;) &gt; -1 , //是否为iPhone或者QQHD浏览器
+      iPad: u.indexOf(&#39;iPad&#39;) &gt; -1, //是否iPad
+      webApp: u.indexOf(&#39;Safari&#39;) == -1, //是否web应该程序，没有头部与底部
+      weixin: u.indexOf(&#39;MicroMessenger&#39;) &gt; -1, //是否微信 （2015-01-22新增）
+      qq: u.match(/\sQQ/i) == &quot; qq&quot; //是否QQ
+    };
+  }(),
+  language:(navigator.browserLanguage || navigator.language).toLowerCase()
+};</code></pre></div>
 
-  <li><a href="https://github.com/mindmup/bootstrap-wysiwyg">bootstrap-wysiwyg</a></li>
+<h4>使用方法</h4>
 
-  <li><a href="http://reactiveraven.github.io/jqBootstrapValidation/">jqBootstrapValidation</a></li>
+<div class="highlight"><pre><code class="language-html" data-lang="html">//判断是否IE内核
+if(browser.versions.trident){ alert(&quot;is IE&quot;); }
+//判断是否webKit内核
+if(browser.versions.webKit){ alert(&quot;is webKit&quot;); }
+//判断是否移动端
+if(browser.versions.mobile||browser.versions.android||browser.versions.ios){ alert(&quot;移动端&quot;); }
 
-  <li><a href="http://ivaynberg.github.io/select2/index.html">select2</a></li>
-  <li><a href="http://www.bulgaria-web-developers.com/projects/javascript/selectbox/">selectbox</a></li>
+###是否微信打开###
 
-  <li><a href="http://www.ztree.me/v3/main.php#_zTreeInfo">ztree</a></li>
+function is_weixn(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)==&quot;micromessenger&quot;) {
+        return true;
+    } else {
+        return false;
+    }
+}</code></pre></div>
 
-  <li><a href="http://www.uploadify.com/">uploadify</a></li>
+<h4>检测浏览器语言</h4>
 
-  <li><a href="http://skidding.github.io/dragdealer/">dragdealer</a></li>
+<div class="highlight"><pre><code class="language-html" data-lang="html">currentLang = navigator.language;   //判断除IE外其他浏览器使用语言
+if(!currentLang){//判断IE浏览器使用语言
+  currentLang = navigator.browserLanguage;
+}
+alert(currentLang);</code></pre></div>
 
-  <li><a href="http://arshaw.com/fullcalendar/docs/">fullcalendar</a></li>
+<h3>第二种</h3>
 
-  <li><a href="http://www.jacklmoore.com/colorbox/">colorbox</a></li>
-
-  <li><a href="http://masonry.desandro.com/">masonry</a></li>
-
-  <li><a href="http://www.appelsiini.net/projects/lazyload">lazyload</a></li>
-
-  <li><a href="https://github.com/flot/flot/blob/master/API.md#plot-options">flot</a></li>
-  <li><a href="http://api.highcharts.com/highcharts">highcharts</a></li>
-  <li><a href="http://www.amcharts.com/demos/clustered-bar-chart/">amcharts</a></li>
-  <li><a href="http://g.raphaeljs.com/">raphaeljs</a></li>
-
-  <li><a href="http://www.tablefixedheader.com/">tablefixedheader</a></li>
-
-  <li><a href="http://hpneo.github.io/gmaps/">gmaps</a></li>
-
-  <li><a href="http://remysharp.com/2008/09/10/the-silky-smooth-marquee/">the-silky-smooth-marquee</a></li>
-
-  <li><a href="http://gridster.net/">gridster</a></li>
-
-
-</ol>
+<div class="highlight"><pre><code class="language-html" data-lang="html">if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+  //alert(navigator.userAgent);
+  window.location.href =&quot;iPhone.html&quot;;
+} else if (/(Android)/i.test(navigator.userAgent)) {
+  //alert(navigator.userAgent);
+  window.location.href =&quot;Android.html&quot;;
+} else {
+  window.location.href =&quot;pc.html&quot;;
+};</code></pre></div>
 
   </div>
 </div>

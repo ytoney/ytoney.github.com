@@ -35,7 +35,7 @@
             </li>
             
             <li><a href="/categories/js/" title="view all
-              posts">categories/js (8)</a>
+              posts">categories/js (9)</a>
             </li>
             
             <li><a href="/categories/css3/" title="view all
@@ -56,7 +56,7 @@
             
             <li><a href="/categories/css.html">css(2)</a></li>
             
-            <li><a href="/categories/js.html">js(8)</a></li>
+            <li><a href="/categories/js.html">js(9)</a></li>
             
             <li><a href="/categories/css3.html">css3(4)</a></li>
             
@@ -303,13 +303,58 @@ Autobuffer  Autobuffer  设置为浏览器缓冲方式，不设置autoply才有�
   您的浏览器暂不支持audio标签。播放视频
 &lt;/audio &gt;
 
-&lt;audio controls=&quot;controls&quot;  &gt;
+&lt;audio controls=&quot;controls&quot; id=&quot;J_video&quot;&gt;
   &lt;source src=&quot;happy.MP3&quot; type=&quot;video/mpeg&quot; &gt;
   &lt;source src=&quot;happy.ogg&quot; type=&quot;video/ogg&quot; &gt;
   您的浏览器暂不支持audio标签。播放视频
-&lt;/audio&gt;</code></pre></div>
+&lt;/audio&gt;
 
-<p><audio controls="controls" src="/images/posts/video/video.mp3" ></audio></p>
+&lt;button onclick=&quot;shutup()&quot; id=&quot;J_button&quot;&gt;dd&lt;/button&gt;
+
+var obj = document.getElementById(&#39;J_button&#39;);
+var video = document.getElementById(&#39;J_video&#39;);
+function shutup(){
+  if(video.muted){
+    obj.innerHTML=&quot;暂停&quot;;
+    video.muted=false;
+  }else{
+    obj.innerHTML=&quot;播放&quot;;
+    video.muted=true;
+  }
+}
+
+function shutup(){
+  console.log(obj)
+  if(video.paused){
+    obj.innerHTML=&quot;暂停&quot;;
+    video.paused=false;
+    video.play();
+  }else{
+    obj.innerHTML=&quot;播放&quot;;
+    video.paused=true;
+    video.pause();
+  }
+}</code></pre></div>
+
+<p><button onclick="shutup()" id="J_button" class="btn">播放</button><br><br>
+<audio controls="controls" id="J_video" src="/images/posts/video/video.mp3" ></audio></p>
+
+<script type="text/javascript">
+var obj = document.getElementById('J_button');
+var video = document.getElementById('J_video');
+function shutup(){
+  console.log(obj)
+  if(video.paused){
+    obj.innerHTML="暂停";
+    video.paused=false;
+    video.play();
+  }else{
+    obj.innerHTML="播放";
+    video.paused=true;
+    video.pause();
+  }
+}
+</script>
 
 <hr>
 
