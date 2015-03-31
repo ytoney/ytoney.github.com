@@ -31,7 +31,7 @@
             </li>
             
             <li><a href="/categories/css/" title="view all
-              posts">categories/css (2)</a>
+              posts">categories/css (3)</a>
             </li>
             
             <li><a href="/categories/js/" title="view all
@@ -54,7 +54,7 @@
             
             <li><a href="/categories/iehack.html">iehack(2)</a></li>
             
-            <li><a href="/categories/css.html">css(2)</a></li>
+            <li><a href="/categories/css.html">css(3)</a></li>
             
             <li><a href="/categories/js.html">js(9)</a></li>
             
@@ -150,6 +150,68 @@
 <p><code>background-origin</code> 规定背景图片的定位区域。  3</p>
 
 <p><code>background-size</code> 规定背景图片的尺寸。  3</p>
+
+<style type="text/css">
+.bg-linear-gradient {
+  height: 200px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+
+  background: linear-gradient(
+    to right,
+    #ff9e2c 0%,
+    #ff9e2c 50%,
+    #b6701e 50%,
+    #b6701e 100%
+    );
+}
+</style>
+
+<div class="bg-linear-gradient">
+<b>background: linear-gradient</b>( to right, #ff9e2c 0%, #ff9e2c 50%, #b6701e 50%, #b6701e 100% );
+</div>
+
+<style>
+  .bg-clip {
+    width: 700px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 2em;
+    -webkit-transform: translateZ(-200px) translateY(0) rotateX(0deg) rotateY(-15deg);
+    transform: translateZ(-200px) translateY(0) rotateX(0deg) rotateY(-15deg);
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    -webkit-transition: -webkit-transform 1s ease;
+    transition: transform 1s ease;
+    outline: 1px solid transparent;
+  }
+  .clipped {
+    background: url(http://blog.smartbear.com/wp-content/uploads/2015/03/html6.jpg) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 2em;
+    /* -webkit-background-clip clips the background of the element to the text */
+    -webkit-text-fill-color: transparent; /* overrides the white text color in webkit browsers */
+    -webkit-background-clip: text;
+  }
+  .bg-clip h1{
+    font: 10em/0.7 "disco_deckregular", sans-serif;
+    text-shadow: 0 0 1px rgba(0,0,0,.1);
+    -webkit-transition: text-shadow 1s ease;
+    transition: text-shadow 1s ease;
+  }
+</style>
+
+<div class="bg-clip">
+  <div class="clipped">
+    <h1>CO<br/>OK</h1>
+  </div>
+</div>
+
+<p><code>-webkit-text-fill-color: transparent;</code></p>
+
+<p><code>-webkit-background-clip: text;</code></p>
 
 <h4>CSS3 文本效果</h4>
 

@@ -1,0 +1,174 @@
+---
+layout: post
+title:  "必须记住的 30 类 CSS 选择器"
+date:   2015-03-31 21:51:34
+categories: categories/css
+---
+
+
+<p>1. *</p>
+
+<pre>
+  * {
+      margin: 0;
+      padding: 0;
+  }
+</pre>
+
+<p>2. #X //id选择器</p>
+
+<p>3. .X</p>
+
+<p>4. X Y //descendant(后代)选择器</p>
+
+<pre>
+  li a {
+    text-decoration: none;
+  }
+</pre>
+
+<p>5. X</p>
+
+<p>6. X:visited 和 X:link</p>
+
+<p>7. X+Y //相邻选择器</p>
+
+<p>8. X>Y</p>
+
+<p>9. X ~ Y //选择跟在目标元素后面的所有匹配的元素</p>
+
+<p>10. X[title] //属性选择器</p>
+
+<p>11. X[href="foo"]</p>
+
+<p>12. X[href*="strongme"] //href属性值中包含strongme;使用^和$，分别表示字符串的开始和结束 </p>
+
+<p>13. X[href^="href"]</p>
+
+<p>14. X[href$=".jpg"]</p>
+
+<p>15. X[data-*="foo"]</p>
+
+<p>16. X[foo~="bar"]</p>
+
+
+{% highlight html %}
+<a href="path/to/image.jpg" data-info="external image"> Click Me, Fool </a>
+a[data-info~="external"] {
+   color: red;
+}
+a[data-info~="image"] {
+   border: 1px solid black;
+}
+{% endhighlight %}
+
+<p>17. X:checked //单选框和多选框</p>
+
+<p>18. X:after //before和after这俩伪类</p>
+
+{% highlight html %}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+{% endhighlight %}
+
+<p>19. X::hover</p>
+
+{% highlight html %}
+p:hover {
+  background: #e3e3e3;
+}
+{% endhighlight %}
+
+<p>20. X:not(selector) //反伪类</p>
+
+{% highlight html %}
+p:not(#container) {
+  color: blue;
+}
+
+//把除id为container之外的所有p标签都选中
+{% endhighlight %}
+
+<p>21. X::pseudoElement</p>
+{% highlight html %}
+p::first-line {
+  font-weight: bold;
+  font-size:1.2em;
+}
+
+p::first-letter {
+  float: left;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: cursive;
+  padding-right: 2px;
+}
+{% endhighlight %}
+
+<p>22. X:nth-child(n)</p>
+
+{% highlight html %}
+li:nth-child(3) {
+   color: red;
+}
+{% endhighlight %}
+
+<p>23. X:nth-last-child(n)</p>
+
+
+{% highlight html %}
+li:nth-last-child(2) {
+   color: red;
+}
+
+//假设你在一个ul标签中有N多的元素，而你只想获取最后三个元素，甚至是这样li:nth-child(397)，你可以用nth-last-child伪类去代替它。
+{% endhighlight %}
+
+<p>24. X:nth-of-type(n)</p>
+
+{% highlight html %}
+ul:nth-of-type(3) {
+  border: 1px solid black;
+}
+
+//想象一下有5个ul标签。如果你只想对其中的第三个进行修饰，而且你也不想使用id属性，那你就可以使用nth-of-type(n)伪类来实现了，上面的那个代码，只有第三个ul标签会被设置边框。
+{% endhighlight %}
+
+<p>25. X:nth-last-of-type(n) //倒序的获取标签</p>
+
+{% highlight html %}
+ul:nth-last-of-type(3) {
+  border: 1px solid black;
+}
+{% endhighlight %}
+
+<p>26. X:first-child</p>
+
+<p>27. X:last-child</p>
+
+<p>28. X:only-child //几乎都不会用到这个伪类</p>
+
+<p>29. X:only-of-type</p>
+
+{% highlight html %}
+li:only-of-type {
+   font-weight: bold;
+}
+{% endhighlight %}
+
+<p>30. X:first-of-type</p>
+
+<p><a href="http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048">The 30 CSS Selectors you Must Memorize</a>
+
+<p><a href="http://blog.jobbole.com/79663/">必须记住的 30 类 CSS 选择器</a></p>
+</p>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="前端开发｜Web Developer">
+  <title>必须记住的 30 类 CSS 选择器</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container-fluid nopadding">
+    <div class="row-fluid">
+      <div class="bg-black menu">
+        <!--Sidebar content-->
+        <div class="gap1">
+          <ul class="unstyled text-right">
+            <!-- 
+            <li><a href="/categories/others/" title="view all
+              posts">categories/others (4)</a>
+            </li>
+            
+            <li><a href="/categories/html/" title="view all
+              posts">categories/html (5)</a>
+            </li>
+            
+            <li><a href="/categories/iehack/" title="view all
+              posts">categories/iehack (2)</a>
+            </li>
+            
+            <li><a href="/categories/css/" title="view all
+              posts">categories/css (3)</a>
+            </li>
+            
+            <li><a href="/categories/js/" title="view all
+              posts">categories/js (9)</a>
+            </li>
+            
+            <li><a href="/categories/css3/" title="view all
+              posts">categories/css3 (4)</a>
+            </li>
+            
+            <li><a href="/categories/demo/" title="view all
+              posts">categories/demo (10)</a>
+            </li>
+             -->
+            <li><a href="/allist.html">all</a></li>
+            
+            <li><a href="/categories/others.html">others(4)</a></li>
+            
+            <li><a href="/categories/html.html">html(5)</a></li>
+            
+            <li><a href="/categories/iehack.html">iehack(2)</a></li>
+            
+            <li><a href="/categories/css.html">css(3)</a></li>
+            
+            <li><a href="/categories/js.html">js(9)</a></li>
+            
+            <li><a href="/categories/css3.html">css3(4)</a></li>
+            
+            <li><a href="/categories/demo.html">demo(10)</a></li>
+            
+
+            <!-- <li><a href="/csslist.html">css</a></li> -->
+          </ul>
+          <span class="menu-toggle" id="toggleMenu">
+
+          </span>
+          <div class="myself">
+            <h3 class="title"><a href="/"><img src="/images/ThreeMonths.png" alt=""></a></h3>
+            <p class="text-right"><small>2014,换个角度写代码！</small></p>
+            <blockquote class="pull-right">
+              <p>hi,i'm a front-end developer from MOS.</p>
+              <small>Jane QYQ</small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <!--Body content-->
+        <div class="main">
+  <h2>必须记住的 30 类 CSS 选择器</h2>
+  <p class="meta">31 Mar 2015</p>
+  <hr>
+  <div class="post">
+    <p>1. *</p>
+
+<pre>
+  * {
+      margin: 0;
+      padding: 0;
+  }
+</pre>
+
+<p>2. #X //id选择器</p>
+
+<p>3. .X</p>
+
+<p>4. X Y //descendant(后代)选择器</p>
+
+<pre>
+  li a {
+    text-decoration: none;
+  }
+</pre>
+
+<p>5. X</p>
+
+<p>6. X:visited 和 X:link</p>
+
+<p>7. X+Y //相邻选择器</p>
+
+<p>8. X>Y</p>
+
+<p>9. X ~ Y //选择跟在目标元素后面的所有匹配的元素</p>
+
+<p>10. X[title] //属性选择器</p>
+
+<p>11. X[href="foo"]</p>
+
+<p>12. X[href*="strongme"] //href属性值中包含strongme;使用^和$，分别表示字符串的开始和结束 </p>
+
+<p>13. X[href^="href"]</p>
+
+<p>14. X[href$=".jpg"]</p>
+
+<p>15. X[data-*="foo"]</p>
+
+<p>16. X[foo~="bar"]</p>
+
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">&lt;a href=&quot;path/to/image.jpg&quot; data-info=&quot;external image&quot;&gt; Click Me, Fool &lt;/a&gt;
+a[data-info~=&quot;external&quot;] {
+   color: red;
+}
+a[data-info~=&quot;image&quot;] {
+   border: 1px solid black;
+}</code></pre></div>
+
+<p>17. X:checked //单选框和多选框</p>
+
+<p>18. X:after //before和after这俩伪类</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: &quot;&quot;;
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}</code></pre></div>
+
+<p>19. X::hover</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">p:hover {
+  background: #e3e3e3;
+}</code></pre></div>
+
+<p>20. X:not(selector) //反伪类</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">p:not(#container) {
+  color: blue;
+}
+
+//把除id为container之外的所有p标签都选中</code></pre></div>
+
+<p>21. X::pseudoElement</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">p::first-line {
+  font-weight: bold;
+  font-size:1.2em;
+}
+
+p::first-letter {
+  float: left;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: cursive;
+  padding-right: 2px;
+}</code></pre></div>
+
+<p>22. X:nth-child(n)</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">li:nth-child(3) {
+   color: red;
+}</code></pre></div>
+
+<p>23. X:nth-last-child(n)</p>
+
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">li:nth-last-child(2) {
+   color: red;
+}
+
+//假设你在一个ul标签中有N多的元素，而你只想获取最后三个元素，甚至是这样li:nth-child(397)，你可以用nth-last-child伪类去代替它。</code></pre></div>
+
+<p>24. X:nth-of-type(n)</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">ul:nth-of-type(3) {
+  border: 1px solid black;
+}
+
+//想象一下有5个ul标签。如果你只想对其中的第三个进行修饰，而且你也不想使用id属性，那你就可以使用nth-of-type(n)伪类来实现了，上面的那个代码，只有第三个ul标签会被设置边框。</code></pre></div>
+
+<p>25. X:nth-last-of-type(n) //倒序的获取标签</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">ul:nth-last-of-type(3) {
+  border: 1px solid black;
+}</code></pre></div>
+
+<p>26. X:first-child</p>
+
+<p>27. X:last-child</p>
+
+<p>28. X:only-child //几乎都不会用到这个伪类</p>
+
+<p>29. X:only-of-type</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html">li:only-of-type {
+   font-weight: bold;
+}</code></pre></div>
+
+<p>30. X:first-of-type</p>
+
+<p><a href="http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048">The 30 CSS Selectors you Must Memorize</a>
+
+<p><a href="http://blog.jobbole.com/79663/">必须记住的 30 类 CSS 选择器</a></p>
+</p>
+  </div>
+</div>
+
+        <div class="footer gap1">
+
+          <hr>
+          <div class="contact">
+            <p>
+              Jane Q<br />
+              qinyin@networking.io
+            </p>
+          </div>
+          <div class="contact">
+            <p>
+              <a href="https://github.com/ytoney">github.com/Jane Q</a><br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+</body>
+</html>
